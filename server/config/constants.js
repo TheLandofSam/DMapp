@@ -7,22 +7,19 @@ const actions = {
 }
 
 const models = {
-  board: {
-    name: 'Board',
-    endpoint: 'boards',
+  campaign: {
+    name: 'Campaign',
+    endpoint: 'campaigns',
     useCustomRoutes: true
   },
-  list: {
-    name: 'List',
-    endpoint: 'lists'
+  
+  encounter: {
+    name: 'Encounter',
+    endpoint: 'encounters'
   },
-  task: {
-    name: 'Task',
-    endpoint: 'tasks'
-  },
-  comment: {
-    name: 'Comment',
-    endpoint: 'comments'
+  player: {
+    name: 'Player',
+    endpoint: 'players'
   },
   user: {
     name: 'User',

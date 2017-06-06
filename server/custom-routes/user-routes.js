@@ -1,26 +1,26 @@
-let Boards = require('../models/board')
+let Campaigns = require('../models/campaign')
 
 export default {
   userBoards: {
-    path: '/userboards',
+    path: '/usercampaigns',
     reqType: 'get',
     method(req, res, next){
-      let action = 'Find User Boards'
-      Boards.find({creatorId: req.session.uid})
-        .then(boards => {
-          res.send(handleResponse(action, boards))
+      let action = 'Find User Campaigns'
+      Campaigns.find({creatorId: req.session.uid})
+        .then(campaigns => {
+          res.send(handleResponse(action, campaigns))
         }).catch(error => {
           return next(handleResponse(action, null, error))
         })
     }
   },
-  sharedBoards: {
-    path: '/sharedBoards',
+  sharedCampaigns: {
+    path: '/sharedCampaigns',
     reqType: 'get',
     method(req, res, next){
-      Boards.find({collaborators: { $in: req.session.uid}})
+      Campaigns.find({collaborators: { $in: req.session.uid}})
         .then(boards => {
-          res.send(handleResponse(action, boards))
+          res.send(handleResponse(action, campaigns))
         }).catch(error => {
           return next(handleResponse(action, null, error))
         })

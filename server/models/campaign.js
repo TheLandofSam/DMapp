@@ -8,7 +8,8 @@ var schema = new mongoose.Schema({
   created: { type: Number, default: Date.now() },
   creatorId: {type: ObjectId, ref: models.user.name, required: true},
   collaborators: [{type: ObjectId, ref: models.user.name}],
-  lists: [{type: ObjectId, ref: models.list.name}]
+  encounters: [{type: ObjectId, ref: models.encounter.name}],
+  players: [{type: ObjectId, ref: models.player.name}]
 });
 
-module.exports = mongoose.model(models.board.name, schema);
+module.exports = mongoose.model(models.campaign.name, schema);
