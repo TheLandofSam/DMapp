@@ -3,10 +3,10 @@ let env = {
 	NODE_ENV: 'development',
 	PORT: 3000,
 	DBPROTOCOL: 'mongodb',
-	DBUSERNAME: 'kanban',
-	DBPASSWORD: 'kanban',
-	DBHOST: 'ds149201.mlab.com:49201',
-	DBNAME: 'vuekanban',
+	DBUSERNAME: 'user',
+	DBPASSWORD: 'user',
+	DBHOST: 'ds111622.mlab.com:11622',
+	DBNAME: 'dmapp',
 	SERVERNAME: 'dev-server'
 }
 
