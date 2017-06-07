@@ -36,7 +36,7 @@ let state = {
   removeMonster: {},
   deadMonster: {},
   Spells: [],
-  activeSpell: {},
+  activeSpells: {},//testing
   Weapons: [],
   activeWeapons: {},
   Equipment: [],
