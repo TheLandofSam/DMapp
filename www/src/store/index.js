@@ -7,12 +7,12 @@ Vue.use(Vuex)
 
 
 let api = axios.create({
-  baseURL: 'https://vue-kanban-vail.herokuapp.com/api/',
+  baseURL: 'https://localhost:3000/api/',
   timeout: 2000,
   withCredentials: true
 })
 let auth = axios.create({
-  baseURL: 'https://vue-kanban-vail.herokuapp.com/',
+  baseURL: 'https://localhost:3000/',
   timeout: 2000,
   withCredentials: true
 })
@@ -100,24 +100,24 @@ export default new Vuex.Store({
 
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
   actions: {
-    getBoards({ commit, dispatch }) {
-      api('userboards')
+    getCampaigns({ commit, dispatch }) {
+      api('userCampaigns')
         .then(res => {
-          commit('setBoards', res.data.data)
+          commit('setCampaigns', res.data.data)
         })
         .catch(handleError)
     },
-    getBoard({ commit, dispatch }, id) {
-      api('boards/' + id)
+    getCampaign({ commit, dispatch }, id) {
+      api('campaigns/' + id)
         .then(res => {
-          commit('setActiveBoard', res.data.data)
+          commit('setActiveCampaign', res.data.data)
         })
         .catch(handleError)
     },
-    createBoard({ commit, dispatch }, board) {
-      api.post('boards/', board)
+    createCampaign({ commit, dispatch }, campaign) {
+      api.post('campaigns/', campaign)
         .then(res => {
-          dispatch('getBoards')
+          dispatch('getCampaigns')
         })
         .catch(handleError)
     },
