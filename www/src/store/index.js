@@ -59,23 +59,40 @@ export default new Vuex.Store({
   state,
 
   mutations: {
-    setBoards(state, boards) {
-      state.boards = boards
+    Campaigns(state, campaigns) {
+      Vue.set(state.campaigns, campaigns._id)
     },
-    setActiveBoard(state, activeBoard) {
-      state.activeBoard = activeBoard
+
+    Encounters(state, Encounters) {
+      Vue.set(state.Encounters, Encounters._id)
     },
-    activeLists(state, activeLists) {
-      state.activeLists = activeLists.lists
+
+    Players(state, Players) {
+      Vue.set(state.Players, Players._id)
     },
-    activeTasks(state, activeTasks){
-      Vue.set(state.activeTasks, activeTasks._id, activeTasks.tasks)
-      //state.activeTasks[activeTasks._id] = activeTasks.tasks
+
+    Monsters(state, Monsters){
+      state.monsters = monsters
+      
     },
-    activeComments(state, activeComments){
-      Vue.set(state.activeComments, activeComments._id, activeComments.comments)
-      //state.activeComments[activeComments._id] = activeComments.comments
+
+    Spells(state, Spells){
+      state.spells = spells
+     
     },
+
+    Weapons(state, Weapons){
+      state.weapons = weapons
+    },
+
+    Equipment(state, Equipment){
+      state.equipment = equipment
+    },
+
+    Conditions(state, Conditions){
+      state.conditions = conditions
+    },
+
     user(state, user){
       state.user = user
     }
