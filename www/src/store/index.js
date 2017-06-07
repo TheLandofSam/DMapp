@@ -213,7 +213,7 @@ export default new Vuex.Store({
             return handleError(res.data.error)
           }
           commit('user', res.data.data)
-          router.push('/boards')
+          router.push('/campaigns')
         })
         .catch(handleError)
     },
@@ -226,7 +226,7 @@ export default new Vuex.Store({
           }
           //LETS REDIRECT THE PAGE
           state.user = res.data//commit
-          router.push('/boards')
+          router.push('/campaigns')
         })
         .catch(handleError)
     },
@@ -237,7 +237,7 @@ export default new Vuex.Store({
             return router.push('/login')
           }
           state.user = res.data.data
-          router.push('/boards')
+          router.push('/campaigns')
         }).catch(err => {
           router.push('/login')
         })
