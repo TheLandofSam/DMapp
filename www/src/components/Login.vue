@@ -23,6 +23,8 @@
                     </div>
                 </form>
             </div>
+            <h5>don't have an account?... register
+                <router-link to='/register'>here</router-link>!</h5>
         </div>
     </div>
 </template>
@@ -64,10 +66,10 @@
         font-size: 5px;
     }
 
-button{
-    margin-top: 10px;
-    font-weight: bold;
-}
+    button {
+        margin-top: 10px;
+        font-weight: bold;
+    }
 
     span {
         color: black;
@@ -79,5 +81,18 @@ button{
         margin: 0 auto;
         text-align: center;
         background-color: #fbfbfb;
+    }
+
+    h5 {
+        color: black;
+        text-align: center;
+        font-family: 'Asap', sans-serif;
+    }
+
+    a {
+        color: black;
+    }
+    a:hover{
+        color: red;
     }
 </style>
