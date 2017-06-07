@@ -1,24 +1,32 @@
 <template>
-    <div class="player">
+  <div class="player">
+    {{player.name}}<button @click="removePlayer(player)"> - </button>
 
-
-    </div>
+  </div>
 </template>
 
 
 <script>
 export default {
-    name: 'player',
-    data(){
+  name: 'player',
+  data(){
+    return {
+      name: ''
+    }
+  },
+  computed:{},
+  prop: ['player'],
+  methods:{
+    removePlayer(player){
+      this.$store.dispatch('removePlayer', player)
+    }
 
-    },
-    computed:{},
-    methods:{},
-    components:{}
+  },
+  components:{}
 }
 </script>
 
 
-<style>
+<style scoped>
 
 </style>
