@@ -6,20 +6,20 @@
     <br><br>    
     Active Campaign: {{campaign.name}}
     <br>
-    <form @submit.prevent="createLists(list)">
-      <input type="text" v-model="name" required placeholder="Create List">
+    <form @submit.prevent="createPlayer(player)">
+      <input type="text" v-model="name" required placeholder="Create Player">
       <button type="submit">+</button>
     </form>
     <div class="well">
-      <li v-for="list in lists">
-        <list :listData="list"></list>
+      <li v-for="player in players">
+        <player :playerData="player"></player>
       </li>
     </div>
   </div>
 </template>
 
 <script>
-  import List from './list'
+  import Player from './player'
   export default {
     name: 'campaigns',
     data() {
@@ -28,7 +28,6 @@
       }
     },
     mounted() {
-      console.log('sail away saily away')
       this.$store.dispatch('getCampaign', this.$route.params.id)
       this.$store.dispatch('getLists', this.$route.params.id)
     },
@@ -41,8 +40,8 @@
       }
     },
     methods: {
-      createLists() {
-        this.$store.dispatch('createLists', {
+      createPlayer() {
+        this.$store.dispatch('createPlayer', {
           name: this.name,
           description: this.description,
           campaignId: this.$route.params.id
@@ -51,7 +50,7 @@
       }
     },
     components: {
-      List
+      Player
     }
   }
 
