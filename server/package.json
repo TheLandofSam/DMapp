@@ -1,5 +1,5 @@
 {
-  "name": "vue-kanban-server",
+  "name": "dmem",
   "version": "1.0.0",
   "description": "The server for vue-kanban",
   "main": "index.js",
