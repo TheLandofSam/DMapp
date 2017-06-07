@@ -40,7 +40,7 @@
 
 </script>
 
-<style scoped>
+<style>
   ul li a {
     color: black;
   }
