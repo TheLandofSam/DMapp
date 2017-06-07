@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Boards from 'components/Boards'
-import Board from 'components/Board'
+import Campaigns from 'components/Campaigns'
+import Campaign from 'components/Campaign'
+import Encounter from 'components/Encounter'
 import Login from 'components/Login'
 import Register from 'components/Register'
 
@@ -11,13 +12,18 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/boards',
-      name: 'Boards',
-      component: Boards
+      path: '/campaigns/:id/encounter',
+      name: 'Encounter',
+      component: Encounter
+    },
+    {
+      path: '/campaigns',
+      name: 'Campaigns',
+      component: Campaigns
     },{
-      path: '/boards/:id',
-      name: 'Board',
-      component: Board
+      path: '/campaigns/:id',
+      name: 'Campaign',
+      component: Campaign
     },
     {
       path: '/login',

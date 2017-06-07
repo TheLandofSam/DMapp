@@ -1,12 +1,12 @@
 <template>
   <div class="well">
-    <button @click="createBoard">Add Board</button>
+    <button @click="createCampaign">Add Campaign</button>
     <ul>
-      <li v-for="board in boards">
-        <router-link :to="'/boards/'+board._id">
+      <li v-for="campaign in campaigns">
+        <router-link :to="'/campaigns/'+campaign._id">
           <div class="well">
-            {{board.name}}
-            <button class="fa fa-trash" aria-hidden="true" @click="removeBoard()"></button>
+            {{campaign.name}}
+            <button class="fa fa-trash" aria-hidden="true" @click="removeCampaign()"></button>
           </div>
         </router-link>
       </li>
@@ -16,24 +16,24 @@
 
 <script>
   export default {
-    name: 'boards',
+    name: 'campaigns',
     mounted() {
-      this.$store.dispatch('getBoards')
+      this.$store.dispatch('getCampaigns')
     },
     computed: {
-      boards() {
-        return this.$store.state.boards
+      campaigns() {
+        return this.$store.state.campaigns
       }
     },
     methods: {
-      createBoard() {
-        this.$store.dispatch('createBoard', {
-          name: 'Testing board creation',
+      createCampaign() {
+        this.$store.dispatch('createCampaign', {
+          name: 'Testing campaign creation',
           description: 'blarg'
         })
       },
-      removeBoard(board) {
-        this.$store.dispatch('removeBoard', board)
+      removeCampaign(campaign) {
+        this.$store.dispatch('removeCampaign', campaign)
       },
     }
   }

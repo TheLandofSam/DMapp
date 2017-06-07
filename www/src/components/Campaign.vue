@@ -1,10 +1,10 @@
 <template>
   <div class="well">
     <button type="button">
-        <router-link :to="'/boards/'"><h6>go back to boards list...</h6></router-link>
+        <router-link :to="'/campaigns/'"><h6>go back to campaigns list...</h6></router-link>
         </button>
     <br><br>    
-    Active Board: {{board.name}}
+    Active Campaign: {{campaign.name}}
     <br>
     <form @submit.prevent="createLists(list)">
       <input type="text" v-model="name" required placeholder="Create List">
@@ -21,7 +21,7 @@
 <script>
   import List from './list'
   export default {
-    name: 'boards',
+    name: 'campaigns',
     data() {
       return {
         name: ''
@@ -29,12 +29,12 @@
     },
     mounted() {
       console.log('sail away saily away')
-      this.$store.dispatch('getBoard', this.$route.params.id)
+      this.$store.dispatch('getCampaign', this.$route.params.id)
       this.$store.dispatch('getLists', this.$route.params.id)
     },
     computed: {
-      board() {
-        return this.$store.state.activeBoard
+      campaign() {
+        return this.$store.state.activeCampaign
       },
       lists() {
         return this.$store.state.activeLists
@@ -45,7 +45,7 @@
         this.$store.dispatch('createLists', {
           name: this.name,
           description: this.description,
-          boardId: this.$route.params.id
+          campaignId: this.$route.params.id
         })
         this.name = ''
       }
