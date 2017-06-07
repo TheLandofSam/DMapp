@@ -56,7 +56,7 @@
 
 </script>
 
-<style scoped>
+<style>
   .well {
     color: black;
     background-color: #fbfbfb;
