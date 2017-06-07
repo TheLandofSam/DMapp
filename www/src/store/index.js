@@ -7,12 +7,12 @@ Vue.use(Vuex)
 
 
 let api = axios.create({
-  baseURL: 'https://vue-kanban-vail.herokuapp.com/api/',
+  baseURL: 'https://localhost:3000/api/',
   timeout: 2000,
   withCredentials: true
 })
 let auth = axios.create({
-  baseURL: 'https://vue-kanban-vail.herokuapp.com/',
+  baseURL: 'https://localhost:3000/',
   timeout: 2000,
   withCredentials: true
 })
