@@ -1,5 +1,5 @@
 let Campaigns = require('../models/campaign')
-let Encounter= require('../models/encounter')
+let Encounters= require('../models/encounter')
 let Player = require('../models/player')
 
 export default {
