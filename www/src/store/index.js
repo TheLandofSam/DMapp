@@ -59,41 +59,43 @@ export default new Vuex.Store({
   state,
 
   mutations: {
-    Campaigns(state, campaigns) {
-      Vue.set(state.campaigns, campaigns._id)
+    setCampaigns(state, campaigns) {
+      state.campaigns = campaigns
+    },
+    setActiveCampaign(state, activeCampaign) {
+      Vue.set(state.activeCampaign, activeCampaign._id, activeCampaign)
+    },
+    setEncounters(state, encounters) {
+      state.encounters = encounter._id
     },
 
-    Encounters(state, Encounters) {
-      Vue.set(state.Encounters, Encounters._id)
+    setPlayers(state, players) {
+      state.players = player._id
     },
 
-    Players(state, Players) {
-      Vue.set(state.Players, Players._id)
-    },
-
-    Monsters(state, Monsters){
+    setMonsters(state, monsters){ //on thier own because they do not belong to anything! 
       state.monsters = monsters
       
     },
 
-    Spells(state, Spells){
+    setSpells(state, spells){
       state.spells = spells
      
     },
 
-    Weapons(state, Weapons){
+    setWeapons(state, weapons){
       state.weapons = weapons
     },
 
-    Equipment(state, Equipment){
+    setEquipment(state, equipment){
       state.equipment = equipment
     },
 
-    Conditions(state, Conditions){
+    setConditions(state, conditions){
       state.conditions = conditions
     },
 
-    user(state, user){
+    setUser(state, user){
       state.user = user
     }
   },
@@ -103,7 +105,7 @@ export default new Vuex.Store({
     getCampaigns({ commit, dispatch }) {
       api('userCampaigns')
         .then(res => {
-          commit('Campaigns', res.data.data)
+          commit('setCampaigns', res.data.data)
         })
         .catch(handleError)
     },
@@ -121,90 +123,111 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    removeBoard({ commit, dispatch }, board) {
-      api.delete('boards/' + board._id)
+    removeCampaign({ commit, dispatch }, campaign) {
+      api.delete('campaigns/' + campaign._id)
         .then(res => {
-          dispatch('removeBoard')
+          dispatch('removeCampaign')
         })
         .catch(handleError)
     },
-    getLists({ commit, dispatch }, id) {
-      api('/boards/' + id + '/lists/')
+    getEncounters({ commit, dispatch }, id) {
+      api('/campaigns/' + id + '/encounters/')
         .then(res => {
-          commit('activeLists', res.data.data)
+          commit('setEncounters', res.data.data)
         })
         .catch(handleError)
     },
-    createLists({ commit, dispatch }, list) {
-      api.post('lists/', list)
+    createEncounter({ commit, dispatch }, encounter) {
+      api.post('encounters/', encounter)
         .then(res => {
-          dispatch('getLists', list.boardId)
+          dispatch('getEncounters', encounter.campaignId)
         })
         .catch(handleError)
     },
-    removeLists({ commit, dispatch }, list) {
-      api.delete('lists/' + list._id)
+    removeEncounter({ commit, dispatch }, encounter) {
+      api.delete('encounters/' + encounter._id)
         .then(res => {
-          dispatch('removeLists', list.boardId)
+          dispatch('getEncounters', encounter.campaignId)
         })
         .catch(handleError)
     },
-    getTasks({ commit, dispatch }, task) {
-      api('boards/' + task.boardId + '/lists/' + task._id + '/tasks')
+    getPlayers({ commit, dispatch }, id) {
+      api('/campaigns/' + id + '/players/')
         .then(res => {
-          commit('activeTasks', res.data.data)
+          commit('setPlayers', res.data.data)
         })
         .catch(handleError)
     },
-    moveTasks({ commit, dispatch }, task) {
-      api.put('tasks/'+ task._id, task)
+    createPlayer({ commit, dispatch }, player) {
+      api.post('/players/', player)
         .then(res => {
-          dispatch('getTasks', {boardId: task.boardId, _id:task.listId})
+          dispatch('getPlayers', player.campaignId)
         })
         .catch(handleError)
     },
-    // createTasks({ commit, dispatch }, task) {
-    //   api.post('task/', task)
+    removePlayer({ commit, dispatch }, player) {
+      api.delete('/players/' + player._id)
+        .then(res => {
+          dispatch('getPlayers', player.campaignId)
+        })
+        .catch(handleError)
+    },
+    // getTasks({ commit, dispatch }, task) {
+    //   api('boards/' + task.boardId + '/lists/' + task._id + '/tasks')
     //     .then(res => {
-    //       dispatch('getTasks', task.boardId, task.listId)
+    //       commit('activeTasks', res.data.data)
     //     })
     //     .catch(handleError)
     // },
-    createNewTask({ commit, dispatch }, task) {
-      api.post('tasks/', task)
-        .then(res => {
-          dispatch('getTasks', {boardId: task.boardId, _id:task.listId})
-        })
-        .catch(handleError)
-    },
-    removeTasks({ commit, dispatch }, task) {
-      api.delete('tasks/' + task._id)
-        .then(res => {
-          dispatch('getTasks', {boardId: task.boardId, listId: task.listId})
-        })
-        .catch(handleError)
-    },
-    getComments({ commit, dispatch }, comments) {
-      api('boards/' + comments.boardId + '/lists/' + comments.listId + '/tasks/' + comments._id + '/comments')
-        .then(res => {
-          commit('activeComments', res.data.data)
-        })
-        .catch(handleError)
-    },
-    removeComments({ commit, dispatch }, comments) {
-      api.delete('comments/' + comments._id)
-        .then(res => {
-        dispatch('removeComments', {boardId: comments.boardId, listId:comments.listId, taskId: comments.taskId})
-        })
-        .catch(handleError)
-    },
-    createComments({ commit, dispatch }, comments) {
-      api.post('comments/', comments)
-        .then(res => {
-          dispatch('getComments', {boardId: comments.boardId, listId:comments.listId, _id: comments.taskId})
-        })
-        .catch(handleError)
-    },
+    // moveTasks({ commit, dispatch }, task) {
+    //   api.put('tasks/'+ task._id, task)
+    //     .then(res => {
+    //       dispatch('getTasks', {boardId: task.boardId, _id:task.listId})
+    //     })
+    //     .catch(handleError)
+    // },
+    // // createTasks({ commit, dispatch }, task) {
+    // //   api.post('task/', task)
+    // //     .then(res => {
+    // //       dispatch('getTasks', task.boardId, task.listId)
+    // //     })
+    // //     .catch(handleError)
+    // // },
+    // createNewTask({ commit, dispatch }, task) {
+    //   api.post('tasks/', task)
+    //     .then(res => {
+    //       dispatch('getTasks', {boardId: task.boardId, _id:task.listId})
+    //     })
+    //     .catch(handleError)
+    // },
+    // removeTasks({ commit, dispatch }, task) {
+    //   api.delete('tasks/' + task._id)
+    //     .then(res => {
+    //       dispatch('getTasks', {boardId: task.boardId, listId: task.listId})
+    //     })
+    //     .catch(handleError)
+    // },
+    // getComments({ commit, dispatch }, comments) {
+    //   api('boards/' + comments.boardId + '/lists/' + comments.listId + '/tasks/' + comments._id + '/comments')
+    //     .then(res => {
+    //       commit('activeComments', res.data.data)
+    //     })
+    //     .catch(handleError)
+    // },
+    // removeComments({ commit, dispatch }, comments) {
+    //   api.delete('comments/' + comments._id)
+    //     .then(res => {
+    //     dispatch('removeComments', {boardId: comments.boardId, listId:comments.listId, taskId: comments.taskId})
+    //     })
+    //     .catch(handleError)
+    // },
+    // createComments({ commit, dispatch }, comments) {
+    //   api.post('comments/', comments)
+    //     .then(res => {
+    //       dispatch('getComments', {boardId: comments.boardId, listId:comments.listId, _id: comments.taskId})
+    //     })
+    //     .catch(handleError)
+    // },
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {
