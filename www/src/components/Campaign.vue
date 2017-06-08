@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import encounters from './encounter,
+  import encounters from './encounter'
   import Player from './player'
   export default {
     name: 'campaigns',
@@ -60,9 +60,9 @@
           campaignId: this.$route.params.id
         })
         this.name = ''
-      }
+      },
       createEncounter() {
-        this.$store.dispatch('createEncounter',{
+        this.$store.dispatch('createEncounter', {
           name: this.name,
           description: this.description,
           encounterId: this.$route.params.id
