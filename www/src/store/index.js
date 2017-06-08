@@ -7,12 +7,12 @@ Vue.use(Vuex)
 
 
 let api = axios.create({
-  baseURL: 'https://localhost:3000/api/',
+  baseURL: '//localhost:3000/api/',
   timeout: 2000,
   withCredentials: true
 })
 let auth = axios.create({
-  baseURL: 'https://localhost:3000/',
+  baseURL: '//localhost:3000/',
   timeout: 2000,
   withCredentials: true
 })
@@ -103,7 +103,7 @@ export default new Vuex.Store({
     getCampaigns({ commit, dispatch }) {
       api('userCampaigns')
         .then(res => {
-          commit('setCampaigns', res.data.data)
+          commit('Campaigns', res.data.data)
         })
         .catch(handleError)
     },
