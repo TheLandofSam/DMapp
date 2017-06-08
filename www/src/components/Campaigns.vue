@@ -36,7 +36,7 @@
     methods: {
       createCampaign() {
         this.$store.dispatch('createCampaign', {
-          name: 'Kyle Is Tots',
+          name: 'Kyle Is Tots Awesome',
           description: 'J is da Bomb'
         })
       },
