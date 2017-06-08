@@ -7,11 +7,11 @@
     Active Campaign: {{campaign.name}}
     <br>
     <form @submit.prevent="createEncounter(encounter)">
-      <input type="text" v-model="name" required placeholder="Create Encounter">
+      <input type="text" v-model="encounterName" required placeholder="Create Encounter">
       <button type="submit">+</button>
     </form>
     <form @submit.prevent="createPlayer(player)">
-      <input type="text" v-model="name" required placeholder="Player Name">
+      <input type="text" v-model="playerName" required placeholder="Player Name">
       <input type="text" v-model="description" required placeholder="Player Description">
       <button type="submit">+</button>
     </form>
