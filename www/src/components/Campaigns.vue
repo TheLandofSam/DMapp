@@ -24,7 +24,14 @@
 
 <script>
   export default {
+
     name: 'campaigns',
+    data() {
+      return {
+        name: "",
+        description: ""
+      }
+    },
     mounted() {
       this.$store.dispatch('getCampaigns')
     },
@@ -71,12 +78,12 @@
     /*background-color: rgba(100, 100, 100, .5);*/
     background-color: blue
   }
-
   /*.well .well {
   }*/
+
   body {
-background-image: url(../image/mapbackground.jpg);
-background-attachment: fixed;
-background-size: cover;
+    background-image: url(../image/mapbackground.jpg);
+    background-attachment: fixed;
+    background-size: cover;
   }
 </style>
