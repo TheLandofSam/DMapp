@@ -103,7 +103,7 @@ export default new Vuex.Store({
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
   actions: {
     getCampaigns({ commit, dispatch }) {
-      api('/campaigns')
+      api('campaigns')
         .then(res => {
           commit('setCampaigns', res.data.data)
         })
@@ -126,7 +126,7 @@ export default new Vuex.Store({
     removeCampaign({ commit, dispatch }, campaign) {
       api.delete('campaigns/' + campaign._id)
         .then(res => {
-          dispatch('removeCampaign')
+          dispatch('getCampaigns')
         })
         .catch(handleError)
     },

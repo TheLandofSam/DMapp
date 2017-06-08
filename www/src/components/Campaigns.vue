@@ -14,7 +14,7 @@
             <router-link :to="'/campaigns/'+campaign._id">
               {{campaign.name}}
             </router-link>
-            <a class="fa fa-trash" @click="removeCampaign()"></a>
+            <a class="fa fa-trash" @click="removeCampaign(campaign)"></a>
           </div>
         </div>
       </div>
