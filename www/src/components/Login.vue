@@ -1,7 +1,8 @@
 <template>
     <div class="login">
         <div class="container-fluid">
-            <h1>Login</h1>
+            <h1>Dungeon Master</h1>
+            <div class= "jumbotron">
             <div class="well well-sm custom-well-small">
                 <form @submit.prevent="login">
                     <div class="input-group">
@@ -18,12 +19,13 @@
                     </div>
                     <div class="form group row">
                         <div class="col-10">
-                            <button class="btn btn-default" type="submit">submit</button>
+                            <button class="btn btn-default" type="submit">SUBMIT</button>
                         </div>
                     </div>
                 </form>
+                </div>
             </div>
-            <h5>don't have an account?... register
+            <h5>Become a Dungeon Master... REGISTER
                 <router-link to='/register'>here</router-link>!</h5>
         </div>
     </div>
@@ -54,21 +56,22 @@
     h1 {
         color: black;
         text-align: center;
-        font-family: 'Asap', sans-serif;
+        font-family: 'Metal Mania';
         font-weight: bold;
         text-shadow: 1px 1px 1px black;
     }
 
     input {
         color: black;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Metal Mania';
         margin-bottom: 10px;
-        font-size: 5px;
+        font-size: 14px;
     }
 
     button {
         margin-top: 10px;
         font-weight: bold;
+        font-family: 'Metal Mania';
     }
 
     span {
@@ -86,7 +89,7 @@
     h5 {
         color: black;
         text-align: center;
-        font-family: 'Asap', sans-serif;
+        font-family: 'Metal Mania';
     }
 
     a {
