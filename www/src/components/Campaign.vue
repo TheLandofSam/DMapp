@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import encounters from './encounter'
+  import Encounter from './encounter'
   import Player from './player'
   export default {
     name: 'campaigns',

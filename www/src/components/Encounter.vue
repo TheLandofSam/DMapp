@@ -2,6 +2,7 @@
   <div class="encounter">
 
 
+
   </div>
 </template>
 
