@@ -1,23 +1,23 @@
 <template>
   <div class="campaigns">
-    <div class="well">
-      <ul>
-        <li v-for="campaign in campaigns">
-          <router-link :to="'/campaigns/'+campaign._id">
-            <div class="well">
+    <div class="container">
+      <div class="row">
+        <div>
+          <form class="col-md-3" @submit.prevent="createCampaign">
+            <input type="text" v-model="name" required placeholder="Campaign Name">
+            <input type="text" v-model="description" required placeholder="Description of Campaign">
+            <button @click="createCampaign">Add Campaign</button>
+          </form>
+        </div>
+        <div class="col-md-3" v-for="campaign in campaigns">
+          <div class="well">
+            <router-link :to="'/campaigns/'+campaign._id">
               {{campaign.name}}
-              <button class="fa fa-trash" aria-hidden="true" @click="removeCampaign()"></button>
-            </div>
-          </router-link>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <form @submit.prevent="createCampaign">
-        <input type="text" v-model="name" required placeholder="Campaign Name">
-        <input type="text" v-model="description" required placeholder="Description of Campaign">
-        <button @click="createCampaign">Add Campaign</button>
-      </form>
+            </router-link>
+            <a class="fa fa-trash" @click="removeCampaign()"></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -56,31 +56,23 @@
 </script>
 
 <style>
-  ul li a {
+  a {
     color: black;
   }
-
-  ul li {
-    color: black;
-    list-style: none;
-  }
-
+   
   button {
     color: black;
     margin-bottom: 10px;
   }
-
+  
   .well {
     color: black;
     text-align: left;
     font-family: 'Asap', sans-serif;
     font-weight: bolder;
     /*background-color: rgba(100, 100, 100, .5);*/
-    background-color: blue
+    background-color: blue;
   }
-  /*.well .well {
-  }*/
-
   body {
     background-image: url(../image/mapbackground.jpg);
     background-attachment: fixed;
