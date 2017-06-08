@@ -32,7 +32,7 @@
         description: ""
       }
     },
-    mounted() {
+    created() {
       this.$store.dispatch('getCampaigns')
     },
     computed: {
