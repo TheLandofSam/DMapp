@@ -1,7 +1,7 @@
 let Campaigns = require('../models/campaign')
 
 export default {
-  userBoards: {
+  userCampaigns: {
     path: '/usercampaigns',
     reqType: 'get',
     method(req, res, next){
@@ -15,7 +15,7 @@ export default {
     }
   },
   sharedCampaigns: {
-    path: '/sharedCampaigns',
+    path: '/sharedcampaigns',
     reqType: 'get',
     method(req, res, next){
       Campaigns.find({collaborators: { $in: req.session.uid}})
