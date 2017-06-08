@@ -20,7 +20,7 @@ let auth = axios.create({
 // REGISTER ALL DATA HERE
 let state = {
   Campaigns: [],
-  // activeCampaign: {},
+  activeCampaign: {},
   // createCampaign: {},
   // removeCampaign: {},
   Encounters: [],

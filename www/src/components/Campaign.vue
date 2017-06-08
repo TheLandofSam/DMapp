@@ -6,11 +6,18 @@
     <br><br>    
     Active Campaign: {{campaign.name}}
     <br>
+    <form @submit.prevent="createEncounter(encounter)">
+      <input type="text" v-model="name" required placeholder="Create Encounter">
+      <button type="submit">+</button>
+    </form>
     <form @submit.prevent="createPlayer(player)">
-      <input type="text" v-model="name" required placeholder="Create Player">
+      <input type="text" v-model="name" required placeholder="Player Name">
+      <input type="text" v-model="description" required placeholder="Player Description">
       <button type="submit">+</button>
     </form>
     <div class="well">
+      <li v-for="encounter in encounters">
+        <encounter :encounterData="encounter"></encounter>
       <li v-for="player in players">
         <player :playerData="player"></player>
       </li>
@@ -19,24 +26,30 @@
 </template>
 
 <script>
+  import encounters from './encounter,
   import Player from './player'
   export default {
     name: 'campaigns',
     data() {
       return {
-        name: ''
+        name: '',
+        description: ''
       }
     },
     mounted() {
       this.$store.dispatch('getCampaign', this.$route.params.id)
-      this.$store.dispatch('getLists', this.$route.params.id)
+      this.$store.dispatch('getEncounter', this.$route.params.id)
+      this.$store.dispatch('getPlayer', this.$route.params.id)
     },
     computed: {
       campaign() {
         return this.$store.state.activeCampaign
       },
-      lists() {
-        return this.$store.state.activeLists
+      encounter() {
+        return this.$store.state.encounters
+      },
+      player() {
+        return this.$store.state.players
       }
     },
     methods: {
@@ -48,9 +61,18 @@
         })
         this.name = ''
       }
+      createEncounter() {
+        this.$store.dispatch('createEncounter',{
+          name: this.name,
+          description: this.description,
+          encounterId: this.$route.params.id
+        })
+        this.name = ''
+      }
     },
     components: {
-      Player
+      Player,
+      Encounter
     }
   }
 
