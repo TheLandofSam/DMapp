@@ -92,49 +92,49 @@ export default new Vuex.Store({
         .catch(handleError)
     },
     getCampaign({ commit, dispatch }, id) {
-      api('campaigns/' + id)
+      api('/usercampaigns/' + id)
         .then(res => {
           commit('setActiveCampaign', res.data.data)
         })
         .catch(handleError)
     },
     createCampaign({ commit, dispatch }, campaign) {
-      api.post('campaigns/', campaign)
+      api.post('/usercampaigns/', campaign)
         .then(res => {
           dispatch('getCampaigns')
         })
         .catch(handleError)
     },
     removeCampaign({ commit, dispatch }, campaign) {
-      api.delete('campaigns/' + campaign._id)
+      api.delete('/usercampaigns/' + campaign._id)
         .then(res => {
           dispatch('getCampaigns')
         })
         .catch(handleError)
     },
     getEncounters({ commit, dispatch }, id) {
-      api('campaigns/' + id + '/encounters/')
+      api('/usercampaigns/' + id + '/encounters/')
         .then(res => {
           commit('setEncounters', res.data.data)
         })
         .catch(handleError)
     },
     createEncounter({ commit, dispatch }, encounter) {
-      api.post('encounters/', encounter)
+      api.post('/encounters', encounter)
         .then(res => {
           dispatch('getEncounters', encounter.campaignId)
         })
         .catch(handleError)
     },
     removeEncounter({ commit, dispatch }, encounter) {
-      api.delete('encounters/' + encounter._id)
+      api.delete('/encounters/' + encounter._id)
         .then(res => {
           dispatch('getEncounters', encounter.campaignId)
         })
         .catch(handleError)
     },
     getPlayers({ commit, dispatch }, id) {
-      api('campaigns/' + id + '/players/')
+      api('/usercampaigns/' + id + '/players/')
         .then(res => {
           commit('setPlayers', res.data.data)
         })
@@ -154,62 +154,7 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    // getTasks({ commit, dispatch }, task) {
-    //   api('boards/' + task.boardId + '/lists/' + task._id + '/tasks')
-    //     .then(res => {
-    //       commit('activeTasks', res.data.data)
-    //     })
-    //     .catch(handleError)
-    // },
-    // moveTasks({ commit, dispatch }, task) {
-    //   api.put('tasks/'+ task._id, task)
-    //     .then(res => {
-    //       dispatch('getTasks', {boardId: task.boardId, _id:task.listId})
-    //     })
-    //     .catch(handleError)
-    // },
-    // // createTasks({ commit, dispatch }, task) {
-    // //   api.post('task/', task)
-    // //     .then(res => {
-    // //       dispatch('getTasks', task.boardId, task.listId)
-    // //     })
-    // //     .catch(handleError)
-    // // },
-    // createNewTask({ commit, dispatch }, task) {
-    //   api.post('tasks/', task)
-    //     .then(res => {
-    //       dispatch('getTasks', {boardId: task.boardId, _id:task.listId})
-    //     })
-    //     .catch(handleError)
-    // },
-    // removeTasks({ commit, dispatch }, task) {
-    //   api.delete('tasks/' + task._id)
-    //     .then(res => {
-    //       dispatch('getTasks', {boardId: task.boardId, listId: task.listId})
-    //     })
-    //     .catch(handleError)
-    // },
-    // getComments({ commit, dispatch }, comments) {
-    //   api('boards/' + comments.boardId + '/lists/' + comments.listId + '/tasks/' + comments._id + '/comments')
-    //     .then(res => {
-    //       commit('activeComments', res.data.data)
-    //     })
-    //     .catch(handleError)
-    // },
-    // removeComments({ commit, dispatch }, comments) {
-    //   api.delete('comments/' + comments._id)
-    //     .then(res => {
-    //     dispatch('removeComments', {boardId: comments.boardId, listId:comments.listId, taskId: comments.taskId})
-    //     })
-    //     .catch(handleError)
-    // },
-    // createComments({ commit, dispatch }, comments) {
-    //   api.post('comments/', comments)
-    //     .then(res => {
-    //       dispatch('getComments', {boardId: comments.boardId, listId:comments.listId, _id: comments.taskId})
-    //     })
-    //     .catch(handleError)
-    // },
+    
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {

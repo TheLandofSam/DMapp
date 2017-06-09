@@ -8,19 +8,19 @@
     <br>
     <form @submit.prevent="createEncounter(encounter)">
       <input type="text" v-model="encounterName" required placeholder="Create Encounter">
-      <button type="submit">+</button>
+      <input type="text" v-model="encounterDescription" required placeholder="Encounter Description">
+      <button type="submit">create encounter</button>
     </form>
     <form @submit.prevent="createPlayer(player)">
       <input type="text" v-model="playerName" required placeholder="Player Name">
-      <input type="text" v-model="description" required placeholder="Player Description">
-      <button type="submit">+</button>
+      <input type="text" v-model="playerDescription" required placeholder="Player Description">
+      <button type="submit">create player</button>
     </form>
     <div class="well">
-      <li v-for="encounter in encounters">
-        <encounter :encounterData="encounter"></encounter>
-      <li v-for="player in players">
-        <player :playerData="player"></player>
-      </li>
+      <ul>
+        <li v-for="encounter in encounters"></li>
+        <li v-for="player in players"></li>
+      </ul>
     </div>
   </div>
 </template>
@@ -32,42 +32,46 @@
     name: 'campaigns',
     data() {
       return {
-        name: '',
-        description: ''
+        encounterName: '',
+        encounterDescription: '',
+        playerName: '',
+        playerDescription: ''
       }
     },
     mounted() {
       this.$store.dispatch('getCampaign', this.$route.params.id)
-      this.$store.dispatch('getEncounter', this.$route.params.id)
-      this.$store.dispatch('getPlayer', this.$route.params.id)
+      this.$store.dispatch('getEncounters', this.$route.params.id)
+      this.$store.dispatch('getPlayers', this.$route.params.id)
     },
     computed: {
       campaign() {
         return this.$store.state.activeCampaign
       },
-      encounter() {
+      encounters() {
         return this.$store.state.encounters
       },
-      player() {
+      players() {
         return this.$store.state.players
       }
     },
     methods: {
       createPlayer() {
         this.$store.dispatch('createPlayer', {
-          name: this.name,
-          description: this.description,
+          name: this.playerName,
+          description: this.playerDescription,
           campaignId: this.$route.params.id
         })
         this.name = ''
+        this.description = ''
       },
       createEncounter() {
         this.$store.dispatch('createEncounter', {
-          name: this.name,
-          description: this.description,
-          encounterId: this.$route.params.id
+          name: this.encounterName,
+          description: this.encounterDescription,
+          campaignId: this.$route.params.id
         })
         this.name = ''
+        this.description = ''
       }
     },
     components: {
