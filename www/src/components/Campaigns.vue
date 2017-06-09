@@ -43,9 +43,11 @@
     methods: {
       createCampaign() {
         this.$store.dispatch('createCampaign', {
-          name: 'Kyle Is Totes Awesome',
-          description: 'J is da Bomb'
+          name: this.name,
+          description: this.description
         })
+        this.name= '',
+        this.description= ''
       },
       removeCampaign(campaign) {
         this.$store.dispatch('removeCampaign', campaign)
@@ -70,12 +72,8 @@
     text-align: left;
     font-family: 'Asap', sans-serif;
     font-weight: bolder;
-    /*background-color: rgba(100, 100, 100, .5);*/
-    background-color: blue;
+    background-color: rgba(100, 100, 100, 0);
+    border-color:rgba(100, 100, 100, 0);
   }
-  body {
-    background-image: url(../image/mapbackground.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-  }
+  
 </style>

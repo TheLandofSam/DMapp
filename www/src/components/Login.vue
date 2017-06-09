@@ -25,8 +25,8 @@
                 </form>
                 </div>
             </div>
-            <h5>Become a Dungeon Master... REGISTER
-                <router-link to='/register'>here</router-link>!</h5>
+            <h3>Become a Dungeon Master... REGISTER
+                <router-link to='/register'>here</router-link>!</h3>
         </div>
     </div>
 </template>
@@ -53,12 +53,18 @@
 
 
 <style>
+    form{
+
+    }
+    .jumbotron{
+        background-color: rgba(200, 200, 200, 0);
+    }
     h1 {
-        color: black;
+        color: #c70505;
         text-align: center;
         font-family: 'Metal Mania';
         font-weight: bold;
-        text-shadow: 1px 1px 1px black;
+        text-shadow: 1px 1px 1px gold;
     }
 
     input {
@@ -83,19 +89,35 @@
         width: 335px;
         margin: 0 auto;
         text-align: center;
-        background-color: #fbfbfb;
+        background-color: rgba(100, 100, 100, 0);
+        border-color: rgba(100, 100, 100, 0);
     }
 
-    h5 {
-        color: black;
+    h3 {
+        color: #c70505;
         text-align: center;
         font-family: 'Metal Mania';
+        text-shadow: .1px .1px .1px gold;
     }
 
     a {
-        color: black;
+        color: #c70505;
+        text-shadow: .1px .1px .1px gold;
     }
     a:hover{
         color: red;
+    }
+    body {
+    background-image: url(../image/mapbackground.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    .fullscreen{
+      background: rgba(61, 22, 0, .8);
+      position: absolute;
+      top:0;
+      bottom:0;
+      left: 0;
+      right: 0;
     }
 </style>
