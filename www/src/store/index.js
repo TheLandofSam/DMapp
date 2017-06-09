@@ -21,31 +21,13 @@ let auth = axios.create({
 let state = {
   campaigns: [],
   activeCampaign: {},
-  // createCampaign: {},
-  // removeCampaign: {},
   encounters: [],
-  // activeEncounter: {},
-  // createEncounter: {},
-  // removeEncounter: {},
   players: [],
-  // activePlayers: {},
-  // createPlayers: {},
-  // removePlayers: {},
-  // movePlayers: {},
   monsters: [],
-  // activeMonster: {},
-  // removeMonster: {},
-  // deadMonster: [],
   spells: [],
-  // activeSpells: {},
-  // addSpells: {},
-  // removeSpells: {},
   weapons: [],
-  // activeWeapons: {},
   equipment: [],
-  // activeEquipment: {},
   conditions: [],
-  // activeConditions: {},
   error: {},
   user: {}
 }
@@ -73,7 +55,7 @@ export default new Vuex.Store({
       state.players = player._id
     },
 
-    setMonsters(state, monsters){ //on thier own because they do not belong to anything! 
+    setMonsters(state, monsters){ 
       state.monsters = monsters
       
     },
