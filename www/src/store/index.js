@@ -85,7 +85,7 @@ export default new Vuex.Store({
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
   actions: {
     getCampaigns({ commit, dispatch }) {
-      api('campaigns')
+      api('/usercampaigns')
         .then(res => {
           commit('setCampaigns', res.data.data)
         })

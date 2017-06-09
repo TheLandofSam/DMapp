@@ -12,7 +12,8 @@
         <div class="col-md-3" v-for="campaign in campaigns">
           <div class="well">
             <router-link :to="'/campaigns/'+campaign._id">
-              {{campaign.name}}
+              <h3>{{campaign.name}}</h3>
+              <p>{{campaign.description}}</p>
             </router-link>
             <a class="fa fa-trash" @click="removeCampaign(campaign)"></a>
           </div>
