@@ -1,18 +1,20 @@
 <template>
     <div class="login">
         <div class="container-fluid">
-            <h1>Dungeon Master</h1>
+        <div>
+            <h1 class="dungeon">Dungeon Master</h1>
+        </div>
             <div class= "jumbotron">
             <div class="well well-sm custom-well-small">
                 <form @submit.prevent="login">
                     <div class="input-group">
-                        <span class="input-group-addon fa fa-envelope-open" aria-hidden="true"></span>
+                        <span class="input-group-addon fa fa-envelope-open"></span>
                         <div class="col-10">
                             <input type="email" class="form-control" v-model="user.email" required placeholder="kitties@resuperawesome.com">
                         </div>
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon fa fa-star" aria-hidden="true"></span>
+                        <span class="input-group-addon fa fa-star"></span>
                         <div class="col-10">
                             <input type="password" class="form-control" v-model="user.password" required placeholder="password">
                         </div>
@@ -25,8 +27,8 @@
                 </form>
                 </div>
             </div>
-            <h3>Become a Dungeon Master... REGISTER
-                <router-link to='/register'>here</router-link>!</h3>
+            <h2 class="dungeon">Become a Dungeon Master... REGISTER
+                <router-link to='/register'>here</router-link>!</h2>
         </div>
     </div>
 </template>
@@ -53,31 +55,32 @@
 
 
 <style>
+    .dungeon{
+        color: #c70505;
+        font-family: 'Metal Mania';
+    }
     form{
 
     }
     .jumbotron{
         background-color: rgba(200, 200, 200, 0);
     }
-    h1 {
-        color: #c70505;
+    .h1, h1 {
         text-align: center;
-        font-family: 'Metal Mania';
+        font-size: 60px;                
         font-weight: bold;
         text-shadow: 1px 1px 1px gold;
     }
 
     input {
-        color: black;
-        font-family: 'Metal Mania';
+        color: black;        
         margin-bottom: 10px;
         font-size: 14px;
     }
 
     button {
         margin-top: 10px;
-        font-weight: bold;
-        font-family: 'Metal Mania';
+        font-weight: bold;        
     }
 
     span {
@@ -93,10 +96,8 @@
         border-color: rgba(100, 100, 100, 0);
     }
 
-    h3 {
-        color: #c70505;
-        text-align: center;
-        font-family: 'Metal Mania';
+    h2 {
+        text-align: center;        
         text-shadow: .1px .1px .1px gold;
     }
 
