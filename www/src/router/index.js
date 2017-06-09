@@ -12,7 +12,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/campaigns/:id/encounter',
+      path: '/campaigns/:id/encounters/:id',
       name: 'Encounter',
       component: Encounter
     },
