@@ -29,7 +29,16 @@ let state = {
   equipment: [],
   conditions: [],
   error: {},
-  user: {}
+  user: {},
+  tabs: { //please dont delete this...
+    monsters: {},
+    spells: {},
+    weapons: {},
+    equipment: {},
+    conditions: {},
+    cover: {}
+  },
+
 }
 
 let handleError = (state, err) => {
@@ -79,7 +88,9 @@ export default new Vuex.Store({
 
     setUser(state, user){
       state.user = user
-    }
+    },
+
+
   },
 
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS

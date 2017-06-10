@@ -6,6 +6,10 @@ import router from './router'
 import io from 'socket.io-client'
 import store from './store'
 
+// Vue.component('modal',{
+// template: '#modal-template'
+// })
+
 
 let socket = io('//localhost:3000/')
 
@@ -18,6 +22,9 @@ socket.on('CONNECTED', function (data) {
 
 new Vue({
   el: '#app',
+  // data:{
+  //   showModal: false
+  // },
   store,
   router,
   template: '<App/>',
