@@ -38,7 +38,6 @@ let state = {
     conditions: {},
     cover: {}
   },
-
 }
 
 let handleError = (state, err) => {
@@ -57,11 +56,11 @@ export default new Vuex.Store({
       Vue.set(state.activeCampaign, activeCampaign._id, activeCampaign)
     },
     setEncounters(state, encounters) {
-      state.encounters = encounter._id
+      state.encounters = encounters
     },
 
     setPlayers(state, players) {
-      state.players = player._id
+      state.players = players
     },
 
     setMonsters(state, monsters){ 
@@ -88,9 +87,7 @@ export default new Vuex.Store({
 
     setUser(state, user){
       state.user = user
-    },
-
-
+    }
   },
 
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
@@ -103,28 +100,28 @@ export default new Vuex.Store({
         .catch(handleError)
     },
     getCampaign({ commit, dispatch }, id) {
-      api('/usercampaigns/' + id)
+      api('/campaigns/' + id)
         .then(res => {
           commit('setActiveCampaign', res.data.data)
         })
         .catch(handleError)
     },
     createCampaign({ commit, dispatch }, campaign) {
-      api.post('/usercampaigns/', campaign)
+      api.post('/campaigns/', campaign)
         .then(res => {
           dispatch('getCampaigns')
         })
         .catch(handleError)
     },
     removeCampaign({ commit, dispatch }, campaign) {
-      api.delete('/usercampaigns/' + campaign._id)
+      api.delete('/campaigns/' + campaign._id)
         .then(res => {
           dispatch('getCampaigns')
         })
         .catch(handleError)
     },
     getEncounters({ commit, dispatch }, id) {
-      api('/usercampaigns/' + id + '/encounters/')
+      api('/campaigns/' + id + '/encounters/')
         .then(res => {
           commit('setEncounters', res.data.data)
         })
@@ -145,14 +142,14 @@ export default new Vuex.Store({
         .catch(handleError)
     },
     getPlayers({ commit, dispatch }, id) {
-      api('/usercampaigns/' + id + '/players/')
+      api('/campaigns/' + id + '/players')
         .then(res => {
           commit('setPlayers', res.data.data)
         })
         .catch(handleError)
-    },
+  },
     createPlayer({ commit, dispatch }, player) {
-      api.post('/players/', player)
+      api.post('/players', player)
         .then(res => {
           dispatch('getPlayers', player.campaignId)
         })
