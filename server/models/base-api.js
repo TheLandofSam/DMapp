@@ -40,7 +40,7 @@ function API(model, schema) {
           return next(handleResponse(actions.findAll, null, error))
         })
     }
-  }
+  } 
 
   function create(req, res, next) {
     var action = actions.create

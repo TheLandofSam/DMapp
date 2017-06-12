@@ -1,6 +1,6 @@
 let Campaigns = require('../models/campaign')
 let Encounters= require('../models/encounter')
-let Player = require('../models/player')
+let Players = require('../models/player')
 
 export default {
   getEncountersByCampaignId: {
@@ -28,7 +28,7 @@ export default {
       Campaigns.findById(req.params.campaignId)
         .then(campaign => {
           Players.find({ campaignId: req.params.campaignId })
-            .then(encounters => {
+            .then(players => {
               campaign.players = players
               res.send(handleResponse(action, campaign.players))
             })

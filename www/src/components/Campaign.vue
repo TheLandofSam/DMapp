@@ -6,20 +6,20 @@
     <br><br>    
     Active Campaign: {{campaign.name}}
     <br>
-    <form @submit.prevent="createEncounter(encounter)">
+    <form @submit.prevent="createEncounter">
       <input type="text" v-model="encounterName" required placeholder="Create Encounter">
       <input type="text" v-model="encounterDescription" required placeholder="Encounter Description">
       <button type="submit">create encounter</button>
     </form>
-    <form @submit.prevent="createPlayer(player)">
+    <form @submit.prevent="createPlayer">
       <input type="text" v-model="playerName" required placeholder="Player Name">
       <input type="text" v-model="playerDescription" required placeholder="Player Description">
       <button type="submit">create player</button>
     </form>
     <div class="well">
       <ul>
-        <li v-for="encounter in encounters"></li>
-        <li v-for="player in players"></li>
+        <li v-for="encounter in encounters">{{encounter.name}}</li>
+        <li v-for="player in players">{{player.name}}</li>
       </ul>
     </div>
   </div>
@@ -61,8 +61,8 @@
           description: this.playerDescription,
           campaignId: this.$route.params.id
         })
-        this.name = ''
-        this.description = ''
+        this.playerName = ''
+        this.playerDescription = ''
       },
       createEncounter() {
         this.$store.dispatch('createEncounter', {
@@ -70,8 +70,8 @@
           description: this.encounterDescription,
           campaignId: this.$route.params.id
         })
-        this.name = ''
-        this.description = ''
+        this.encounterName = ''
+        this.encounterDescription = ''
       }
     },
     components: {
