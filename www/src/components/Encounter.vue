@@ -3,26 +3,22 @@
       <div class="row tabrow">
         <!--MONSTERS TAB -->
         <div class="col-md-2">
-          <!--<div v-for="tab in tabs">-->
           <button type="button" class="btn btn-default" @click="showMonsters=true">Monsters</button>
-
           <transition name="modal" v-if="showMonsters">
             <div class="modal-mask">
               <div class="modal-wrapper">
                 <div class="modal-container">
-
                   <div class="modal-header">
                     <slot name="monsters">
                       Monsters
                     </slot>
                   </div>
-
                   <div class="modal-body">
                     <slot name="body">
-                      Monster info, possibly an api call, or some other such stuffses.
+                      Monster info, monster api call, or some other such stuffses would be here...<!--dont forget to wire the add monster button-->
+                       <button class="btn but-default">Add Monster</button>
                     </slot>
                   </div>
-
                   <div class="modal-footer">
                     <slot name="footer">
                       Monster feet stink.
@@ -39,24 +35,20 @@
         <!--PLAYERS TAB -->
         <div class="col-md-2">
           <button type="button" class="btn btn-default" @click="showPlayer=true">Players</button>
-
           <transition name="modal" v-if="showPlayer">
             <div class="modal-mask">
               <div class="modal-wrapper">
                 <div class="modal-container">
-
                   <div class="modal-header">
                     <slot name="players">
                       Players
                     </slot>
                   </div>
-
                   <div class="modal-body">
                     <slot name="body">
                       Player info or some other such stuffses.
                     </slot>
                   </div>
-
                   <div class="modal-footer">
                     <slot name="footer">
                       Monster feet stink.
@@ -84,7 +76,8 @@
                   </div>
                   <div class="modal-body">
                     <slot name="body">
-                      Weapon info or some other such stuffses.
+                     Weapon info, weapon api call, or some other such stuffses would be here...<!--dont forget to wire the add weapon button-->
+                       <button class="btn but-default">Add Weapon</button>
                     </slot>
                   </div>
                   <div class="modal-footer">
@@ -115,6 +108,8 @@
                   <div class="modal-body">
                     <slot name="body">
                       Spells: its magic!!
+                      Spell info, spell api call, or some other such stuffses would be here...<!--dont forget to wire the add spell button-->
+                       <button class="btn but-default">Add Spell</button>
                     </slot>
                   </div>
                   <div class="modal-footer">
@@ -195,14 +190,22 @@
         <div class="col-md-1">
           <!--this is a purposely blank spot-->
         </div>
-        <div class="col-md-2">Initiative button here</div>
-        <div class="col-md-2">Sort button here</div>
-        <div class="col-md-7">
+        <div class="col-md-2">
+        <!--this button needs to be wired to complete initative sort-->
+        <button class="btn btn-default">Initiative Sort button</button>
+        </div>
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+        <button class="btn btn-default">Return to Campaign</button>
+        </div>
+        <div class="col-md-2">
           <!--this is a purposely blank spot-->
         </div>
       </div>
       <div class="row chars">
+        <div class="well well-lg">
         <!--IMPORT CHARACTER HERE!!-->
+        </div>
       </div>
   </div>
 </template>
@@ -255,7 +258,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(200, 200, 200, .1);
+    background-color: rgba(200, 200, 200, .33);
     display: table;
     transition: opacity .3s ease;
     color: black;
@@ -310,5 +313,8 @@
   .modal-leave-active .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+  }
+  .well{
+    min-height: 500px;
   }
 </style>
