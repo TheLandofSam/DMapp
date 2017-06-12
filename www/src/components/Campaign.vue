@@ -16,13 +16,12 @@
       <input type="text" v-model="playerDescription" required placeholder="Player Description">
       <button type="submit">create player</button>
     </form>
-    <div class="table-responsive">
-    <div class="col-xs-6" id="table-style">
-    <table class="table table-striped">
+    <div class="table-responsive table-hover">
+    <table class="table">
       <thead>
         <tr>
-          <th class="col-md-12">Encounter Name</th>
-          <th class="col-md-12">Encounter Description</th>
+          <th>Encounter Name</th>
+          <th>Encounter Description</th>
         </tr>
       </thead>
       <tbody>
@@ -31,13 +30,11 @@
         </tr>
       </tbody>
     </table>
-    </div>
-    <div class="col-xs-6" id="table-style">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th class="col-md-1">Player Name</th>
-          <th class="col-md-1">Player Description</th>
+          <th>Player Name</th>
+          <th>Player Description</th>
         </tr>
       </thead>
       <tbody>
@@ -46,7 +43,6 @@
         </tr>
       </tbody>
     </table>
-    </div>
     </div>
   </div>
 </template>
