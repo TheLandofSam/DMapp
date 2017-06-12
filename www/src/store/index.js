@@ -5,12 +5,22 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+let dnd = axios.create({
+  baseURL: 'http://www.dnd5eapi.co/api',
+  timeout: 2000
+})
+
+let dndblank = axios.create({
+  baseURL: '',
+  timeout: 2000
+})
 
 let api = axios.create({
   baseURL: '//localhost:3000/api/',
   timeout: 2000,
   withCredentials: true
 })
+
 let auth = axios.create({
   baseURL: '//localhost:3000/',
   timeout: 2000,
@@ -29,15 +39,7 @@ let state = {
   equipment: [],
   conditions: [],
   error: {},
-  user: {},
-  tabs: { //please dont delete this...
-    monsters: {},
-    spells: {},
-    weapons: {},
-    equipment: {},
-    conditions: {},
-    cover: {}
-  },
+  user: {}
 }
 
 let handleError = (state, err) => {
@@ -63,31 +65,35 @@ export default new Vuex.Store({
       state.players = players
     },
 
-    setMonsters(state, monsters){ 
-      state.monsters = monsters
-      
-    },
-
-    setSpells(state, spells){
-      state.spells = spells
-     
-    },
-
-    setWeapons(state, weapons){
+    setWeapons(state, weapons) {
       state.weapons = weapons
     },
 
-    setEquipment(state, equipment){
-      state.equipment = equipment
-    },
-
-    setConditions(state, conditions){
+    setConditions(state, conditions) {
       state.conditions = conditions
     },
 
-    setUser(state, user){
+    setUser(state, user) {
       state.user = user
-    }
+    },
+
+    //DND5E setters
+
+    setMonsters(state, monsters) {
+      state.monsters = monsters.results
+      console.log('monsters:' + monsters.count)
+    },
+
+    setSpells(state, spells) {
+      state.spells = spells.results
+      console.log('spells:' + spells.count)
+    },
+
+    setEquipment(state, equipment) {
+      state.equipment = equipment.results
+      console.log('equipment:' + equipment.count)
+    },
+
   },
 
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
@@ -147,7 +153,7 @@ export default new Vuex.Store({
           commit('setPlayers', res.data.data)
         })
         .catch(handleError)
-  },
+    },
     createPlayer({ commit, dispatch }, player) {
       api.post('/players', player)
         .then(res => {
@@ -162,7 +168,7 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    
+
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {
@@ -182,8 +188,7 @@ export default new Vuex.Store({
           if (res.data.error) {
             return handleError(res.data.error)
           }
-          //LETS REDIRECT THE PAGE
-          state.user = res.data//commit
+          state.user = res.data
           router.push('/campaigns')
         })
         .catch(handleError)
@@ -202,6 +207,28 @@ export default new Vuex.Store({
     },
     clearError() {
       state.error = {}
+    },
+    //API Calls for DND5E
+    getMonsters({ commit, dispatch }) {
+      dnd('/monsters')
+        .then(res => {
+          commit('setMonsters', res.data)
+        })
+        .catch(handleError)
+    },
+    getSpells({ commit, dispatch }) {
+      dnd('/spells')
+        .then(res => {
+          commit('setSpells', res.data)
+        })
+        .catch(handleError)
+    },
+    getEquipment({ commit, dispatch }) {
+      dnd('/equipment')
+        .then(res => {
+          commit('setEquipment', res.data)
+        })
+        .catch(handleError)
     }
   }
 })

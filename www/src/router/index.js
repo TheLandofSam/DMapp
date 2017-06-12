@@ -31,11 +31,6 @@ export default new Router({
       component: Campaign
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
       path: '/register',
       name: 'Register',
       component: Register
