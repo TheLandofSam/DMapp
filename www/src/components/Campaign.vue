@@ -16,11 +16,37 @@
       <input type="text" v-model="playerDescription" required placeholder="Player Description">
       <button type="submit">create player</button>
     </form>
-    <div class="well">
-      <ul>
-        <li v-for="encounter in encounters">{{encounter.name}}</li>
-        <li v-for="player in players">{{player.name}}</li>
-      </ul>
+    <div class="table-responsive">
+    <div class="col-xs-6" id="table-style">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-md-12">Encounter Name</th>
+          <th class="col-md-12">Encounter Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td  v-for="encounter in encounters">{{encounter.name}} {{encounter.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="col-xs-6" id="table-style">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-md-1">Player Name</th>
+          <th class="col-md-1">Player Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td v-for="player in players">{{player.name}} {{player.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
     </div>
   </div>
 </template>
@@ -88,6 +114,19 @@
     background-color: #fbfbfb;
     font-family: 'Asap', sans-serif;
   }
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+    height: 50px;
+}
+
+table {
+    vertical-align: bottom;
+    border: 1px solid black;
+}
+
+
 
   h6 {
     color: black;
