@@ -3,8 +3,7 @@
     <button type="button">
         <router-link :to="'/campaigns/'"><h6>go back to campaigns list...</h6></router-link>
         </button>
-    <br><br>    
-    Active Campaign: {{campaign.name}}
+    <br><br> Active Campaign: {{campaign.name}}
     <br>
     <form @submit.prevent="createEncounter">
       <input type="text" v-model="encounterName" required placeholder="Create Encounter">
@@ -16,33 +15,21 @@
       <input type="text" v-model="playerDescription" required placeholder="Player Description">
       <button type="submit">create player</button>
     </form>
-    <div class="table-responsive table-hover">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Encounter Name</th>
-          <th>Encounter Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td  v-for="encounter in encounters">{{encounter.name}} {{encounter.description}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Player Name</th>
-          <th>Player Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td v-for="player in players">{{player.name}} {{player.description}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="well">
+          <div class="list-group">
+            <div class="col-xs-6">
+              <h1>Encounter</h1>
+              <a href="#" class="list-group-item" v-for="encounter in encounters">{{encounter.name}}</a>
+            </div>
+            <div class="col-xs-6">
+              <h1>Player</h1>
+              <a href="#" class="list-group-item" v-for="player in players">{{player.name}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -110,19 +97,6 @@
     background-color: #fbfbfb;
     font-family: 'Asap', sans-serif;
   }
-
-  th, td {
-    padding: 15px;
-    text-align: left;
-    height: 50px;
-}
-
-table {
-    vertical-align: bottom;
-    border: 1px solid black;
-}
-
-
 
   h6 {
     color: black;
