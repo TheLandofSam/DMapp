@@ -11,6 +11,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+     {
+      path: '/',
+      name: 'Login',
+      component: Login
+    },
     {
       path: '/encounters/:id',
       name: 'Encounter',
@@ -34,6 +39,11 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+    path: "*",
+    redirect: "/"
+    
     }
   ]
 })
