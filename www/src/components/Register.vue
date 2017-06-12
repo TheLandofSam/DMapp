@@ -29,6 +29,8 @@
                 </div>
             </form>
             </div>
+            <h2 class="dungeon">Already a Dungeon Master... LOGIN
+                <router-link to='/login'>here</router-link>!</h2>
         </div>
     </div>
 </template>
