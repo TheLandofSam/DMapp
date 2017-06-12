@@ -21,15 +21,19 @@
           <div class="list-group">
             <div class="col-xs-6">
               <h1>Encounter</h1>
-              
-                <a class="list-group-item" v-for="encounter in encounters">
-                  <router-link :to="'/encounters/' + encounter._id ">{{encounter.name}}</router-link>
-                </a>
-               
+
+              <a class="list-group-item" v-for="encounter in encounters">
+                <a class="fa fa-trash" @click="removeEncounter(encounter)"></a>
+              <router-link :to="'/encounters/' + encounter._id ">
+                {{encounter.name}}
+              </router-link>
+              </a>
             </div>
             <div class="col-xs-6">
               <h1>Player</h1>
-              <a class="list-group-item" v-for="player in players">{{player.name}}</a>
+              <a class="list-group-item" v-for="player in players">
+                <a class="fa fa-trash" @click="removePlayer(player)"></a>
+                {{player.name}}</a>
             </div>
           </div>
         </div>
@@ -85,6 +89,12 @@
         })
         this.encounterName = ''
         this.encounterDescription = ''
+      },
+      removeEncounter(encounter) {
+        this.$store.dispatch('removeEncounter', encounter)
+      },
+      removePlayer(player) {
+        this.$store.dispatch('removePlayer', player)
       }
     },
     components: {
