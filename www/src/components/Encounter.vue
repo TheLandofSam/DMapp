@@ -1,18 +1,18 @@
 <template>
   <div class="encounter">
-    <div class="row tabrow">
+      <div class="row tabrow">
+        <!--MONSTERS TAB -->
+        <div class="col-md-2">
+          <!--<div v-for="tab in tabs">-->
+          <button type="button" class="btn btn-default" @click="showMonsters=true">Monsters</button>
 
-      <div class="col-md-2">
-        <div v-for="tab in tabs">
-          <button type="button" class="btn btn-default" @click="showModal=true">Monsters</button>
-
-          <transition name="modal" v-if="showModal">
+          <transition name="modal" v-if="showMonsters">
             <div class="modal-mask">
               <div class="modal-wrapper">
                 <div class="modal-container">
 
                   <div class="modal-header">
-                    <slot name="header">
+                    <slot name="monsters">
                       Monsters
                     </slot>
                   </div>
@@ -26,7 +26,161 @@
                   <div class="modal-footer">
                     <slot name="footer">
                       Monster feet stink.
-                      <button class="modal-default-button" @click="showModal=false">
+                      <button class="modal-default-button" @click="showMonsters=false">
+                  Close
+                </button>
+                    </slot>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+        <!--PLAYERS TAB -->
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" @click="showPlayer=true">Players</button>
+
+          <transition name="modal" v-if="showPlayer">
+            <div class="modal-mask">
+              <div class="modal-wrapper">
+                <div class="modal-container">
+
+                  <div class="modal-header">
+                    <slot name="players">
+                      Players
+                    </slot>
+                  </div>
+
+                  <div class="modal-body">
+                    <slot name="body">
+                      Player info or some other such stuffses.
+                    </slot>
+                  </div>
+
+                  <div class="modal-footer">
+                    <slot name="footer">
+                      Monster feet stink.
+                      <button class="modal-default-button" @click="showPlayer=false">
+                  Close
+                </button>
+                    </slot>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+        <!--WEAPONS TAB -->
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" @click="showWeapons=true">Weapons</button>
+          <transition name="modal" v-if="showWeapons">
+            <div class="modal-mask">
+              <div class="modal-wrapper">
+                <div class="modal-container">
+                  <div class="modal-header">
+                    <slot name="weapons">
+                      Weapons
+                    </slot>
+                  </div>
+                  <div class="modal-body">
+                    <slot name="body">
+                      Weapon info or some other such stuffses.
+                    </slot>
+                  </div>
+                  <div class="modal-footer">
+                    <slot name="footer">
+                      Weapons are dangerous, unless it is a boiled carrot.
+                      <button class="modal-default-button" @click="showWeapons=false">
+                  Close
+                </button>
+                    </slot>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+        <!--SPELLS TAB -->
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" @click="showSpells=true">Spells</button>
+          <transition name="modal" v-if="showSpells">
+            <div class="modal-mask">
+              <div class="modal-wrapper">
+                <div class="modal-container">
+                  <div class="modal-header">
+                    <slot name="spells">
+                      Spells
+                    </slot>
+                  </div>
+                  <div class="modal-body">
+                    <slot name="body">
+                      Spells: its magic!!
+                    </slot>
+                  </div>
+                  <div class="modal-footer">
+                    <slot name="footer">
+                      Don't anger the mage.
+                      <button class="modal-default-button" @click="showSpells=false">
+                  Close
+                </button>
+                    </slot>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+        <!--CONDITIONS TAB -->
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" @click="showConditions=true">Conditions</button>
+          <transition name="modal" v-if="showConditions">
+            <div class="modal-mask">
+              <div class="modal-wrapper">
+                <div class="modal-container">
+                  <div class="modal-header">
+                    <slot name="conditions">
+                      Conditions
+                    </slot>
+                  </div>
+                  <div class="modal-body">
+                    <slot name="body">
+                      Conditions will be hard coded!!
+                    </slot>
+                  </div>
+                  <div class="modal-footer">
+                    <slot name="footer">
+                      What is your condition??
+                      <button class="modal-default-button" @click="showConditions=false">
+                  Close
+                </button>
+                    </slot>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+        <!--COVER TAB -->
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" @click="showCover=true">Cover</button>
+          <transition name="modal" v-if="showCover">
+            <div class="modal-mask">
+              <div class="modal-wrapper">
+                <div class="modal-container">
+                  <div class="modal-header">
+                    <slot name="cover">
+                      Cover
+                    </slot>
+                  </div>
+                  <div class="modal-body">
+                    <slot name="body">
+                      Cover will be hard coded!!
+                    </slot>
+                  </div>
+                  <div class="modal-footer">
+                    <slot name="footer">
+                      Big rock == cover.
+                      <button class="modal-default-button" @click="showCover=false">
                   Close
                 </button>
                     </slot>
@@ -37,58 +191,19 @@
           </transition>
         </div>
       </div>
-      <div class="col-md-2">Player tab/button here</div>
-      <div class="col-md-2">Weapons tab/button here</div>
-      <div class="col-md-2">Spells tab/button here</div>
-      <div class="col-md-2">Conditions tab/button here</div>
-      <div class="col-md-2">Cover tab/button here</div>
-    </div>
-    <div class="row initrow">
-      <div class="col-md-1">
-        <!--this is a purposely blank spot-->
-      </div>
-      <div class="col-md-2">Initiative button here</div>
-      <div class="col-md-2">Sort button here</div>
-      <div class="col-md-7">
-        <!--this is a purposely blank spot-->
-      </div>
-    </div>
-    <div class="row chars">
-      <template>
-        <!--repeat this div for each monster & player-->
-        <div class="col-md-1">Initiative number</div>
-        <div class="col-md-1">player name /monster type</div>
-        <div class="col-md-1">char health</div>
-        <div class="col-md-2">
-          <div class="row">
-            <div class="col-md-2">STR</div>
-            <div class="col-md-2">DEX</div>
-            <div class="col-md-2">CON</div>
-            <div class="col-md-2">WIS</div>
-            <div class="col-md-2">INT</div>
-            <div class="col-md-2">CHA</div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">put value link here</div>
-            <div class="col-md-2">put value link here</div>
-            <div class="col-md-2">put value link here</div>
-            <div class="col-md-2">put value link here</div>
-            <div class="col-md-2">put value link here</div>
-            <div class="col-md-2">put value link here</div>
-          </div>
+      <div class="row initrow">
+        <div class="col-md-1">
+          <!--this is a purposely blank spot-->
         </div>
-        <div class="col-md-2">
-          <div class="col-md-3">armor</div>
-          <div class="col-md-3">initive</div>
-          <div class="col-md-3">speed</div>
-          <div class="col-md-3">info button</div>
+        <div class="col-md-2">Initiative button here</div>
+        <div class="col-md-2">Sort button here</div>
+        <div class="col-md-7">
+          <!--this is a purposely blank spot-->
         </div>
-        <div class="col-md-1">delete</div>
-      </template>
-    </div>
-
-  </div>
-
+      </div>
+      <div class="row chars">
+        <!--IMPORT CHARACTER HERE!!-->
+      </div>
   </div>
 </template>
 
@@ -98,7 +213,12 @@
     name: 'encounter',
     data() {
       return {
-        showModal: false
+        showMonsters: false,
+        showPlayer: false,
+        showWeapons: false,
+        showSpells: false,
+        showConditions: false,
+        showCover: false
       }
 
     },
