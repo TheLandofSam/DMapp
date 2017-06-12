@@ -196,6 +196,7 @@
         </div>
         <div class="col-md-5"></div>
         <div class="col-md-2">
+        <!--this button needs to be wired to return to campaign-->
         <button class="btn btn-default">Return to Campaign</button>
         </div>
         <div class="col-md-2">
@@ -204,7 +205,8 @@
       </div>
       <div class="row chars">
         <div class="well well-lg">
-        <!--IMPORT CHARACTER HERE!!-->
+        <!--IMPORT CHARACTER HERE!!
+        <Character class="well" v-for="character in characters" :character="character"></Character>-->
         </div>
       </div>
   </div>
@@ -212,6 +214,7 @@
 
 
 <script>
+import Character from './Character'
   export default {
     name: 'encounter',
     data() {
@@ -223,8 +226,13 @@
         showConditions: false,
         showCover: false
       }
-
     },
+    mounted() {
+      this.$store.dispatch("getMonsters")
+      this.$store.dispatch("getSpells")
+      this.$store.dispatch("getEquipment")
+    },
+    
     computed: {},
     methods: {},
     components: {}
@@ -317,4 +325,5 @@
   .well{
     min-height: 500px;
   }
+  
 </style>
