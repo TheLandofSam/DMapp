@@ -21,7 +21,11 @@
           <div class="list-group">
             <div class="col-xs-6">
               <h1>Encounter</h1>
-              <a class="list-group-item" v-for="encounter in encounters">{{encounter.name}}</a>
+              
+                <a class="list-group-item" v-for="encounter in encounters">
+                  <router-link :to="'/encounters/' + encounter._id ">{{encounter.name}}</router-link>
+                </a>
+               
             </div>
             <div class="col-xs-6">
               <h1>Player</h1>
