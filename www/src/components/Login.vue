@@ -10,7 +10,7 @@
                     <div class="input-group">
                         <span class="input-group-addon fa fa-envelope-open"></span>
                         <div class="col-10">
-                            <input type="email" class="form-control" v-model="user.email" required placeholder="kitties@resuperawesome.com">
+                            <input type="email" class="form-control" v-model="user.email" required placeholder="email">
                         </div>
                     </div>
                     <div class="input-group">

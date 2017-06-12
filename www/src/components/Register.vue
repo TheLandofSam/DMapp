@@ -13,7 +13,7 @@
                 <div class="input-group">
                     <span class="input-group-addon fa fa-envelope-open" aria-hidden="true"></span>
                       <div class="col-10">
-                    <input type="email" class="form-control" v-model="user.email" required placeholder="vail.is@superawesome.com">
+                    <input type="email" class="form-control" v-model="user.email" required placeholder="email">
                 </div>
                 </div>
                 <div class="input-group">
