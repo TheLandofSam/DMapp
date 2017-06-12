@@ -21,11 +21,11 @@
           <div class="list-group">
             <div class="col-xs-6">
               <h1>Encounter</h1>
-              <a href="#" class="list-group-item" v-for="encounter in encounters">{{encounter.name}}</a>
+              <a class="list-group-item" v-for="encounter in encounters">{{encounter.name}}</a>
             </div>
             <div class="col-xs-6">
               <h1>Player</h1>
-              <a href="#" class="list-group-item" v-for="player in players">{{player.name}}</a>
+              <a class="list-group-item" v-for="player in players">{{player.name}}</a>
             </div>
           </div>
         </div>
