@@ -15,9 +15,9 @@
                   </div>
                   <div class="modal-body">
                     <slot name="body">
-                    <form @submit.prevent="searchMonsters">
+                    <form @submit.prevent="monsters">
                       <div class="form-group">
-                        <input type="text" class="form-control" v-model="name" placeholder="Monster Name" required>
+                        <input type="text" class="form-control" v-model="monsterName" placeholder="Monster Name" required>
                       </div>
                     </form>
                     <div v-for='monster in this.monsters'>
@@ -54,12 +54,20 @@
                   </div>
                   <div class="modal-body">
                     <slot name="body">
+                    <form @submit.prevent="players">
+                      <div class="form-group">
+                        <input type="text" class="form-control" v-model="playerName" placeholder="Player Name" required>
+                      </div>
+                    </form>
+                    <div v-for='player in this.players'>
+                    {{player.name}}
+                    </div>
                       Player info or some other such stuffses.
                     </slot>
                   </div>
                   <div class="modal-footer">
                     <slot name="footer">
-                      Monster feet stink.
+                      Player feet stink.
                       <button class="modal-default-button" @click="showPlayer=false">
                   Close
                 </button>
@@ -72,20 +80,28 @@
         </div>
         <!--WEAPONS TAB -->
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" @click="showWeapons=true">Weapons</button>
+          <button type="button" class="btn btn-default" @click="showWeapons=true">Equipment</button>
           <transition name="modal" v-if="showWeapons">
             <div class="modal-mask">
               <div class="modal-wrapper">
                 <div class="modal-container">
                   <div class="modal-header">
                     <slot name="weapons">
-                      Weapons
+                      Equipment
                     </slot>
                   </div>
                   <div class="modal-body">
                     <slot name="body">
-                     Weapon info, weapon api call, or some other such stuffses would be here...<!--dont forget to wire the add weapon button-->
-                       <button class="btn but-default">Add Weapon</button>
+                    <form @submit.prevent="equipment">
+                      <div class="form-group">
+                        <input type="text" class="form-control" v-model="equipmentName" placeholder="Equipment Name" required>
+                      </div>
+                    </form>
+                    <div v-for='item in this.equipment'>
+                    {{item.name}}
+                    </div>
+                     Equipment info, equipment api call, or some other such stuffses would be here...<!--dont forget to wire the add weapon button-->
+                       <button class="btn but-default">Add Equipment</button>
                     </slot>
                   </div>
                   <div class="modal-footer">
@@ -115,6 +131,14 @@
                   </div>
                   <div class="modal-body">
                     <slot name="body">
+                    <form @submit.prevent="spells">
+                      <div class="form-group">
+                        <input type="text" class="form-control" v-model="spellName" placeholder="Spell Name" required>
+                      </div>
+                    </form>
+                    <div v-for='spell in this.spells'>
+                    {{spell.name}}
+                    </div>
                       Spells: its magic!!
                       Spell info, spell api call, or some other such stuffses would be here...<!--dont forget to wire the add spell button-->
                        <button class="btn but-default">Add Spell</button>
@@ -233,7 +257,10 @@ import Character from './Character'
         showSpells: false,
         showConditions: false,
         showCover: false,
-        name: ''
+        monsterName: '',
+        playerName: '',
+        spellName: '',
+        equipmentName: ''
       }
     },
     mounted() {
@@ -244,7 +271,7 @@ import Character from './Character'
     
     computed: {
       monsters(){
-        var keyword = this.name
+        var keyword = this.monsterName
         var temp = this.$store.state.monsters
         var monsters = []
         for(var i = 0; i < temp.length; i++){
@@ -256,6 +283,34 @@ import Character from './Character'
               }
         }
         return monsters
+      },
+      spells(){
+        var keyword = this.spellName
+        var temp = this.$store.state.spells
+        var spells = []
+        for(var i = 0; i < temp.length; i++){
+          var spell = temp[i]
+              var value = spell.name.toLowerCase()
+              var term = keyword.toLowerCase()
+              if(value.indexOf(term) !== -1 && spells.length < 20){
+                spells.push(spell)
+              }
+        }
+        return spells
+      },
+      equipment(){
+        var keyword = this.equipmentName
+        var temp = this.$store.state.equipment
+        var equipment = []
+        for(var i = 0; i < temp.length; i++){
+          var item = temp[i]
+              var value = item.name.toLowerCase()
+              var term = keyword.toLowerCase()
+              if(value.indexOf(term) !== -1 && equipment.length < 20){
+                equipment.push(item)
+              }
+        }
+        return equipment
       }
     },
     methods: {},
