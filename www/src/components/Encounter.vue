@@ -243,6 +243,7 @@
     </div>
     <div class="row chars">
       <div class="well well-lg">
+         <div v-for='character in this.characters'></div>
         <!--IMPORT CHARACTER HERE!!
         <Character class="well" v-for="character in characters" :character="character"></Character>-->
       </div>
@@ -323,7 +324,10 @@
       },
       encounter() {
         return this.$store.state.activeEncounter
-      }
+      },
+     characters(){
+      return this.$store.state.characters
+    }
     },
     methods: {
     logout() {
