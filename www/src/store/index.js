@@ -35,9 +35,12 @@ let state = {
   activeEncounter: {},
   players: [],
   monsters: [],
+  activeMonster: {},
   spells: [],
+  activeSpell: {},
   weapons: [],
   equipment: [],
+  activeEquipment: {},
   conditions: [],
   error: {},
   user: {}
@@ -68,10 +71,6 @@ export default new Vuex.Store({
       state.players = players
     },
 
-    setWeapons(state, weapons) {
-      state.weapons = weapons
-    },
-
     setConditions(state, conditions) {
       state.conditions = conditions
     },
@@ -96,6 +95,18 @@ export default new Vuex.Store({
       state.equipment = equipment.results
       console.log('equipment:' + equipment.count)
     },
+
+    setActiveEquipment(state, activeEquipment) {
+      state.activeEquipment = activeEquipment.results
+      console.log('equipment: ' + activeEquipment.name)
+    },
+
+    setActiveMonster(state, activeMonster) {
+      state.activeMonster = activeMonster.results
+    },
+    setActiveSpell(state, activeSpell) {
+      state.activeSpell = activeSpell.results
+    }
 
   },
 
@@ -239,6 +250,27 @@ export default new Vuex.Store({
           commit('setEquipment', res.data)
         })
         .catch(handleError)
+    },
+    getItem({commit, dispatch}, url) {
+      dndblank(url)
+      .then(res => {
+        commit('setActiveEquipment', res.data)
+      })
+      .catch(handleError)
+    },
+    getMonster({commit, dispatch}, url) {
+      dndblank(url)
+      .then(res => {
+        commit('setActiveMonster', res.data)
+      })
+      .catch(handleError)
+    },
+    getSpell({commit,dispatch}, url) {
+      dndblank(url)
+      .then(res => {
+        commit('setActiveSpell', res.data)
+      })
+      .catch(handleError)
     }
   }
 })
