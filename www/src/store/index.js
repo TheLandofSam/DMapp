@@ -62,8 +62,7 @@ export default new Vuex.Store({
       state.encounters = encounters
     },
     setActiveEncounter(state, activeEncounter) {
-      debugger
-      state.activeEncounters = activeEncounter
+      state.activeEncounter = activeEncounter
     },
     setPlayers(state, players) {
       state.players = players
