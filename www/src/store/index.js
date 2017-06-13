@@ -29,6 +29,7 @@ let auth = axios.create({
 
 // REGISTER ALL DATA HERE
 let state = {
+//  characters: [],
   campaigns: [],
   activeCampaign: {},
   encounters: [],
@@ -55,6 +56,9 @@ export default new Vuex.Store({
   state,
 
   mutations: {
+    // setActiveCharacter(state, characters) {
+    //   state.characters = characters
+    // },
     setCampaigns(state, campaigns) {
       state.campaigns = campaigns
     },
@@ -189,7 +193,27 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-
+    // getCharacter({ commit, dispatch }, id) {
+    //   api('/encounters/' + id + '/character')
+    //     .then(res => {
+    //       commit('setActiveCharacters', res.data.data)
+    //     })
+    //     .catch(handleError)
+    // },
+    // createCharacter({ commit, dispatch }, id) {
+    //   api.post('/character', character)
+    //     .then(res => {
+    //       dispatch('getCharacter', character.campaignId)
+    //     })
+    //     .catch(handleError)
+    // },    
+    // removeCharacter({ commit, dispatch }, id) {
+    //   api.delete('/character/' + character._id)
+    //     .then(res => {
+    //       dispatch('getCharacter', character.campaignId)
+    //     })
+    //     .catch(handleError)
+    // },
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {
@@ -257,26 +281,26 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    getItem({commit, dispatch}, url) {
+    getItem({ commit, dispatch }, url) {
       dndblank(url)
-      .then(res => {
-        commit('setActiveEquipment', res.data)
-      })
-      .catch(handleError)
+        .then(res => {
+          commit('setActiveEquipment', res.data)
+        })
+        .catch(handleError)
     },
-    getMonster({commit, dispatch}, url) {
+    getMonster({ commit, dispatch }, url) {
       dndblank(url)
-      .then(res => {
-        commit('setActiveMonster', res.data)
-      })
-      .catch(handleError)
+        .then(res => {
+          commit('setActiveMonster', res.data)
+        })
+        .catch(handleError)
     },
-    getSpell({commit,dispatch}, url) {
+    getSpell({ commit, dispatch }, url) {
       dndblank(url)
-      .then(res => {
-        commit('setActiveSpell', res.data)
-      })
-      .catch(handleError)
+        .then(res => {
+          commit('setActiveSpell', res.data)
+        })
+        .catch(handleError)
     }
   }
 })
