@@ -32,6 +32,7 @@ let state = {
   campaigns: [],
   activeCampaign: {},
   encounters: [],
+  activeEncounter: {},
   players: [],
   monsters: [],
   spells: [],
@@ -60,7 +61,10 @@ export default new Vuex.Store({
     setEncounters(state, encounters) {
       state.encounters = encounters
     },
-
+    setActiveEncounter(state, activeEncounter) {
+      debugger
+      state.activeEncounters = activeEncounter
+    },
     setPlayers(state, players) {
       state.players = players
     },
@@ -130,6 +134,13 @@ export default new Vuex.Store({
       api('/campaigns/' + id + '/encounters/')
         .then(res => {
           commit('setEncounters', res.data.data)
+        })
+        .catch(handleError)
+    },
+    getEncounter({ commit, dispatch }, id) {
+      api('/encounters/' + id)
+        .then(res => {
+          commit('setActiveEncounter', res.data.data)
         })
         .catch(handleError)
     },
