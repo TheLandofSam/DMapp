@@ -15,6 +15,14 @@
                   </div>
                   <div class="modal-body">
                     <slot name="body">
+                    <form @submit.prevent="searchMonsters">
+                      <div class="form-group">
+                        <input type="text" class="form-control" v-model="name" placeholder="Monster Name" required>
+                      </div>
+                    </form>
+                    <div v-for='monster in this.monsters'>
+                    {{monster.name}}
+                    </div>
                       Monster info, monster api call, or some other such stuffses would be here...<!--dont forget to wire the add monster button-->
                        <button class="btn but-default">Add Monster</button>
                     </slot>
@@ -224,7 +232,8 @@ import Character from './Character'
         showWeapons: false,
         showSpells: false,
         showConditions: false,
-        showCover: false
+        showCover: false,
+        name: ''
       }
     },
     mounted() {
@@ -233,7 +242,22 @@ import Character from './Character'
       this.$store.dispatch("getEquipment")
     },
     
-    computed: {},
+    computed: {
+      monsters(){
+        var keyword = this.name
+        var temp = this.$store.state.monsters
+        var monsters = []
+        for(var i = 0; i < temp.length; i++){
+          var monster = temp[i]
+              var value = monster.name.toLowerCase()
+              var term = keyword.toLowerCase()
+              if(value.indexOf(term) !== -1 && monsters.length < 20){
+                monsters.push(monster)
+              }
+        }
+        return monsters
+      }
+    },
     methods: {},
     components: {}
   }
