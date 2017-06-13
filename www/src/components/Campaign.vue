@@ -3,6 +3,7 @@
     <button type="button">
         <router-link :to="'/campaigns/'"><h6>go back to campaigns list...</h6></router-link>
         </button>
+            <p class="logout pull-right"><button class="logout" @click="logout(user)">Logout</button></p>
     <br><br> Active Campaign: {{campaign.name}}
     <br>
     <form @submit.prevent="createEncounter">
@@ -72,6 +73,9 @@
       }
     },
     methods: {
+    logout() {
+      this.$store.dispatch('logout', this.user)
+    },
       createPlayer() {
         this.$store.dispatch('createPlayer', {
           name: this.playerName,
