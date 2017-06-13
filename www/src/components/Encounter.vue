@@ -1,5 +1,7 @@
 <template>
   <div class="encounter">
+              <p class="logout pull-right"><button class="logout" @click="logout(user)">Logout</button></p>
+
     <div class="row tabrow">
       <!--MONSTERS TAB -->
       <div class="col-md-2">
@@ -323,7 +325,11 @@
         return this.$store.state.activeEncounter
       }
     },
-    methods: {},
+    methods: {
+    logout() {
+      this.$store.dispatch('logout', this.user)
+    },
+    },
     components: {}
   }
 

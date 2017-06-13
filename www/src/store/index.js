@@ -226,6 +226,12 @@ export default new Vuex.Store({
           router.push('/login')
         })
     },
+    logout({ commit, dispatch }, user) {
+      auth.delete('logout', user)
+        .then(res => {
+          router.push('/')
+        }).catch(handleError)
+    },
     clearError() {
       state.error = {}
     },
