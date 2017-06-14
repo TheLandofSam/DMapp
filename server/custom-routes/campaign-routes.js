@@ -1,6 +1,7 @@
 let Campaigns = require('../models/campaign')
 let Encounters = require('../models/encounter')
 let Players = require('../models/player')
+let Characters = require('../models/character')
 
 export default {
   getEncountersByCampaignId: {
@@ -35,23 +36,24 @@ export default {
         }).catch(error => {
           return next(handleResponse(action, null, error))
         })
-    },
-    getCharactersByEncounterId: {
-      path: '/encounters/:encounterId/characters',
-      reqType: 'get',
-      method(req, res, next) {
-        let action = 'return encounter and associated characters'
-        Encounters.findById(req.params.encounterId)
-          .then(encounter => {
-            Characters.find({ encounterId: req.params.encounterId })
-              .then(characters => {
-                encounter.characters = characters
-                res.send(handleResponse(action, encounter.characters))
-              })
-          }).catch(error => {
-            return next(handleResponse(action, null, error))
-          })
-      }
+    }
+  },
+  getCharactersByEncounterId: {
+    path: '/encounters/:encounterId/characters',
+    reqType: 'get',
+    method(req, res, next) {
+      console.log("here?")
+      let action = 'return encounter and associated characters'
+      Encounters.findById(req.params.encounterId)
+        .then(encounter => {
+          Characters.find({ encounterId: req.params.encounterId })
+            .then(characters => {
+              encounter.characters = characters
+              res.send(handleResponse(action, encounter.characters))
+            })
+        }).catch(error => {
+          return next(handleResponse(action, null, error))
+        })
     }
   }
 }

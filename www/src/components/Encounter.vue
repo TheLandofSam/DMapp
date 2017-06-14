@@ -242,7 +242,7 @@
       </div>
     </div>
     <div class="row chars">
-      <div class="well well-lg">         
+      <div class="well well-lg">
         <!--IMPORT CHARACTER HERE!!-->
         <Character class="well" v-for="character in characters" :character="character"></Character>
       </div>
