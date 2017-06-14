@@ -21,6 +21,10 @@ const models = {
     name: 'Player',
     endpoint: 'players'
   },
+  character: {
+    name: 'Character',
+    endpoint: 'characters'
+  },
   user: {
     name: 'User',
     endpoint: 'users',
