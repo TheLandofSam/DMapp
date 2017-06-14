@@ -214,6 +214,12 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
+    movePlayers({commit, dispatch}, id){
+      api.put('./players' + player)
+        .then(res => {
+          dispatch('getPlayers', player.character.encounterId)
+        })
+    },
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {

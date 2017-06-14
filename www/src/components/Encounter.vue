@@ -349,7 +349,8 @@
     }
     },
     components: {
-      Character
+      Character,
+      Player
     }
   }
 
