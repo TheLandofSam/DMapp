@@ -29,7 +29,7 @@ let auth = axios.create({
 
 // REGISTER ALL DATA HERE
 let state = {
-//  characters: [],
+ characters: [],
   campaigns: [],
   activeCampaign: {},
   encounters: [],
@@ -56,9 +56,9 @@ export default new Vuex.Store({
   state,
 
   mutations: {
-    // setActiveCharacter(state, characters) {
-    //   state.characters = characters
-    // },
+    setCharacters(state, characters) {
+      state.characters = characters
+    },
     setCampaigns(state, campaigns) {
       state.campaigns = campaigns
     },
@@ -193,27 +193,27 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    // getCharacter({ commit, dispatch }, id) {
-    //   api('/encounters/' + id + '/character')
-    //     .then(res => {
-    //       commit('setActiveCharacters', res.data.data)
-    //     })
-    //     .catch(handleError)
-    // },
-    // createCharacter({ commit, dispatch }, id) {
-    //   api.post('/character', character)
-    //     .then(res => {
-    //       dispatch('getCharacter', character.campaignId)
-    //     })
-    //     .catch(handleError)
-    // },    
-    // removeCharacter({ commit, dispatch }, id) {
-    //   api.delete('/character/' + character._id)
-    //     .then(res => {
-    //       dispatch('getCharacter', character.campaignId)
-    //     })
-    //     .catch(handleError)
-    // },
+    getCharacters({ commit, dispatch }, id) {
+      api('/encounters/' + id + '/characters')
+        .then(res => {
+          commit('setCharacters', res.data.data)
+        })
+        .catch(handleError)
+    },
+    createCharacter({ commit, dispatch }, id) {
+      api.post('/characters', character)
+        .then(res => {
+          dispatch('getCharacters', character.encounterId)
+        })
+        .catch(handleError)
+    },    
+    removeCharacter({ commit, dispatch }, id) {
+      api.delete('/characters' + character._id)
+        .then(res => {
+          dispatch('getCharacters', character.encounterId)
+        })
+        .catch(handleError)
+    },
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {
