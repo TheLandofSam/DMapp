@@ -9,7 +9,8 @@ var schema = new mongoose.Schema({
 	created: { type: Number, default: Date.now() },
 	// Relations
 	campaignId: { type: ObjectId, ref: models.campaign.name, required: true },
-	players: [{type: ObjectId, ref: models.player.name}]
+	players: [{type: ObjectId, ref: models.player.name}],
+	characters: [{type: ObjectId, ref: models.character.name}]
 });
 
 module.exports = mongoose.model(models.encounter.name, schema);
