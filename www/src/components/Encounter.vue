@@ -272,17 +272,18 @@
     
       }
     },
-    mounted() {
+    created() {
       this.$store.dispatch("getMonsters")
       this.$store.dispatch("getSpells")
       this.$store.dispatch("getEquipment")  
       this.$store.dispatch("getEncounter", this.$route.params.id)
       this.$store.state.activeEncounter    
+    },
+    mounted(){
       this.$store.dispatch("getCharacters", this.$route.params.id)
       this.$store.state.characters
       this.$store.dispatch("getPlayers")
     },
-
     computed: {
       monsters() {
         var keyword = this.monsterName
@@ -341,6 +342,11 @@
     logout() {
       this.$store.dispatch('logout', this.user)
     },
+    movePlayers(){
+      for(var i = 0; i < players.length; i++){
+        this.$store.state.characters.push(players[i])
+      }
+    }
     },
     components: {
       Character
