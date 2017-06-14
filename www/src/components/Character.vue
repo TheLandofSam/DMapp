@@ -32,30 +32,50 @@
         </div>
       </div>
       <div class="col-md-1">
-        <div class="row">
+        <div class="row"><!--ROW 1 OF 2 OPEN-->
           <div class="col-md-12">
             <h4>HEALTH</h4>
             <input type="number">
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="row">
-              <i class="fa fa-angle-up" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="row">
-              <input type="number">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="row">
-              <i class="fa fa-angle-down" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+        </div><!--ROW 1 OF 2 CLOSE-->
+        <div class="row"><!--ROW 2 OF 2 OPEN-->
+          <div class="col-md-12"><!--COL OF ROW3 (OF ROW2/2) OPEN-->
+            <div class="row"><!--ROW1 (OF ROW2/2) OPEN-->
+              <div class="col-md-4">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+              </div>
+              <div class="col-md-4">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+              </div>
+              <div class="col-md-4">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+              </div>
+            </div><!--ROW1 (OF ROW2/2) CLOSE-->
+            <div class="row"><!--ROW2 (OF ROW2/2) OPEN-->
+              <div class="col-md-4">
+                 <input type="number">
+              </div>
+              <div class="col-md-4">
+                 <input type="number">
+              </div>
+              <div class="col-md-4">
+                 <input type="number">
+              </div>
+            </div><!--ROW2 (OF ROW2/2) CLOSE-->
+            <div class="row"><!--ROW3 (OF ROW2/2) OPEN-->
+              <div class="col-md-4">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </div>
+              <div class="col-md-4">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </div>
+              <div class="col-md-4">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </div>
+            </div><!--ROW3 (OF ROW2/2) CLOSE-->
+         </div><!--COL OF ROW3 (OF ROW2/2) CLOSE-->
+        </div><!--ROW 2 OF 2 CLOSE-->
+      </div><!--COL 1 FOR HEALTH CLOSES-->
       <div class="col-md-1">
         <div class="row">
           <div class="col-md-12">
