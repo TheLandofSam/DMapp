@@ -17,11 +17,6 @@ export default new Router({
       component: Login
     },
     {
-      path: '/encounters/:id',
-      name: 'Encounter',
-      component: Encounter
-    },
-    {
       path: '/campaigns',
       name: 'Campaigns',
       component: Campaigns
@@ -29,6 +24,11 @@ export default new Router({
       path: '/campaigns/:id',
       name: 'Campaign',
       component: Campaign
+    },
+    {
+      path: '/campaigns/:campaignId/encounters/:id',
+      name: 'Encounter',
+      component: Encounter
     },
     {
       path: '/register',

@@ -1,6 +1,9 @@
 <template>
   <div class="encounter">
-              <p class="logout pull-right"><button class="logout" @click="logout(user)">Logout</button></p>
+    <p class="logout pull-right"><button class="logout" @click="logout(user)">Logout</button></p>
+
+    <h1>{{campaign.name}}</h1>
+    <h3>{{encounter.name}}</h3>
 
     <div class="row tabrow">
       <!--MONSTERS TAB -->
@@ -175,7 +178,7 @@
                 </div>
                 <div class="modal-body">
                   <slot name="body">
-                    Conditions will be hard coded!!
+                    <conditions></conditions>
                   </slot>
                 </div>
                 <div class="modal-footer">
@@ -255,6 +258,8 @@
 <script>
   import Player from './Player'
   import Character from './Character'
+  import Conditions from './Conditions'
+
   export default {
     name: 'encounter',
     data() {
@@ -268,21 +273,18 @@
         monsterName: '',
         playerName: '',
         spellName: '',
-        equipmentName: '', 
+        equipmentName: ''
     
       }
     },
-    created() {
+    mounted() {
       this.$store.dispatch("getMonsters")
       this.$store.dispatch("getSpells")
       this.$store.dispatch("getEquipment")  
       this.$store.dispatch("getEncounter", this.$route.params.id)
-      this.$store.state.activeEncounter    
-    },
-    mounted(){
+      this.$store.dispatch("getPlayers", this.campaign._id)
+      console.log(this.$store.state.activeEncounter.campaignId)
       this.$store.dispatch("getCharacters", this.$route.params.id)
-      this.$store.state.characters
-      this.$store.dispatch("getPlayers")
     },
     computed: {
       monsters() {
@@ -334,6 +336,9 @@
       return this.$store.state.characters
       console.log(this.$store.state.characters)
     },
+    campaign(){
+      return this.$store.state.activeCampaign
+    },
     players(){
       return this.$store.state.players
     }
@@ -350,7 +355,8 @@
     },
     components: {
       Character,
-      Player
+      Player,
+      Conditions
     }
   }
 
@@ -438,6 +444,15 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+
+  .modal-wrapper{
+    height: 90%;
+  }
+
+  .modal-body{
+    overflow: scroll;
+  }
+
 
   .well {
     min-height: 500px;

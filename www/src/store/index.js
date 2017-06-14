@@ -63,7 +63,7 @@ export default new Vuex.Store({
       state.campaigns = campaigns
     },
     setActiveCampaign(state, activeCampaign) {
-      Vue.set(state.activeCampaign, activeCampaign._id, activeCampaign)
+      Vue.set(state, 'activeCampaign', activeCampaign)
     },
     setEncounters(state, encounters) {
       state.encounters = encounters
