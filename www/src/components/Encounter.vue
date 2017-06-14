@@ -253,6 +253,7 @@
 
 
 <script>
+  import Player from './Player'
   import Character from './Character'
   export default {
     name: 'encounter',
@@ -279,6 +280,7 @@
       this.$store.state.activeEncounter    
       this.$store.dispatch("getCharacters", this.$route.params.id)
       this.$store.state.characters
+      this.$store.dispatch("getPlayers")
     },
 
     computed: {
@@ -330,6 +332,9 @@
      characters(){
       return this.$store.state.characters
       console.log(this.$store.state.characters)
+    },
+    players(){
+      return this.$store.state.players
     }
     },
     methods: {
