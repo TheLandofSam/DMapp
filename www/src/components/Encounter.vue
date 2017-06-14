@@ -245,6 +245,7 @@
       <div class="well well-lg">
         <!--IMPORT CHARACTER HERE!!-->
         <Character class="well" v-for="character in characters" :character="character"></Character>
+        <div v-for="character in characters">{{character.name}}</div>
       </div>
     </div>
   </div>
@@ -276,6 +277,8 @@
       this.$store.dispatch("getEquipment")  
       this.$store.dispatch("getEncounter", this.$route.params.id)
       this.$store.state.activeEncounter    
+      this.$store.dispatch("getCharacters", this.$route.params.id)
+      this.$store.state.characters
     },
 
     computed: {
@@ -326,6 +329,7 @@
       },
      characters(){
       return this.$store.state.characters
+      console.log(this.$store.state.characters)
     }
     },
     methods: {
@@ -333,7 +337,9 @@
       this.$store.dispatch('logout', this.user)
     },
     },
-    components: {}
+    components: {
+      Character
+    }
   }
 
 </script>
