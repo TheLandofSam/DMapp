@@ -52,14 +52,11 @@
               </div>
             </div><!--ROW1 (OF ROW2/2) CLOSE-->
             <div class="row"><!--ROW2 (OF ROW2/2) OPEN-->
-              <div class="col-md-4">
-                 <input type="number">
+              <div class="col-md-4">1</input>
               </div>
-              <div class="col-md-4">
-                 <input type="number">
+              <div class="col-md-4">5</input>
               </div>
-              <div class="col-md-4">
-                 <input type="number">
+              <div class="col-md-4">10</input>
               </div>
             </div><!--ROW2 (OF ROW2/2) CLOSE-->
             <div class="row"><!--ROW3 (OF ROW2/2) OPEN-->
@@ -96,7 +93,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-          <input type="number">
+          <input type="string">
           </div>
         </div>
       </div>
@@ -106,8 +103,9 @@
             <h4>WEAPONS</h4>
           </div>
         </div>
-        <div class="row">
-          <!--SOME SORT OF HOVERABLE ICON THINGY GOES HERE whooohooo!-->
+        <div class="row" id="smallIcon">
+          <!--SOME SORT OF HOVERABLE ICON THINGY GOES HERE whooohooo!
+          <i http://i44.photobucket.com/albums/f3/suhmantha/sverd-i-fjell_zpsfquiiy7t.png?t=1497395312>-->
         </div>
       </div>
       <div class="col-md-4">
@@ -176,4 +174,12 @@ export default {
     max-height: 30px;
     max-width: auto
   }
+input{
+  max-width: 35px;
+}
+#smallIcon{
+  max-height: 30px
+
+
+}
 </style>
