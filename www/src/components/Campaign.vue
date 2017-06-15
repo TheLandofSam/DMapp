@@ -25,7 +25,7 @@
 
               <a class="list-group-item" v-for="encounter in encounters">
                 <a class="fa fa-trash" @click="removeEncounter(encounter)"></a>
-              <router-link :to="'/encounters/' + encounter._id ">
+              <router-link :to="'/campaigns/'+campaign._id+'/encounters/' + encounter._id ">
                 {{encounter.name}}
               </router-link>
               </a>
