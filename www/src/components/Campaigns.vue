@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div>
-        <p class="logout pull-right"><button class="logout" @click="logout(user)">Logout</button></p>
+        <p class="logout pull-right"><button class="logout" @click="logout(this.user)">Logout</button></p>
           <form class="col-md-3" @submit.prevent="createCampaign">
             <input type="text" v-model="name" required placeholder="Campaign Name">
             <input type="text" v-model="description" required placeholder="Description of Campaign">
@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
   export default {
 
     name: 'campaigns',
