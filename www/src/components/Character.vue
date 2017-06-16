@@ -42,13 +42,13 @@
           <div class="col-md-12"><!--COL OF ROW3 (OF ROW2/2) OPEN-->
             <div class="row"><!--ROW1 (OF ROW2/2) OPEN-->
               <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
               </div>
               <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
               </div>
               <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
               </div>
             </div><!--ROW1 (OF ROW2/2) CLOSE-->
             <div class="row"><!--ROW2 (OF ROW2/2) OPEN-->
@@ -61,13 +61,13 @@
             </div><!--ROW2 (OF ROW2/2) CLOSE-->
             <div class="row"><!--ROW3 (OF ROW2/2) OPEN-->
               <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
               </div>
               <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
               </div>
               <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
               </div>
             </div><!--ROW3 (OF ROW2/2) CLOSE-->
          </div><!--COL OF ROW3 (OF ROW2/2) CLOSE-->
@@ -155,7 +155,9 @@
 export default {
   name: 'component',
   data(){
-
+    return{
+      
+    }
   },
   
   computed:{},
