@@ -374,7 +374,7 @@
 
 <style scoped>
   .encounter {
-    color: #eaedf2;
+    color: black;
   }
 
   .tabrow {

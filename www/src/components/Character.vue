@@ -101,7 +101,6 @@
           <div class="col-md-12">
             <div @click="openArmor">
               <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
-              <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
             </div>
             <div v-show="showArmor">
               <h1>Kitties!!!</h1>
