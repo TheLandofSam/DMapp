@@ -25,8 +25,12 @@
                         <input type="text" class="form-control" v-model="monsterName" placeholder="Monster Name" required>
                       </div>
                     </form>
-                    <div v-for='monster in this.monsters'>
+                    <div class="col-xs-6" v-for='monster in this.monsters'>
                       {{monster.name}}
+                    </div>
+                    <!--Dummy info for drawing monster description-->
+                    <div class="col-xs-6" v-for='monster in this.monsters'>
+                    {{monster.descr}}
                     </div>
                     Monster info, monster api call, or some other such stuffses would be here...
                     <!--dont forget to wire the add monster button-->
@@ -106,6 +110,10 @@
                     <div v-for='item in this.equipment'>
                       {{item.name}}
                     </div>
+                    <!--Dummy info for drawing monster description-->
+                    <div class="col-xs-6" v-for='item in this.equipment'>
+                      {{item.descr}}
+                    </div>
                     Equipment info, equipment api call, or some other such stuffses would be here...
                     <!--dont forget to wire the add weapon button-->
                     <button class="btn but-default">Add Equipment</button>
@@ -146,6 +154,9 @@
                     <div v-for='spell in this.spells'>
                       {{spell.name}}
                     </div>
+                    <div class="col-xs-6" v-for='spell in this.spells'>
+                      {{spell.descr}}
+                    </div>                    
                     Spells: its magic!! Spell info, spell api call, or some other such stuffses would be here...
                     <!--dont forget to wire the add spell button-->
                     <button class="btn but-default">Add Spell</button>
