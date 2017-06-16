@@ -223,7 +223,6 @@ export default new Vuex.Store({
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {
-          console.log(res)
           if (res.data.error) {
             return handleError(res.data.error)
           }
@@ -235,7 +234,6 @@ export default new Vuex.Store({
     register({ commit, dispatch }, user) {
       auth.post('register', user)
         .then(res => {
-          console.log(res)
           if (res.data.error) {
             return handleError(res.data.error)
           }
