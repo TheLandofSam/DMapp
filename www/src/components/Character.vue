@@ -2,7 +2,7 @@
   <div class="character">
     <div class="row">
     <!--repeat this div for each monster & player, displayed on Encounter.vue-->
-      <div class="col-md-1" id="yippiddydoda">
+      <div class="col-md-1">
         <div class="row">
           <div class="col-md-12 int">
             <h5>INT</h5>
@@ -14,12 +14,11 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2" id="yippiddydoda">
+      <div class="col-md-2">
         <div class="row">
           <div class="col-md-12">
-            <h4>Character Name</h4>
           <div v-for='player in this.players'>
-            {{player.name}}
+            <h4>{{player.name}}</h4>
           </div>
           </div>
         </div>
@@ -46,14 +45,14 @@
         <div class="row"><!--ROW 2 OF 2 OPEN-->
           <div class="col-md-12"><!--COL OF ROW3 (OF ROW2/2) OPEN-->
             <div class="row"><!--ROW1 (OF ROW2/2) OPEN-->
-              <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
+              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
+                <i class="fa fa-angle-up" aria-hidden="true" @click="addOne"></i>
               </div>
-              <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
+              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
+                <i class="fa fa-angle-up" aria-hidden="true" @click="addFive"></i>
               </div>
-              <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
+              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
+                <i class="fa fa-angle-up" aria-hidden="true" @click="addTen"></i>
               </div>
             </div><!--ROW1 (OF ROW2/2) CLOSE-->
             <div class="row"><!--ROW2 (OF ROW2/2) OPEN-->
@@ -65,14 +64,14 @@
               </div>
             </div><!--ROW2 (OF ROW2/2) CLOSE-->
             <div class="row"><!--ROW3 (OF ROW2/2) OPEN-->
-              <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
+              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
+                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractOne"></i>
               </div>
-              <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
+              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
+                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractFive"></i>
               </div>
-              <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
+              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
+                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractTen"></i>
               </div>
             </div><!--ROW3 (OF ROW2/2) CLOSE-->
          </div><!--COL OF ROW3 (OF ROW2/2) CLOSE-->
@@ -88,8 +87,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-          <a class="size" ><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
+          <div class="col-md-12" v-on>
+          <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
           </div>
         </div>
       </div>
@@ -176,6 +175,24 @@ export default {
   methods:{
     removeCharacter(character){
       //wire this!---> this.$store.dispatch('removeCharacter', character)
+    },
+    addOne(){
+      //wire this!--->this.Store.dispatch('addOne', value)
+    },
+    addFive(){
+      //wire this!--->this.Store.dispatch('addFive', value)
+    },
+    addTen(){
+      //wire this!--->this.Store.dispatch('addTen', value)
+    },
+    subtractOne(){
+      //wire this!--->this.Store.dispatch('subtractOne', value)
+    },
+    subtractFive(){
+      //wire this!--->this.Store.dispatch('subtractFive', value)
+    },
+    subtractTen(){
+      //wire this!--->this.Store.dispatch('subtractTen', value)
     }
   },
   components:{
