@@ -45,44 +45,6 @@
                   <a class="fa fa-trash" @click="removePlayer(player)"></a>
                   {{player.name}}</a>
               </div>
-              <p class="logout pull-right"><button class="logout" @click="logout(user)">Logout</button></p>
-              <br><br> Active Campaign: {{campaign.name}}
-              <br>
-              <form @submit.prevent="createEncounter">
-                <input type="text" v-model="encounterName" required placeholder="Create Encounter">
-                <input type="text" v-model="encounterDescription" required placeholder="Encounter Description">
-                <button type="submit">create encounter</button>
-              </form>
-              <form @submit.prevent="createPlayer">
-                <input type="text" v-model="playerName" required placeholder="Player Name">
-                <input type="text" v-model="playerDescription" required placeholder="Player Description">
-                <button type="submit">create player</button>
-              </form>
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="well">
-                    <div class="list-group">
-                      <div class="col-xs-6">
-                        <h1>Encounter</h1>
-
-                        <a class="list-group-item" v-for="encounter in encounters">
-                          <button @click="movePlayers(players, encounter._id)">Add all Players</button>
-                          <a class="fa fa-trash" @click="removeEncounter(encounter)"></a>
-                          <router-link :to="'/campaigns/'+campaign._id+'/encounters/' + encounter._id ">
-                            {{encounter.name}}
-                          </router-link>
-                        </a>
-                      </div>
-                      <div class="col-xs-6">
-                        <h1>Player</h1>
-                        <a class="list-group-item" v-for="player in players">
-                          <a class="fa fa-trash" @click="removePlayer(player)"></a>
-                          {{player.name}}</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
