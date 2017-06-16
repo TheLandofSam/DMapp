@@ -2,7 +2,7 @@
   <div class="character">
     <div class="row">
     <!--repeat this div for each monster & player, displayed on Encounter.vue-->
-      <div class="col-md-1">
+      <div class="col-md-1" id="yippiddydoda">
         <div class="row">
           <div class="col-md-12 int">
             <h5>INT</h5>
@@ -14,12 +14,10 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2" id="yippiddydoda">
         <div class="row">
           <div class="col-md-12">
-          <div v-for='player in this.players'>
-            <h4>{{player.name}}</h4>
-          </div>
+            <h4>{{character.name}}</h4>
           </div>
         </div>
         <div class="row">
@@ -45,14 +43,14 @@
         <div class="row"><!--ROW 2 OF 2 OPEN-->
           <div class="col-md-12"><!--COL OF ROW3 (OF ROW2/2) OPEN-->
             <div class="row"><!--ROW1 (OF ROW2/2) OPEN-->
-              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
-                <i class="fa fa-angle-up" aria-hidden="true" @click="addOne"></i>
+              <div class="col-md-4">
+                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
               </div>
-              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
-                <i class="fa fa-angle-up" aria-hidden="true" @click="addFive"></i>
+              <div class="col-md-4">
+                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
               </div>
-              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
-                <i class="fa fa-angle-up" aria-hidden="true" @click="addTen"></i>
+              <div class="col-md-4">
+                <i class="fa fa-angle-up" aria-hidden="true" @click=""></i>
               </div>
             </div><!--ROW1 (OF ROW2/2) CLOSE-->
             <div class="row"><!--ROW2 (OF ROW2/2) OPEN-->
@@ -64,14 +62,14 @@
               </div>
             </div><!--ROW2 (OF ROW2/2) CLOSE-->
             <div class="row"><!--ROW3 (OF ROW2/2) OPEN-->
-              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
-                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractOne"></i>
+              <div class="col-md-4">
+                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
               </div>
-              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
-                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractFive"></i>
+              <div class="col-md-4">
+                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
               </div>
-              <div class="col-md-4"><!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
-                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractTen"></i>
+              <div class="col-md-4">
+                <i class="fa fa-angle-down" aria-hidden="true" @click=""></i>
               </div>
             </div><!--ROW3 (OF ROW2/2) CLOSE-->
          </div><!--COL OF ROW3 (OF ROW2/2) CLOSE-->
@@ -88,8 +86,12 @@
         </div>
         <div class="row">
           <div class="col-md-12">
+<<<<<<< HEAD
           <div @click="openArmor">
           <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
+=======
+          <a class="size" ><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
+>>>>>>> 4e11545457bb8d6e411323bc0c574fcd9d0a52d4
           </div>
           <div v-show="showArmor">
             <h1>Kitties!!!</h1>
@@ -172,14 +174,21 @@
 <script>
 import Player from './Player'
 export default {
+<<<<<<< HEAD
   name: 'Character',
   data(){
     return{
       showArmor: false,
       showWeapons: false
+=======
+  name: 'component',
+  props: ["character"],
+  data(){
+    return{
+      
+>>>>>>> 4e11545457bb8d6e411323bc0c574fcd9d0a52d4
     }
   },
-  
   computed:{
   players(){
     return this.$store.state.players
@@ -188,6 +197,7 @@ export default {
   methods:{
     removeCharacter(character){
       //wire this!---> this.$store.dispatch('removeCharacter', character)
+<<<<<<< HEAD
     },
     addOne(){
       //wire this!--->this.Store.dispatch('addOne', value)
@@ -212,6 +222,8 @@ export default {
     },
     openWeapons(){
       this.showWeapons = !this.showWeapons
+=======
+>>>>>>> 4e11545457bb8d6e411323bc0c574fcd9d0a52d4
     }
     
   },
