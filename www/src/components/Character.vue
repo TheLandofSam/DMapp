@@ -10,7 +10,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h4>{{init}}</h4>
+            <h4>{{character.initiative}}</h4>
           </div>
         </div>
       </div>

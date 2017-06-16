@@ -272,6 +272,7 @@
   import Character from './Character'
   import Conditions from './Conditions'
   import Cover from './Cover'
+  import Vue from 'vue'
   export default {
     name: 'encounter',
     data() {
@@ -363,7 +364,8 @@
     assignInt() {
     for(var i = 0; i < this.characters.length; i++){
       var character = this.characters[i]
-      character.initative = Math.floor(Math.random()*20)
+      //character.initative = Math.floor(Math.random()*20)
+      Vue.set(character, "initiative", Math.floor(Math.random()*20))
     }
     }
   },
