@@ -87,8 +87,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12" v-on>
+          <div class="col-md-12">
+          <div @click="openArmor">
           <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
+          </div>
+          <div v-show="showArmor">
+            <h1>Kitties!!!</h1>
+          </div>
           </div>
         </div>
       </div>
@@ -111,7 +116,13 @@
           </div>
         </div>
         <div class="row" id="wpn">
+          <div @click="openWeapons">
           <img src="http://i44.photobucket.com/albums/f3/suhmantha/sverd-i-fjell_zps1m8jlpma.png" alt="WEAPONS">
+          </div>
+          <div v-show="showWeapons">
+            <h1>Double Kitties!!</h1>
+          </div>
+
         </div>
       </div>
       <div class="col-md-4">
@@ -152,7 +163,8 @@
         </div>
       </div>
     </div>
-    
+   
+
   </div>
 </template>
 
@@ -160,10 +172,11 @@
 <script>
 import Player from './Player'
 export default {
-  name: 'component',
+  name: 'Character',
   data(){
     return{
-
+      showArmor: false,
+      showWeapons: false
     }
   },
   
@@ -193,7 +206,14 @@ export default {
     },
     subtractTen(){
       //wire this!--->this.Store.dispatch('subtractTen', value)
+    },
+    openArmor(){
+      this.showArmor = !this.showArmor
+    },
+    openWeapons(){
+      this.showWeapons = !this.showWeapons
     }
+    
   },
   components:{
     Player
@@ -241,4 +261,5 @@ input{
 .spe{
   padding-left: 20px;
 }
+
 </style>
