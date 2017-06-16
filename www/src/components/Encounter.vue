@@ -295,9 +295,10 @@
       this.$store.dispatch("getEquipment")  
       this.$store.dispatch("getEncounter", this.$route.params.id)
       this.$store.dispatch("getPlayers", this.campaign._id)
-      console.log(this.$store.state.activeEncounter.campaignId)
       this.$store.dispatch("getCharacters", this.$route.params.id)
+
     },
+    
     computed: {
       monsters() {
         var keyword = this.monsterName
@@ -359,11 +360,6 @@
     logout() {
       this.$store.dispatch('logout', this.user)
     },
-    movePlayers(){
-      for(var i = 0; i < players.length; i++){
-        this.$store.state.characters.push(players[i])
-      }
-    }
     },
     components: {
       Character,
