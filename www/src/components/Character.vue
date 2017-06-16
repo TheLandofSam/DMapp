@@ -18,6 +18,9 @@
         <div class="row">
           <div class="col-md-12">
             <h4>Character Name</h4>
+          <div v-for='player in this.players'>
+            {{player.name}}
+          </div>
           </div>
         </div>
         <div class="row">
@@ -152,6 +155,7 @@
 
 
 <script>
+import Player from './Player'
 export default {
   name: 'component',
   data(){
@@ -160,13 +164,19 @@ export default {
     }
   },
   
-  computed:{},
+  computed:{
+  players(){
+    return this.$store.state.players
+  }
+  },
   methods:{
     removeCharacter(character){
       //wire this!---> this.$store.dispatch('removeCharacter', character)
     }
   },
-  components:{}
+  components:{
+    Player
+  }
 }
 </script>
 
