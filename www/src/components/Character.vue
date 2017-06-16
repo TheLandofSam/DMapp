@@ -10,7 +10,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <input type="number">
+            <h4>{{character.initiative}}</h4>
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@
         showWeapons: false
       }
     },
-      props: ["character"],
+    props: ["character"],
     methods: {
       removeCharacter(character) {
         this.$store.dispatch('removeCharacter', character)

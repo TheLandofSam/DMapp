@@ -243,7 +243,7 @@
       </div>
       <div class="col-md-2">
         <!--this button needs to be wired to complete initative sort-->
-        <button class="btn btn-default">Initiative Sort button</button>
+        <button class="btn btn-default" @click = "assignInt()">Initiative Sort button</button>
       </div>
       <div class="col-md-5"></div>
       <div class="col-md-2">
@@ -272,6 +272,7 @@
   import Character from './Character'
   import Conditions from './Conditions'
   import Cover from './Cover'
+  import Vue from 'vue'
   export default {
     name: 'encounter',
     data() {
@@ -345,30 +346,36 @@
       encounter() {
         return this.$store.state.activeEncounter
       },
-     characters(){
+      characters(){
       return this.$store.state.characters
       console.log(this.$store.state.characters)
-    },
-    campaign(){
+      },
+      campaign(){
       return this.$store.state.activeCampaign
-    },
-    players(){
+      },
+      players(){
       return this.$store.state.players
-    }
+      }
     },
     methods: {
     logout() {
       this.$store.dispatch('logout', this.user)
     },
-    },
-    components: {
+    assignInt() {
+    for(var i = 0; i < this.characters.length; i++){
+      var character = this.characters[i]
+      //character.initative = Math.floor(Math.random()*20)
+      Vue.set(character, "initiative", Math.floor(Math.random()*20))
+    }
+    }
+  },
+  components: {
       Character,
       Player,
       Conditions,
       Cover
     }
   }
-
 </script>
 
 
