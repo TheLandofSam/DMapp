@@ -208,7 +208,8 @@
                 </div>
                 <div class="modal-body">
                   <slot name="body">
-                    Cover will be hard coded!!
+                  <cover></cover>
+               
                   </slot>
                 </div>
                 <div class="modal-footer">
@@ -259,7 +260,7 @@
   import Player from './Player'
   import Character from './Character'
   import Conditions from './Conditions'
-
+  import Cover from './Cover'
   export default {
     name: 'encounter',
     data() {
@@ -356,7 +357,8 @@
     components: {
       Character,
       Player,
-      Conditions
+      Conditions,
+      Cover
     }
   }
 

@@ -223,11 +223,10 @@ export default new Vuex.Store({
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {
-          console.log(res)
           if (res.data.error) {
             return handleError(res.data.error)
           }
-          commit('user', res.data.data)
+          commit('setUser', res.data.data)
           router.push('/campaigns')
         })
         .catch(handleError)
@@ -235,11 +234,10 @@ export default new Vuex.Store({
     register({ commit, dispatch }, user) {
       auth.post('register', user)
         .then(res => {
-          console.log(res)
           if (res.data.error) {
             return handleError(res.data.error)
           }
-          state.user = res.data
+          commit("setUser", res.data.data)
           router.push('/campaigns')
         })
         .catch(handleError)
