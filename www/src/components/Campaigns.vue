@@ -74,7 +74,9 @@
 </script>
 
 <style scoped>
-  
+  h1{
+    font-size: 50px;
+  }
   .navbar{
     background-color: rgba(100, 100, 100, 0);
     border-color: rgba(100, 100, 100, 0);
