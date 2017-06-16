@@ -170,7 +170,7 @@
           <div class="ui checkbox"><input type="checkbox" name="checkbox"></div>
         </div>
         <div class="row" id="end2">
-          <i><img class="tiny" src="http://i44.photobucket.com/albums/f3/suhmantha/skullDelete_zpsmswuacpy.png" @click="removeCharacter(character)">sdasdsa</i>
+          <i><img class="tiny" src="http://i44.photobucket.com/albums/f3/suhmantha/skullDelete_zpsmswuacpy.png" @click="removeCharacter(character)"></i>
           <!--THIS FUNCTION NEEDS TO BE WIRED!!!-->
         </div>
       </div>
