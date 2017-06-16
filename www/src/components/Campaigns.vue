@@ -3,7 +3,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <h2 class="dungeon">DM</h2>
+          <h1 class="dungeon">DM</h1>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li><a class= "dungeon" style="color: #c70505; cursor: pointer" @click="logout(this.user)">Logout</a></li>
@@ -13,7 +13,7 @@
     <div class="container">
       <div class="row">
         <form class="col-md-3" @submit.prevent="createCampaign">
-          <input type="text" v-model="name" required placeholder="Campaign Name">
+          <input type="text" v-model="name" required placeholder="Campaign Name">          
           <input type="text" v-model="description" required placeholder="Description of Campaign">
           <button @click="createCampaign">Add Campaign</button>
         </form>
@@ -87,10 +87,6 @@
   a {
     color: whitesmoke;
     text-shadow: 1px 1px 1px rgba(100, 100, 100, 0);
-  }
-  
-  button {
-    margin-bottom: 10px;
   }
   
   .well {

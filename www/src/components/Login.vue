@@ -52,7 +52,7 @@
 </script>
 
 
-<style>
+<style scoped>
     .dungeon {
         color: #c70505;
         font-family: 'Metal Mania';
@@ -62,26 +62,18 @@
     .jumbotron {
         background-color: rgba(200, 200, 200, 0);
     }
-    
-    .h1,
     h1 {
         text-align: center;
         font-size: 60px;
-        font-weight: bold;
-        
+        font-weight: bold;        
     }
     
     input {
         color: black;
         margin-bottom: 10px;
         font-size: 14px;
-    }
-    
-    button {
-        margin-top: 10px;
-        font-weight: bold;
-    }
-    
+    }  
+        
     span {
         text-align: left;
     }
@@ -107,17 +99,4 @@
     a:hover {
         color: red;
     }    
-    body {
-        background-image: url(../image/mapbackground.jpg);
-        background-attachment: fixed;
-        background-size: cover;
-    } 
-    .fullscreen {
-        background: rgba(61, 22, 0, .8);
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }     
-</style>
+    </style>
