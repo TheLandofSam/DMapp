@@ -56,10 +56,9 @@
     .dungeon {
         color: #c70505;
         font-family: 'Metal Mania';
-    }
-    
-    form {}
-    
+        text-shadow: 1px 1px 1px gold;
+    }   
+        
     .jumbotron {
         background-color: rgba(200, 200, 200, 0);
     }
@@ -69,7 +68,7 @@
         text-align: center;
         font-size: 60px;
         font-weight: bold;
-        text-shadow: 1px 1px 1px gold;
+        
     }
     
     input {
@@ -97,7 +96,7 @@
     
     h2 {
         text-align: center;
-        text-shadow: .1px .1px .1px gold;
+        
     }
     
     a {
@@ -107,21 +106,18 @@
     
     a:hover {
         color: red;
-    }
-    
+    }    
     body {
         background-image: url(../image/mapbackground.jpg);
         background-attachment: fixed;
         background-size: cover;
-    }
-    
+    } 
     .fullscreen {
         background: rgba(61, 22, 0, .8);
-        background-size: cover;
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-    }
+    }     
 </style>

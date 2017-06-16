@@ -62,6 +62,7 @@
     .dungeon {
         color: #c70505;
         font-family: 'Metal Mania';
+        text-shadow: 1px 1px 1px gold
     }
     
     h1 {
@@ -69,7 +70,7 @@
         text-align: center;
         font-family: 'Asap', sans-serif;
         font-weight: bold;
-        text-shadow: 1px 1px 1px gold;
+        ;
     }
     
     button {
@@ -88,4 +89,5 @@
         background-color: rgba(100, 100, 100, 0);
         border-color: rgba(100, 100, 100, 0);
     }
+    
 </style>
