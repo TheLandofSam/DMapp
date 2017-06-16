@@ -32,8 +32,7 @@
               <div class="col-xs-6">
                 <h1 class="dungeon">Encounter</h1>
                 <a class="list-group-item" v-for="encounter in encounters">
-                  <button @click="movePlayers(players)" style="color: #333;">Add all Players</button>
-                  <a class="fa fa-trash" @click="removeEncounter(encounter)"></a>
+                  <button @click="movePlayers(players, encounter._id)">Add all Players</button>                  <a class="fa fa-trash" @click="removeEncounter(encounter)"></a>
                   <router-link :to="'/campaigns/'+campaign._id+'/encounters/' + encounter._id ">
                     {{encounter.name}}
                   </router-link>
@@ -110,7 +109,7 @@
       removePlayer(player) {
         this.$store.dispatch('removePlayer', player)
       },
-      movePlayers(players) {
+      movePlayers(players, encounterId) {
         for (var i = 0; i < players.length; i++) {
           var player = players[i]
           console.log(encounterId)
