@@ -86,12 +86,9 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-<<<<<<< HEAD
           <div @click="openArmor">
           <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
-=======
           <a class="size" ><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
->>>>>>> 4e11545457bb8d6e411323bc0c574fcd9d0a52d4
           </div>
           <div v-show="showArmor">
             <h1>Kitties!!!</h1>
@@ -174,30 +171,18 @@
 <script>
 import Player from './Player'
 export default {
-<<<<<<< HEAD
+
   name: 'Character',
   data(){
     return{
       showArmor: false,
       showWeapons: false
-=======
-  name: 'component',
-  props: ["character"],
-  data(){
-    return{
-      
->>>>>>> 4e11545457bb8d6e411323bc0c574fcd9d0a52d4
     }
-  },
-  computed:{
-  players(){
-    return this.$store.state.players
-  }
+  props: ["character"],
   },
   methods:{
     removeCharacter(character){
       //wire this!---> this.$store.dispatch('removeCharacter', character)
-<<<<<<< HEAD
     },
     addOne(){
       //wire this!--->this.Store.dispatch('addOne', value)
@@ -222,8 +207,6 @@ export default {
     },
     openWeapons(){
       this.showWeapons = !this.showWeapons
-=======
->>>>>>> 4e11545457bb8d6e411323bc0c574fcd9d0a52d4
     }
     
   },
