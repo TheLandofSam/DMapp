@@ -20,7 +20,6 @@ export default {
     removePlayer(player){
       this.$store.dispatch('removePlayer', player)
     }
-
   },
   components:{}
 }

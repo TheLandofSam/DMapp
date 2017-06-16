@@ -24,7 +24,7 @@
               <h1>Encounter</h1>
 
               <a class="list-group-item" v-for="encounter in encounters">
-              <button @click="movePlayers(players)">Add all Players</button>
+              <button @click="movePlayers(players, encounter._id)">Add all Players</button>
                 <a class="fa fa-trash" @click="removeEncounter(encounter)"></a>
               <router-link :to="'/campaigns/'+campaign._id+'/encounters/' + encounter._id ">
                 {{encounter.name}}
@@ -101,9 +101,11 @@
       removePlayer(player) {
         this.$store.dispatch('removePlayer', player)
       },
-      movePlayers(players){
+      movePlayers(players, encounterId){
         for(var i = 0; i < players.length; i++){
           var player = players[i]
+          console.log(encounterId)
+          player.encounterId = encounterId
           this.$store.dispatch("movePlayers", player)
       }
     }

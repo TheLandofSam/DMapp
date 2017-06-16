@@ -17,10 +17,7 @@
       <div class="col-md-2" id="yippiddydoda">
         <div class="row">
           <div class="col-md-12">
-            <h4>Character Name</h4>
-          <div v-for='player in this.players'>
-            {{player.name}}
-          </div>
+            <h4>{{character.name}}</h4>
           </div>
         </div>
         <div class="row">
@@ -162,12 +159,12 @@
 import Player from './Player'
 export default {
   name: 'component',
+  props: ["character"],
   data(){
     return{
-
+      
     }
   },
-  
   computed:{
   players(){
     return this.$store.state.players
