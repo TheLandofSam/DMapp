@@ -207,8 +207,8 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },    
-    removeCharacter({ commit, dispatch }, id) {
-      api.delete('/characters' + character._id)
+    removeCharacter({ commit, dispatch }, character) {
+      api.delete('/characters/' + character._id)
         .then(res => {
           dispatch('getCharacters', character.encounterId)
         })

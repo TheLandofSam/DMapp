@@ -59,6 +59,10 @@
 
 
 <style scoped>
+    .jumbotron{
+        background-color: rgba(100, 100, 100, 0);
+        border-color: rgba(100, 100, 100, 0);
+    }
     .dungeon {
         color: #c70505;
         font-family: 'Metal Mania';
@@ -66,13 +70,16 @@
     }
     
     h1 {
-        color: black;
         text-align: center;
-        font-family: 'Asap', sans-serif;
+        font-size: 60px;
         font-weight: bold;
         ;
     }
-    
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        ;
+    }
     button {
         margin-top: 10px;
         font-weight: bold;
@@ -88,6 +95,12 @@
         text-align: center;
         background-color: rgba(100, 100, 100, 0);
         border-color: rgba(100, 100, 100, 0);
+    }  
+    a {
+        color: #c70505;
+        text-shadow: .1px .1px .1px gold;
+    }  
+    a:hover {
+        color: red;
     }
-    
 </style>
