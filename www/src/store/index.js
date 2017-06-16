@@ -227,7 +227,7 @@ export default new Vuex.Store({
           if (res.data.error) {
             return handleError(res.data.error)
           }
-          commit('user', res.data.data)
+          commit('setUser', res.data.data)
           router.push('/campaigns')
         })
         .catch(handleError)
@@ -239,7 +239,7 @@ export default new Vuex.Store({
           if (res.data.error) {
             return handleError(res.data.error)
           }
-          state.user = res.data
+          commit("setUser", res.data.data)
           router.push('/campaigns')
         })
         .catch(handleError)
