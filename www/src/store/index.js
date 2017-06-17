@@ -113,7 +113,7 @@ export default new Vuex.Store({
     },
     setInit(state, sortFunction){
        for(var i = 0; i < state.characters.length; i++){
-        state.characters[i].initiative = Math.floor(Math.random()*20)
+        state.characters[i].initiative = Math.floor(Math.random()*20 + 1)
       }
       state.characters.sort((a,b)=>{
         if (a.initiative < b.initiative){
