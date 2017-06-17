@@ -37,8 +37,8 @@
           <div class="col-md-12 hea">
             <h5>HP</h5>
             <div class="hea2">
-              <h5>{{character.health}}</h5>
-              <h5>{{character.health}}</h5>
+              <h5>{{character.health}}1</h5>
+              <h5>{{character.health}}2</h5>
             </div>
           </div>
         </div>
