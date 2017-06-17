@@ -95,7 +95,7 @@
             <h5>AC</h5>
           </div>
           <div class="ac2">
-            <input type="number">
+            <input type="number" :v-model="character.armor_class">
           </div>
         </div>
         <div class="row">
@@ -117,7 +117,7 @@
         </div>
         <div class="row">
           <div class="col-md-12 spe">
-            <input type="string">
+            <input type="string" :v-model="character.speed">
           </div>
         </div>
       </div>
@@ -132,7 +132,8 @@
             <img src="http://i44.photobucket.com/albums/f3/suhmantha/sverd-i-fjell_zps1m8jlpma.png" alt="WEAPONS">
           </div>
           <div v-show="showWeapons">
-            <h1>Character weapons here...</h1>
+            <h5><span :v-model="character.special_abilities"></span></h5>
+            <h5><span :v-model="character.actions"></span></h5>
           </div>
 
         </div>
@@ -149,12 +150,12 @@
         </div>
         <div class="row">
           <!--CHARACTER STATS-->
-          <div class="col-md-2"><input type="number"></div>
-          <div class="col-md-2"><input type="number"></div>
-          <div class="col-md-2"><input type="number"></div>
-          <div class="col-md-2"><input type="number"></div>
-          <div class="col-md-2"><input type="number"></div>
-          <div class="col-md-2"><input type="number"></div>
+          <div class="col-md-2"><input type="number" :v-model="character.strength"></div>
+          <div class="col-md-2"><input type="number" :v-model="character.dexterity"></div>
+          <div class="col-md-2"><input type="number" :v-model="character.constitution"></div>
+          <div class="col-md-2"><input type="number" :v-model="character.wisdom"></div>
+          <div class="col-md-2"><input type="number" :v-model="character.intelligence"></div>
+          <div class="col-md-2"><input type="number" :v-model="character.charisma"></div>
         </div>
         <div class="row">
           <!--THE STAT MODIFIER-->

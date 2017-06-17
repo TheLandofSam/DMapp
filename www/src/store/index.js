@@ -318,6 +318,19 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
+    moveMonster({ commit, dispatch}, encounterId){
+      var monster = state.activeMonster
+      monster.description = monster.size
+      monster.health = monster.hit_points
+      monster.maxHealth = monster.hit_points
+      monster.encounterId = encounterId
+      monster._id = null
+      api.post('./characters/' + encounterId, monster)
+        .then(res => {
+          //console.log(res.data.data)
+          dispatch('getCharacters', encounterId)
+        })
+    },
     getSpell({ commit, dispatch }, url) {
       dndblank(url)
         .then(res => {

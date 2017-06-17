@@ -7,10 +7,20 @@ var schema = new mongoose.Schema({
 	name: { type: String, required: true },
 	description: { type: String },
 	created: { type: Number, default: Date.now() },
-	health: {type: Number },
-	maxHealth: {type: Number},
+	health: { type: Number },
+	maxHealth: { type: Number },
 	// Relations
-	encounterId: { type: ObjectId, ref: models.encounter.name, required: true}
+	encounterId: { type: ObjectId, ref: models.encounter.name, required: true },
+	strength: { type: Number },
+	dexterity: { type: Number },
+	constitution: { type: Number },
+	intelligence: {	type: Number },
+	wisdom: { type: Number },
+	charisma: { type: Number },
+	armor_class: { type: Number},
+	speed: { type: Number },
+	special_abilities: {type: String},
+	actions: { type: String }
 });
 
 module.exports = mongoose.model(models.character.name, schema);

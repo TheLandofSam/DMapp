@@ -51,7 +51,7 @@
                               {{monster.strength}} -- <br> Dexterity: {{monster.dexterity}} -- <br> Constitution: {{monster.constitution}}
                               -- <br> Intelligence: {{monster.intelligence}} -- <br> Wisdom: {{monster.wisdom}} -- <br> Charisma:
                               {{monster.charisma}} -- <br> Actions: {{monster.actions}}
-                              <button class="btn but-default">Add Monster</button>
+                              <button class="btn but-default" @click="moveMonster">Add Monster</button>
                             </div>
                           </div>
                         </div>
@@ -438,6 +438,9 @@
           return 1;
         }
         return 0;
+      },
+      moveMonster(){
+        this.$store.dispatch('moveMonster', this.encounter._id)
       }
       //console.log(characters)
     },
