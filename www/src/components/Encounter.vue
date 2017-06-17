@@ -26,11 +26,11 @@
                       </div>
                     </form>
                     <div class="col-xs-6" v-for='monster in this.monsters'>
-                      {{monster.name}}
+                      <a @click="getMonster(monster)">{{monster.name}}</a>
                     </div>
                     <!--Dummy info for drawing monster description-->
-                    <div class="col-xs-6" v-for='monster in this.monsters'>
-                    {{monster.descr}}
+                    <div class="col-xs-6">
+                    {{monster.name}}
                     </div>
                     Monster info, monster api call, or some other such stuffses would be here...
                     <!--dont forget to wire the add monster button-->
@@ -316,6 +316,9 @@
         }
         return monsters
       },
+      monster(){
+        return this.$store.state.activeMonster
+      },
       spells() {
         var keyword = this.spellName
         var temp = this.$store.state.spells
@@ -349,7 +352,6 @@
       },
       characters(){
       return this.$store.state.characters
-      console.log(this.$store.state.characters)
       },
       campaign(){
       return this.$store.state.activeCampaign
@@ -359,6 +361,9 @@
       }
     },
     methods: {
+      getMonster(monster){
+        this.$store.dispatch("getMonster", monster)
+      },
     logout() {
       this.$store.dispatch('logout', this.user)
     },
