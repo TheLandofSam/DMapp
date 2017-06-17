@@ -243,7 +243,8 @@
       </div>
       <div class="col-md-2">
         <!--this button needs to be wired to complete initative sort-->
-        <button class="btn btn-default" @click = "assignInt()">Initiative Sort button</button>
+        <button class="btn btn-default" @click = "assignInt()">Initiative button</button>
+        <button class="btn btn-default" @click = "characters.sort(compare)">Sort button</button>
       </div>
       <div class="col-md-5"></div>
       <div class="col-md-2">
@@ -362,12 +363,18 @@
       this.$store.dispatch('logout', this.user)
     },
     assignInt() {
-    for(var i = 0; i < this.characters.length; i++){
-      var character = this.characters[i]
-      //character.initative = Math.floor(Math.random()*20)
-      Vue.set(character, "initiative", Math.floor(Math.random()*20))
-    }
-    }
+      this.$store.dispatch('setInit', this.compare)
+    },
+    compare(a, b) {
+        if (a.initiative < b.initiative){
+          return -1;
+        }
+        if (b.initiative > a.initiative){
+          return 1;
+      }
+      return 0;
+      }
+        //console.log(characters)
   },
   components: {
       Character,

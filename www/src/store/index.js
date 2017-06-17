@@ -110,6 +110,20 @@ export default new Vuex.Store({
     },
     setActiveSpell(state, activeSpell) {
       state.activeSpell = activeSpell.results
+    },
+    setInit(state, sortFunction){
+       for(var i = 0; i < state.characters.length; i++){
+        state.characters[i].initiative = Math.floor(Math.random()*20)
+      }
+      state.characters.sort((a,b)=>{
+        if (a.initiative < b.initiative){
+          return 1;
+        }
+        if (b.initiative < a.initiative){
+          return -1;
+      }
+      return 0;
+      })
     }
 
   },
@@ -307,6 +321,10 @@ export default new Vuex.Store({
           commit('setActiveSpell', res.data)
         })
         .catch(handleError)
+    },
+    setInit({ commit, dispatch }, customSort){
+      commit('setInit', customSort )
+     
     }
   }
 })
