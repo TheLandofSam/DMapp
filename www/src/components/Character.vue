@@ -37,7 +37,7 @@
           <div class="col-md-12 hea">
             <h5>HEALTH</h5>
             <div class="hea2">
-              <input type="number">
+              <input type="string">
             </div>
           </div>
         </div>
@@ -139,12 +139,12 @@
       <div class="col-md-4">
         <div class="row">
           <!--STATS TITLE-->
-          <div class="col-md-2">STR</div>
-          <div class="col-md-2">DEX</div>
-          <div class="col-md-2">CON</div>
-          <div class="col-md-2">WIS</div>
-          <div class="col-md-2">INT</div>
-          <div class="col-md-2">CHA</div>
+          <div class="col-md-2 titleS">STR</div>
+          <div class="col-md-2 titleD">DEX</div>
+          <div class="col-md-2 titleCN">CON</div>
+          <div class="col-md-2 titleW">WIS</div>
+          <div class="col-md-2 titleI">INT</div>
+          <div class="col-md-2 titleCH">CHA</div>
         </div>
         <div class="row">
           <!--CHARACTER STATS-->
@@ -236,7 +236,7 @@
   }
 
   input {
-    max-width: 35px;
+    max-width: 40px;
   }
 
   #wpn {
@@ -265,7 +265,7 @@
   }
 
   .hea2 {
-    padding-left: 10px;
+    padding-left: 8px;
   }
 
   .ac {
@@ -273,10 +273,28 @@
   }
 
   .ac2 {
-    padding-left: 30px;
+    padding-left: 27px;
   }
 
   .spe {
-    padding-left: 20px;
+    padding-left: 18px;
+  }
+  .titleS{
+    padding-left: 17px;
+  }
+  .titleD{
+    padding-left: 17px;
+  }
+  .titleCN{
+    padding-left: 17px;
+  }
+  .titleW{
+    padding-left: 19px;
+  }
+  .titleI{
+    padding-left: 21px;
+  }
+  .titleCH{
+    padding-left: 19px;
   }
 </style>
