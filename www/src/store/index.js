@@ -124,6 +124,10 @@ export default new Vuex.Store({
       }
       return 0;
       })
+    },
+    setHealth(state, data){
+      var charIndex = state.characters.indexOf(data.character)
+      state.characters[charIndex].health+=data.value
     }
 
   },
@@ -324,7 +328,10 @@ export default new Vuex.Store({
     },
     setInit({ commit, dispatch }, customSort){
       commit('setInit', customSort )
-     
+    },
+    updateHealth({ commit, dispatch}, data){
+      commit('updateHealth', data)
+      //dispatch('saveEncounter')
     }
   }
 })

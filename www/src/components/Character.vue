@@ -195,23 +195,8 @@
       removeCharacter(character) {
         this.$store.dispatch('removeCharacter', character)
       },
-      addOne() {
-        //wire this!--->this.Store.dispatch('addOne', value)
-      },
-      addFive() {
-        //wire this!--->this.Store.dispatch('addFive', value)
-      },
-      addTen() {
-        //wire this!--->this.Store.dispatch('addTen', value)
-      },
-      subtractOne() {
-        //wire this!--->this.Store.dispatch('subtractOne', value)
-      },
-      subtractFive() {
-        //wire this!--->this.Store.dispatch('subtractFive', value)
-      },
-      subtractTen() {
-        //wire this!--->this.Store.dispatch('subtractTen', value)
+      updateHealth(value){
+        this.$store.dispatch('updateHealth', {character: this.character, value: value})
       },
       openArmor() {
         this.showArmor = !this.showArmor
