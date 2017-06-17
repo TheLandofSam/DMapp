@@ -95,7 +95,6 @@
                     <div v-for='player in this.players'>
                       {{player.name}}
                     </div>
-                    Player info or some other such stuffses.
                   </slot>
                 </div>
                 <div class="modal-footer">
@@ -290,14 +289,12 @@
         <!--this is a purposely blank spot-->
       </div>
       <div class="col-md-2">
-        <!--this button needs to be wired to complete initative sort-->
         <button class="btn btn-default" @click="assignInt()">Initiative button</button>
 
       </div>
       <div class="col-md-5"></div>
       <div class="col-md-2">
         <router-link :to="'/campaigns/'+ this.$store.state.activeEncounter.campaignId">
-          <!--this button needs to be wired to return to campaign-->
           <button class="btn btn-default">Return to Campaign</button>
         </router-link>
       </div>
@@ -307,7 +304,6 @@
     </div>
     <div class="row chars">
       <div class="well well-lg">
-        <!--IMPORT CHARACTER HERE!!-->
         <Character class="well" v-for="character in characters" :character="character"></Character>
         <div v-for="character in characters">{{character.name}}</div>
       </div>
@@ -563,6 +559,6 @@
   }
 
   .well {
-    min-height: 500px;
+    min-height: 300px;
   }
 </style>

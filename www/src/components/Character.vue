@@ -95,7 +95,7 @@
             <h5>AC</h5>
           </div>
           <div class="ac2">
-            <input type="number" :v-model="character.armor_class">
+            {{character.armor_class}}
           </div>
         </div>
         <div class="row">
@@ -117,7 +117,7 @@
         </div>
         <div class="row">
           <div class="col-md-12 spe">
-            <input type="string" :v-model="character.speed">
+            {{character.speed}}
           </div>
         </div>
       </div>
@@ -131,9 +131,9 @@
           <div @click="openWeapons">
             <img src="http://i44.photobucket.com/albums/f3/suhmantha/sverd-i-fjell_zps1m8jlpma.png" alt="WEAPONS">
           </div>
-          <div v-show="showWeapons">
-            <h5><span :v-model="character.special_abilities"></span></h5>
-            <h5><span :v-model="character.actions"></span></h5>
+          <div v-show="showWeapons"><!--THESE ARE POPULATING AS OBJ, OBJ, OBJ...MAY NOT BE ABLE TO USE THIS INFORMATION....-->
+            {{character.special_abilities}}
+            {{character.actions}}
           </div>
 
         </div>
@@ -150,12 +150,12 @@
         </div>
         <div class="row">
           <!--CHARACTER STATS-->
-          <div class="col-md-2"><input type="number" :v-model="character.strength"></div>
-          <div class="col-md-2"><input type="number" :v-model="character.dexterity"></div>
-          <div class="col-md-2"><input type="number" :v-model="character.constitution"></div>
-          <div class="col-md-2"><input type="number" :v-model="character.wisdom"></div>
-          <div class="col-md-2"><input type="number" :v-model="character.intelligence"></div>
-          <div class="col-md-2"><input type="number" :v-model="character.charisma"></div>
+          <div class="col-md-2 shifty">{{character.strength}}</div>
+          <div class="col-md-2 shifty">{{character.dexterity}}</div>
+          <div class="col-md-2 shifty">{{character.constitution}}</div>
+          <div class="col-md-2 shifty">{{character.wisdom}}</div>
+          <div class="col-md-2 shifty">{{character.intelligence}}</div>
+          <div class="col-md-2 shifty">{{character.charisma}}</div>
         </div>
         <div class="row">
           <!--THE STAT MODIFIER-->
@@ -260,7 +260,8 @@
   }
 
   .ac2 {
-    padding-left: 27px;
+    padding-left: 34px;
+    min-height: 50px;
   }
 
   .spe {
@@ -283,5 +284,8 @@
   }
   .titleCH{
     padding-left: 19px;
+  }
+  .shifty{
+    padding-left: 25px;
   }
 </style>
