@@ -1,10 +1,17 @@
 <template>
   <div class="encounter">
-    <p class="logout pull-right"><button class="logout" @click="logout(user)">Logout</button></p>
-
-    <h1>{{campaign.name}}</h1>
-    <h3>{{encounter.name}}</h3>
-
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h1 class="dungeon">DM</h1>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="dungeon" style="color: #c70505; cursor: pointer" @click="logout(this.user)">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h2 class="dungeon">{{campaign.name}}</h2>
+    <h3 class="dungeon">{{encounter.name}}</h3>
     <div class="row tabrow">
       <!--MONSTERS TAB -->
       <div class="col-md-2">
@@ -30,26 +37,14 @@
                     </div>
                     <!--Dummy info for drawing monster description-->
                     <div class="col-xs-6">
-                    Name: {{monster.name}} -- <br>
+                      Name: {{monster.name}} -- <br> Size: {{monster.size}} -- <br> Armor Class: {{monster.armor_class}}
+                      -- <br> Speed: {{monster.speed}} -- <br> Hit Points: {{monster.hit_points}} -- <br> Senses : {{monster.senses}}
+                      -- <br> Challenge Rating: {{monster.challenge_rating}} -- <br> Strength: {{monster.strength}} -- <br>                      Dexterity: {{monster.dexterity}} -- <br> Constitution: {{monster.constitution}} -- <br> Intelligence:
+                      {{monster.intelligence}} -- <br> Wisdom: {{monster.wisdom}} -- <br> Charisma: {{monster.charisma}}
+                      -- <br> Actions: {{monster.actions}}
 
-                    Size: {{monster.size}} -- <br>
-
-                    Armor Class: {{monster.armor_class}} -- <br>
-
-                    Speed: {{monster.speed}} -- <br>
-                    Hit Points: {{monster.hit_points}} -- <br>
-                    Senses : {{monster.senses}} -- <br>
-                    Challenge Rating: {{monster.challenge_rating}} -- <br>
-                    Strength: {{monster.strength}} -- <br>
-                    Dexterity: {{monster.dexterity}} -- <br>
-                    Constitution: {{monster.constitution}} -- <br>
-                    Intelligence: {{monster.intelligence}} -- <br>
-                    Wisdom: {{monster.wisdom}} -- <br>
-                    Charisma: {{monster.charisma}} -- <br>
-                    Actions: {{monster.actions}}
-                    
                     </div>
-                    
+
                     <!--dont forget to wire the add monster button-->
                     <button class="btn but-default">Add Monster</button>
                   </slot>
@@ -125,26 +120,17 @@
                       </div>
                     </form>
                     <div class="col-xs-6" v-for='item in this.equipment'>
-                    <a @click="getItem(item)">{{item.name}}</a>
-    item
+                      <a @click="getItem(item)">{{item.name}}</a>
+
                     </div>
                     <!--Dummy info for drawing monster description-->
                     <div class="col-xs-6">
-                    
-                     Category: {{item.equipment_category}} -- <br> 
-                     Category Range: {{item.category_range}} -- <br>
-                      Cost; {{item.cost}} -- <br>
-                       Damage Die: {{item.damage.dice_count}} 
-                         {{item.damage.dice_value}} -- <br>
-                         Damage Type: {{item.damage.damage_type.name}} -- <br>
-                      Range: {{item.range}} -- <br>
-                      Throw: {{item.throw_range}} -- <br>
-                      Armor: {{item.armor_category}} -- <br>
-                      Armor Class: {{item.armor_class}} -- <br>
-                      Minimum Strength: {{item.str_minimum}} -- <br>
-                       Description: {{item.desc}} -- <br>
-                     Speed: {{item.speed }} -- <br>
-                     Capacity: {{item.capacity}} -- <br>
+
+                      Category: {{item.equipment_category}} -- <br> Category Range: {{item.category_range}} -- <br> Cost;
+                      {{item.cost}} -- <br> Damage: {{item.damage}} -- <br> Range: {{item.range}} -- <br> Throw: {{item.throw_range}}
+                      -- <br> Armor: {{item.armor_category}} -- <br> Armor Class: {{item.armor_class}} -- <br> Minimum Strength:
+                      {{item.str_minimum}} -- <br> Description: {{item.desc}} -- <br> Speed: {{item.speed }} -- <br> Capacity:
+                      {{item.capacity}} -- <br>
                     </div>
 
                   </slot>
@@ -181,20 +167,15 @@
                         <input type="text" class="form-control" v-model="spellName" placeholder="Spell Name" required>
                       </div>
                     </form>
-                     <div class="col-xs-6" v-for='spell in this.spells'>
+                    <div class="col-xs-6" v-for='spell in this.spells'>
                       <a @click="getSpell(spell)">{{spell.name}}</a>
                     </div>
                     <div class="col-xs-6">
-                      Name: {{spell.name}} -- <br>
-                      Description: {{spell.desc}} -- <br>                      
-                      Higher Level: {{spell.higher_level}} -- <br>
-                      Range: {{spell.range}} -- <br>
-                      Components: {{spell.components}} -- <br>
-                      Material: {{spell.material}} -- <br>
-                      Duration: {{spell.duration}} -- <br>
-                      Concentration: {{spell.concentration}} -- <br>
-                      Casting Time: {{spell.casting_time}} -- <br>
-                    </div> 
+                      Name: {{spell.name}} -- <br> Description: {{spell.desc}} -- <br> Higher Level: {{spell.higher_level}}
+                      -- <br> Range: {{spell.range}} -- <br> Components: {{spell.components}} -- <br> Material: {{spell.material}}
+                      -- <br> Duration: {{spell.duration}} -- <br> Concentration: {{spell.concentration}} -- <br> Casting
+                      Time: {{spell.casting_time}} -- <br>
+                    </div>
                   </slot>
                 </div>
                 <div class="modal-footer">
@@ -254,8 +235,8 @@
                 </div>
                 <div class="modal-body">
                   <slot name="body">
-                  <cover></cover>
-               
+                    <cover></cover>
+
                   </slot>
                 </div>
                 <div class="modal-footer">
@@ -278,8 +259,8 @@
       </div>
       <div class="col-md-2">
         <!--this button needs to be wired to complete initative sort-->
-        <button class="btn btn-default" @click = "assignInt()">Initiative button</button>
-        
+        <button class="btn btn-default" @click="assignInt()">Initiative button</button>
+
       </div>
       <div class="col-md-5"></div>
       <div class="col-md-2">
@@ -323,19 +304,19 @@
         playerName: '',
         spellName: '',
         equipmentName: ''
-    
+
       }
     },
     mounted() {
       this.$store.dispatch("getMonsters")
       this.$store.dispatch("getSpells")
-      this.$store.dispatch("getEquipment")  
+      this.$store.dispatch("getEquipment")
       this.$store.dispatch("getEncounter", this.$route.params.id)
       this.$store.dispatch("getPlayers", this.campaign._id)
       this.$store.dispatch("getCharacters", this.$route.params.id)
 
     },
-    
+
     computed: {
       monsters() {
         var keyword = this.monsterName
@@ -351,13 +332,13 @@
         }
         return monsters
       },
-      monster(){
+      monster() {
         return this.$store.state.activeMonster
       },
-      spell(){
+      spell() {
         return this.$store.state.activeSpell
       },
-      item(){
+      item() {
         return this.$store.state.activeEquipment
       },
       spells() {
@@ -391,71 +372,87 @@
       encounter() {
         return this.$store.state.activeEncounter
       },
-      characters(){
-      return this.$store.state.characters
+      characters() {
+        return this.$store.state.characters
       },
-      campaign(){
-      return this.$store.state.activeCampaign
+      campaign() {
+        return this.$store.state.activeCampaign
       },
-      players(){
-      return this.$store.state.players
+      players() {
+        return this.$store.state.players
       }
     },
     methods: {
-      getSpell(spell){
+      getSpell(spell) {
         this.$store.dispatch("getSpell", spell)
       },
-      getMonster(monster){
+      getMonster(monster) {
         this.$store.dispatch("getMonster", monster)
       },
-      getItem(item){
+      getItem(item) {
         this.$store.dispatch("getItem", item)
       },
-    logout() {
-      this.$store.dispatch('logout', this.user)
-    },
-    assignInt() {
-      this.$store.dispatch('setInit', this.compare)
-    },
-    compare(a, b) {
-        if (a.initiative < b.initiative){
+      logout() {
+        this.$store.dispatch('logout', this.user)
+      },
+      assignInt() {
+        this.$store.dispatch('setInit', this.compare)
+      },
+      compare(a, b) {
+        if (a.initiative < b.initiative) {
           return -1;
         }
-        if (b.initiative > a.initiative){
+        if (b.initiative > a.initiative) {
           return 1;
+        }
+        return 0;
       }
-      return 0;
-      }
-        //console.log(characters)
-  },
-  components: {
+      //console.log(characters)
+    },
+    components: {
       Character,
       Player,
       Conditions,
       Cover
     }
   }
+
 </script>
 
 
 <style scoped>
+  h1 {
+    font-size: 50px;
+  }
+  
+  .navbar {
+    background-color: rgba(100, 100, 100, 0);
+    border-color: rgba(100, 100, 100, 0);
+  }
+  
+  .dungeon {
+    color: #c70505;
+    font-family: 'Metal Mania';
+    text-shadow: 1px 1px 1px gold;
+    text-align: center;
+  }
+  
   .encounter {
     color: black;
   }
-
+  
   .tabrow {
     min-height: 100px;
   }
-
+  
   .initrow {
     min-height: 100px;
   }
-
+  
   .chars {
     min-height: 100px;
   }
-
-
+  
   .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -468,12 +465,12 @@
     transition: opacity .3s ease;
     color: black;
   }
-
+  
   .modal-wrapper {
     display: table-cell;
     vertical-align: middle;
   }
-
+  
   .modal-container {
     width: 900px;
     margin: 0px auto;
@@ -484,18 +481,18 @@
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
   }
-
+  
   .modal-header h3 {
     margin-top: 0;
     color: #42b983;
   }
-
+  
   .modal-body {
-     max-height:400px; 
-    overflow-y:auto;
+    max-height: 400px;
+    overflow-y: auto;
     margin: 20px 0;
   }
-
+  
   .modal-default-button {
     float: right;
   }
@@ -507,30 +504,29 @@
  * You can easily play with the modal transition by editing
  * these styles.
  */
-
+  
   .modal-enter {
     opacity: 0;
   }
-
+  
   .modal-leave-active {
     opacity: 0;
   }
-
+  
   .modal-enter .modal-container,
   .modal-leave-active .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
-
-  .modal-wrapper{
+  
+  .modal-wrapper {
     height: 90%;
   }
-
-  .modal-body{
+  
+  .modal-body {
     overflow: scroll;
   }
-
-
+  
   .well {
     min-height: 500px;
   }
