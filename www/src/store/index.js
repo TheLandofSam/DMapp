@@ -106,7 +106,7 @@ export default new Vuex.Store({
     },
 
     setActiveMonster(state, activeMonster) {
-      state.activeMonster = activeMonster.results
+      state.activeMonster = activeMonster
     },
     setActiveSpell(state, activeSpell) {
       state.activeSpell = activeSpell.results
