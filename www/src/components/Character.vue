@@ -49,13 +49,13 @@
             <div class="row">
               <!--ROW1 (OF ROW2/2) OPEN-->
               <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true" @click="addOne"></i>
+                <i class="fa fa-angle-up" aria-hidden="true" @click="updateHealth(1)"></i>
               </div>
               <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true" @click="addFive"></i>
+                <i class="fa fa-angle-up" aria-hidden="true" @click="updateHealth(5)"></i>
               </div>
               <div class="col-md-4">
-                <i class="fa fa-angle-up" aria-hidden="true" @click="addTen"></i>
+                <i class="fa fa-angle-up" aria-hidden="true" @click="updateHealth(10)"></i>
               </div>
             </div>
             <!--ROW1 (OF ROW2/2) CLOSE-->
@@ -72,13 +72,13 @@
             <div class="row">
               <!--ROW3 (OF ROW2/2) OPEN-->
               <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractOne"></i>
+                <i class="fa fa-angle-down" aria-hidden="true" @click="updateHealth(-1)"></i>
               </div>
               <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractFive"></i>
+                <i class="fa fa-angle-down" aria-hidden="true" @click="updateHealth(-5)"></i>
               </div>
               <div class="col-md-4">
-                <i class="fa fa-angle-down" aria-hidden="true" @click="subtractTen"></i>
+                <i class="fa fa-angle-down" aria-hidden="true" @click="updateHealth(-10)"></i>
               </div>
             </div>
             <!--ROW3 (OF ROW2/2) CLOSE-->
