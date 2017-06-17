@@ -18,7 +18,7 @@ var schema = new mongoose.Schema({
 	wisdom: { type: Number },
 	charisma: { type: Number },
 	armor_class: { type: Number},
-	speed: { type: Number },
+	speed: { type: String },
 	special_abilities: {type: String},
 	actions: { type: String }
 });
