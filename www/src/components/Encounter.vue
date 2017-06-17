@@ -244,7 +244,7 @@
       <div class="col-md-2">
         <!--this button needs to be wired to complete initative sort-->
         <button class="btn btn-default" @click = "assignInt()">Initiative button</button>
-        <button class="btn btn-default" @click = "characters.sort(compare)">Sort button</button>
+        
       </div>
       <div class="col-md-5"></div>
       <div class="col-md-2">
