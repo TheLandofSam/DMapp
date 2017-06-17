@@ -2,7 +2,7 @@
   <div class="character">
     <div class="row">
       <!--repeat this div for each monster & player, displayed on Encounter.vue-->
-      <div class="col-md-1" id="yippiddydoda">
+      <div class="col-md-1">
         <div class="row">
           <div class="col-md-12 int">
             <h5>INT</h5>
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2" id="yippiddydoda">
+      <div class="col-md-2">
         <div class="row">
           <div class="col-md-12">
             <h4>{{character.name}}</h4>
@@ -35,9 +35,10 @@
         <div class="row">
           <!--ROW 1 OF 2 OPEN-->
           <div class="col-md-12 hea">
-            <h5>HEALTH</h5>
+            <h5>HP</h5>
             <div class="hea2">
-              <input type="string">
+              <h5>C<input type="string" placeholder="now"></h5>
+              <h5>M<input type="string" placeholder="max"></h5>
             </div>
           </div>
         </div>
@@ -103,7 +104,7 @@
               <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
             </div>
             <div v-show="showArmor">
-              <h1>Kitties!!!</h1>
+              <h1>Character armor here...</h1>
             </div>
           </div>
         </div>
@@ -131,7 +132,7 @@
             <img src="http://i44.photobucket.com/albums/f3/suhmantha/sverd-i-fjell_zps1m8jlpma.png" alt="WEAPONS">
           </div>
           <div v-show="showWeapons">
-            <h1>Double Kitties!!</h1>
+            <h1>Character weapons here...</h1>
           </div>
 
         </div>
@@ -250,6 +251,7 @@
 
   .hea2 {
     padding-left: 8px;
+    
   }
 
   .ac {
