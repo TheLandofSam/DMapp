@@ -64,7 +64,7 @@
         encounterDescription: '',
         playerName: '',
         playerDescription: '',
-        playerHealth: 0
+        playerHealth: Number
       }
     },
     mounted() {
