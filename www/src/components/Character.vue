@@ -34,8 +34,8 @@
       <div class="col-md-1">
         <div class="row">
           <!--ROW 1 OF 2 OPEN-->
-          <div class="col-md-12 hea">
-            <h5>HP</h5>
+          <div class="col-md-12">
+            <h5 class="hea">HP</h5>
             <div class="hea2">
               <h5>{{character.health}}</h5>
               <h5>{{character.maxHealth}}</h5>
@@ -246,11 +246,11 @@
   }
 
   .hea {
-    padding-left: 25px;
+    padding-left: 30px;
   }
 
   .hea2 {
-    padding-left: 8px;
+    padding-left: 30px;
     
   }
 
