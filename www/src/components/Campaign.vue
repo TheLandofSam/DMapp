@@ -23,6 +23,7 @@
       <form @submit.prevent="createPlayer">
         <input type="text" v-model="playerName" required placeholder="Player Name">
         <input type="text" v-model="playerDescription" required placeholder="Player Description">
+        <input type="text" v-model="playerHealth" required placeholder="Player Health">
         <button type="submit">Create Player</button>
       </form>
       <div class="container-fluid">
@@ -62,7 +63,8 @@
         encounterName: '',
         encounterDescription: '',
         playerName: '',
-        playerDescription: ''
+        playerDescription: '',
+        playerHealth: ''
       }
     },
     mounted() {
@@ -87,6 +89,7 @@
       },
       createPlayer() {
         this.$store.dispatch('createPlayer', {
+          health: this.playerHealth,
           name: this.playerName,
           description: this.playerDescription,
           campaignId: this.$route.params.id
