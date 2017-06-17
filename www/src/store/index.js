@@ -109,7 +109,7 @@ export default new Vuex.Store({
       state.activeMonster = activeMonster
     },
     setActiveSpell(state, activeSpell) {
-      state.activeSpell = activeSpell.results
+      state.activeSpell = activeSpell
     },
     setInit(state, sortFunction){
        for(var i = 0; i < state.characters.length; i++){
