@@ -6,7 +6,7 @@ let ObjectId = mongoose.Schema.ObjectId
 var schema = new mongoose.Schema({
 	name: { type: String, required: true },
 	description: { type: String },
-	created: { type: Number, default: Date.now() },
+	created: { type: Number, default: Date.now() },	
 	// Relations
 	campaignId: { type: ObjectId, ref: models.campaign.name, required: true}
 });
