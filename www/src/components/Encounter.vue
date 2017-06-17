@@ -461,6 +461,8 @@
   }
 
   .modal-body {
+     max-height:500px; 
+    overflow-y:auto;
     margin: 20px 0;
   }
 
