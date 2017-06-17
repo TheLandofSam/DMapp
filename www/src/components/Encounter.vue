@@ -32,29 +32,40 @@
                         <input type="text" class="form-control" v-model="monsterName" placeholder="Monster Name" required>
                       </div>
                     </form>
-                    <div class="col-xs-6" v-for='monster in this.monsters'>
-                      <a @click="getMonster(monster)">{{monster.name}}</a>
-                    </div>
-                    <!--Dummy info for drawing monster description-->
-                    <div class="col-xs-6">
-                      Name: {{monster.name}} -- <br> Size: {{monster.size}} -- <br> Armor Class: {{monster.armor_class}}
-                      -- <br> Speed: {{monster.speed}} -- <br> Hit Points: {{monster.hit_points}} -- <br> Senses : {{monster.senses}}
-                      -- <br> Challenge Rating: {{monster.challenge_rating}} -- <br> Strength: {{monster.strength}} -- <br>                      Dexterity: {{monster.dexterity}} -- <br> Constitution: {{monster.constitution}} -- <br> Intelligence:
-                      {{monster.intelligence}} -- <br> Wisdom: {{monster.wisdom}} -- <br> Charisma: {{monster.charisma}}
-                      -- <br> Actions: {{monster.actions}}
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <div class="row">
+                            <div class="col-md-12" v-for='monster in this.monsters'>
+                              <a @click="getMonster(monster)">{{monster.name}}</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-12">
 
+                              Name: {{monster.name}} -- <br> Size: {{monster.size}} -- <br> Armor Class: {{monster.armor_class}}
+                              -- <br> Speed: {{monster.speed}} -- <br> Hit Points: {{monster.hit_points}} -- <br> Senses
+                              : {{monster.senses}} -- <br> Challenge Rating: {{monster.challenge_rating}} -- <br> Strength:
+                              {{monster.strength}} -- <br> Dexterity: {{monster.dexterity}} -- <br> Constitution: {{monster.constitution}}
+                              -- <br> Intelligence: {{monster.intelligence}} -- <br> Wisdom: {{monster.wisdom}} -- <br> Charisma:
+                              {{monster.charisma}} -- <br> Actions: {{monster.actions}}
+                              <button class="btn but-default">Add Monster</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-
-                    <!--dont forget to wire the add monster button-->
-                    <button class="btn but-default">Add Monster</button>
                   </slot>
                 </div>
+
                 <div class="modal-footer">
                   <slot name="footer">
                     Monster feet stink.
                     <button class="modal-default-button" @click="showMonsters=false">
-                  Close
-                </button>
+                    Close
+                    </button>
                   </slot>
                 </div>
               </div>
@@ -119,18 +130,29 @@
                         <input type="text" class="form-control" v-model="equipmentName" placeholder="Equipment Name" required>
                       </div>
                     </form>
-                    <div class="col-xs-6" v-for='item in this.equipment'>
-                      <a @click="getItem(item)">{{item.name}}</a>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="row">
 
-                    </div>
-                    <!--Dummy info for drawing monster description-->
-                    <div class="col-xs-6">
+                          <div class="col-xs-12" v-for='item in this.equipment'>
+                            <a @click="getItem(item)">{{item.name}}</a>
+                          </div>
+                        </div>
 
-                      Category: {{item.equipment_category}} -- <br> Category Range: {{item.category_range}} -- <br> Cost;
-                      {{item.cost}} -- <br> Damage: {{item.damage}} -- <br> Range: {{item.range}} -- <br> Throw: {{item.throw_range}}
-                      -- <br> Armor: {{item.armor_category}} -- <br> Armor Class: {{item.armor_class}} -- <br> Minimum Strength:
-                      {{item.str_minimum}} -- <br> Description: {{item.desc}} -- <br> Speed: {{item.speed }} -- <br> Capacity:
-                      {{item.capacity}} -- <br>
+                      </div>
+                      <!--Dummy info for drawing monster description-->
+                      <div class="col-xs-6">
+                        <div class="row">
+                          <div class="col-md-6">
+
+
+                            Category: {{item.equipment_category}} -- <br> Category Range: {{item.category_range}} -- <br>                            Cost; {{item.cost}} -- <br> Damage: {{item.damage}} -- <br> Range: {{item.range}} -- <br> Throw:
+                            {{item.throw_range}} -- <br> Armor: {{item.armor_category}} -- <br> Armor Class: {{item.armor_class}}
+                            -- <br> Minimum Strength: {{item.str_minimum}} -- <br> Description: {{item.desc}} -- <br> Speed:
+                            {{item.speed }} -- <br> Capacity: {{item.capacity}} -- <br>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                   </slot>
@@ -167,14 +189,24 @@
                         <input type="text" class="form-control" v-model="spellName" placeholder="Spell Name" required>
                       </div>
                     </form>
-                    <div class="col-xs-6" v-for='spell in this.spells'>
-                      <a @click="getSpell(spell)">{{spell.name}}</a>
-                    </div>
-                    <div class="col-xs-6">
-                      Name: {{spell.name}} -- <br> Description: {{spell.desc}} -- <br> Higher Level: {{spell.higher_level}}
-                      -- <br> Range: {{spell.range}} -- <br> Components: {{spell.components}} -- <br> Material: {{spell.material}}
-                      -- <br> Duration: {{spell.duration}} -- <br> Concentration: {{spell.concentration}} -- <br> Casting
-                      Time: {{spell.casting_time}} -- <br>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="row">
+                          <div class="col-xs-12" v-for='spell in this.spells'>
+                            <a @click="getSpell(spell)">{{spell.name}}</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="row">
+                          <div class="col-md-12">
+                            Name: {{spell.name}} -- <br> Description: {{spell.desc}} -- <br> Higher Level: {{spell.higher_level}}
+                            -- <br> Range: {{spell.range}} -- <br> Components: {{spell.components}} -- <br> Material: {{spell.material}}
+                            -- <br> Duration: {{spell.duration}} -- <br> Concentration: {{spell.concentration}} -- <br> Casting
+                            Time: {{spell.casting_time}} -- <br>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </slot>
                 </div>
@@ -424,35 +456,35 @@
   h1 {
     font-size: 50px;
   }
-  
+
   .navbar {
     background-color: rgba(100, 100, 100, 0);
     border-color: rgba(100, 100, 100, 0);
   }
-  
+
   .dungeon {
     color: #c70505;
     font-family: 'Metal Mania';
     text-shadow: 1px 1px 1px gold;
     text-align: center;
   }
-  
+
   .encounter {
     color: black;
   }
-  
+
   .tabrow {
     min-height: 100px;
   }
-  
+
   .initrow {
     min-height: 100px;
   }
-  
+
   .chars {
     min-height: 100px;
   }
-  
+
   .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -465,12 +497,12 @@
     transition: opacity .3s ease;
     color: black;
   }
-  
+
   .modal-wrapper {
     display: table-cell;
     vertical-align: middle;
   }
-  
+
   .modal-container {
     width: 900px;
     margin: 0px auto;
@@ -481,18 +513,18 @@
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
   }
-  
+
   .modal-header h3 {
     margin-top: 0;
     color: #42b983;
   }
-  
+
   .modal-body {
     max-height: 400px;
     overflow-y: auto;
     margin: 20px 0;
   }
-  
+
   .modal-default-button {
     float: right;
   }
@@ -504,29 +536,29 @@
  * You can easily play with the modal transition by editing
  * these styles.
  */
-  
+
   .modal-enter {
     opacity: 0;
   }
-  
+
   .modal-leave-active {
     opacity: 0;
   }
-  
+
   .modal-enter .modal-container,
   .modal-leave-active .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
-  
+
   .modal-wrapper {
     height: 90%;
   }
-  
+
   .modal-body {
     overflow: scroll;
   }
-  
+
   .well {
     min-height: 500px;
   }
