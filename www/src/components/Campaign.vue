@@ -90,6 +90,7 @@
       createPlayer() {
         this.$store.dispatch('createPlayer', {
           health: this.playerHealth,
+          maxHealth: this.playerHealth,
           name: this.playerName,
           description: this.playerDescription,
           campaignId: this.$route.params.id

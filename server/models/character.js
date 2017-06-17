@@ -7,6 +7,7 @@ var schema = new mongoose.Schema({
 	name: { type: String, required: true },
 	created: { type: Number, default: Date.now() },
 	health: {type: Number },
+	maxhealth: {type: Number},
 	// Relations
 	encounterId: { type: ObjectId, ref: models.encounter.name, required: true}
 });

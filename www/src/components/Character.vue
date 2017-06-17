@@ -38,7 +38,7 @@
             <h5>HP</h5>
             <div class="hea2">
               <h5>{{character.health}}</h5>
-              <h5>{{character.health}}</h5>
+              <h5>{{character.maxHealth}}</h5>
             </div>
           </div>
         </div>
