@@ -126,7 +126,7 @@
                     </form>
                     <div class="col-xs-6" v-for='item in this.equipment'>
                     <a @click="getItem(item)">{{item.name}}</a>
-    item
+    
                     </div>
                     <!--Dummy info for drawing monster description-->
                     <div class="col-xs-6">
@@ -134,9 +134,7 @@
                      Category: {{item.equipment_category}} -- <br> 
                      Category Range: {{item.category_range}} -- <br>
                       Cost; {{item.cost}} -- <br>
-                       Damage Die: {{item.damage.dice_count}} 
-                         {{item.damage.dice_value}} -- <br>
-                         Damage Type: {{item.damage.damage_type.name}} -- <br>
+                       Damage: {{item.damage}} -- <br>
                       Range: {{item.range}} -- <br>
                       Throw: {{item.throw_range}} -- <br>
                       Armor: {{item.armor_category}} -- <br>
