@@ -30,7 +30,24 @@
                     </div>
                     <!--Dummy info for drawing monster description-->
                     <div class="col-xs-6">
-                    {{monster.name}}
+                    Name: {{monster.name}} -- <br>
+
+                    Size: {{monster.size}} -- <br>
+
+                    Armor Class: {{monster.armor_class}} -- <br>
+
+                    Speed: {{monster.speed}} -- <br>
+                    Hit Points: {{monster.hit_points}} -- <br>
+                    Senses : {{monster.senses}} -- <br>
+                    Challenge Rating: {{monster.challenge_rating}} -- <br>
+                    Strength: {{monster.strength}} -- <br>
+                    Dexterity: {{monster.dexterity}} -- <br>
+                    Constitution: {{monster.constitution}} -- <br>
+                    Intelligence: {{monster.intelligence}} -- <br>
+                    Wisdom: {{monster.wisdom}} -- <br>
+                    Charisma: {{monster.charisma}} -- <br>
+                    Actions: {{monster.actions}}
+                    
                     </div>
                     Monster info, monster api call, or some other such stuffses would be here...
                     <!--dont forget to wire the add monster button-->
