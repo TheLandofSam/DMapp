@@ -23,7 +23,7 @@
       <form @submit.prevent="createPlayer">
         <input type="text" v-model="playerName" required placeholder="Player Name">
         <input type="text" v-model="playerDescription" required placeholder="Player Description">
-        <input type="text" v-model="playerHealth" required placeholder="Player Health">
+        <input type="number" v-model="playerHealth" required placeholder="Player Health">
         <button type="submit">Create Player</button>
       </form>
       <div class="container-fluid">
@@ -64,7 +64,7 @@
         encounterDescription: '',
         playerName: '',
         playerDescription: '',
-        playerHealth: ''
+        playerHealth: 0
       }
     },
     mounted() {
