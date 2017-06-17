@@ -49,7 +49,7 @@
                     Actions: {{monster.actions}}
                     
                     </div>
-                    Monster info, monster api call, or some other such stuffses would be here...
+                    
                     <!--dont forget to wire the add monster button-->
                     <button class="btn but-default">Add Monster</button>
                   </slot>
@@ -168,15 +168,20 @@
                         <input type="text" class="form-control" v-model="spellName" placeholder="Spell Name" required>
                       </div>
                     </form>
-                    <div v-for='spell in this.spells'>
-                      {{spell.name}}
+                     <div class="col-xs-6" v-for='spell in this.spells'>
+                      <a @click="getSpell(spell)">{{spell.name}}</a>
                     </div>
-                    <div class="col-xs-6" v-for='spell in this.spells'>
-                      {{spell.descr}}
-                    </div>                    
-                    Spells: its magic!! Spell info, spell api call, or some other such stuffses would be here...
-                    <!--dont forget to wire the add spell button-->
-                    <button class="btn but-default">Add Spell</button>
+                    <div class="col-xs-6">
+                      Name: {{spell.name}} -- <br>
+                      Description: {{spell.desc}} -- <br>                      
+                      Higher Level: {{spell.higher_level}} -- <br>
+                      Range: {{spell.range}} -- <br>
+                      Components: {{spell.components}} -- <br>
+                      Material: {{spell.material}} -- <br>
+                      Duration: {{spell.duration}} -- <br>
+                      Concentration: {{spell.concentration}} -- <br>
+                      Casting Time: {{spell.casting_time}} -- <br>
+                    </div> 
                   </slot>
                 </div>
                 <div class="modal-footer">
@@ -336,6 +341,9 @@
       monster(){
         return this.$store.state.activeMonster
       },
+      spell(){
+        return this.$store.state.activespell
+      },
       spells() {
         var keyword = this.spellName
         var temp = this.$store.state.spells
@@ -378,6 +386,9 @@
       }
     },
     methods: {
+      getSpell(spell){
+        this.$store.dispatch("getSpell", spell)
+      },
       getMonster(monster){
         this.$store.dispatch("getMonster", monster)
       },
