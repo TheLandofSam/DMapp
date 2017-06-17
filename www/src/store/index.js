@@ -101,8 +101,7 @@ export default new Vuex.Store({
     },
 
     setActiveEquipment(state, activeEquipment) {
-      state.activeEquipment = activeEquipment.results
-      console.log('equipment: ' + activeEquipment.name)
+      state.activeEquipment = activeEquipment
     },
 
     setActiveMonster(state, activeMonster) {

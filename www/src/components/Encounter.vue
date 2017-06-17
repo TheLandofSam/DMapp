@@ -124,16 +124,29 @@
                         <input type="text" class="form-control" v-model="equipmentName" placeholder="Equipment Name" required>
                       </div>
                     </form>
-                    <div v-for='item in this.equipment'>
-                      {{item.name}}
+                    <div class="col-xs-6" v-for='item in this.equipment'>
+                    <a @click="getItem(item)">{{item.name}}</a>
+    item
                     </div>
                     <!--Dummy info for drawing monster description-->
-                    <div class="col-xs-6" v-for='item in this.equipment'>
-                      {{item.descr}}
+                    <div class="col-xs-6">
+                    
+                     Category: {{item.equipment_category}} -- <br> 
+                     Category Range: {{item.category_range}} -- <br>
+                      Cost; {{item.cost}} -- <br>
+                       Damage Die: {{item.damage.dice_count}} 
+                         {{item.damage.dice_value}} -- <br>
+                         Damage Type: {{item.damage.damage_type.name}} -- <br>
+                      Range: {{item.range}} -- <br>
+                      Throw: {{item.throw_range}} -- <br>
+                      Armor: {{item.armor_category}} -- <br>
+                      Armor Class: {{item.armor_class}} -- <br>
+                      Minimum Strength: {{item.str_minimum}} -- <br>
+                       Description: {{item.desc}} -- <br>
+                     Speed: {{item.speed }} -- <br>
+                     Capacity: {{item.capacity}} -- <br>
                     </div>
-                    Equipment info, equipment api call, or some other such stuffses would be here...
-                    <!--dont forget to wire the add weapon button-->
-                    <button class="btn but-default">Add Equipment</button>
+
                   </slot>
                 </div>
                 <div class="modal-footer">
@@ -342,7 +355,10 @@
         return this.$store.state.activeMonster
       },
       spell(){
-        return this.$store.state.activespell
+        return this.$store.state.activeSpell
+      },
+      item(){
+        return this.$store.state.activeEquipment
       },
       spells() {
         var keyword = this.spellName
@@ -391,6 +407,9 @@
       },
       getMonster(monster){
         this.$store.dispatch("getMonster", monster)
+      },
+      getItem(item){
+        this.$store.dispatch("getItem", item)
       },
     logout() {
       this.$store.dispatch('logout', this.user)
