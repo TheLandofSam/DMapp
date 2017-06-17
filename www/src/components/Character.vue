@@ -37,8 +37,8 @@
           <div class="col-md-12 hea">
             <h5>HP</h5>
             <div class="hea2">
-              <h5>C <input type="string" placeholder="now"></h5>
-              <h5>M <input type="string" placeholder="max"></h5>
+              <h5>{{character.health}}</h5>
+              <h5>{{character.health}}</h5>
             </div>
           </div>
         </div>

@@ -329,7 +329,7 @@ export default new Vuex.Store({
       commit('setInit', customSort )
     },
     updateHealth({ commit, dispatch}, data){
-      commit('updateHealth', data)
+      commit('setHealth', data)
       //dispatch('saveEncounter')
     }
   }
