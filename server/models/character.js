@@ -19,8 +19,8 @@ var schema = new mongoose.Schema({
 	charisma: { type: Number },
 	armor_class: { type: Number},
 	speed: { type: String },
-	special_abilities: {type: String},
-	actions: { type: String }
+	special_abilities: {type: Array},
+	actions: { type: Array }
 });
 
 module.exports = mongoose.model(models.character.name, schema);

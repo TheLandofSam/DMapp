@@ -132,9 +132,10 @@
           <div @click="openWeapons">
             <img src="http://i44.photobucket.com/albums/f3/suhmantha/sverd-i-fjell_zps1m8jlpma.png" alt="WEAPONS">
           </div>
-          <div v-show="showWeapons"><!--THESE ARE POPULATING AS OBJ, OBJ, OBJ...MAY NOT BE ABLE TO USE THIS INFORMATION....-->
-            {{character.special_abilities}}
-            {{character.actions}}
+          <div v-show="showWeapons">
+            <!--THESE ARE POPULATING AS OBJ, OBJ, OBJ...MAY NOT BE ABLE TO USE THIS INFORMATION....-->
+            <!--{{character.actions.description}} {{character.actions}}-->
+            {{character}}
           </div>
 
         </div>
@@ -197,8 +198,8 @@
       removeCharacter(character) {
         this.$store.dispatch('removeCharacter', character)
       },
-      updateHealth(value){
-        this.$store.dispatch('updateHealth', {character: this.character, value: value})
+      updateHealth(value) {
+        this.$store.dispatch('updateHealth', { character: this.character, value: value })
       },
       openArmor() {
         this.showArmor = !this.showArmor
@@ -253,7 +254,6 @@
 
   .hea2 {
     padding-left: 30px;
-    
   }
 
   .ac {
@@ -268,25 +268,32 @@
   .spe {
     padding-left: 18px;
   }
-  .titleS{
+
+  .titleS {
     padding-left: 17px;
   }
-  .titleD{
+
+  .titleD {
     padding-left: 17px;
   }
-  .titleCN{
+
+  .titleCN {
     padding-left: 17px;
   }
-  .titleW{
+
+  .titleW {
     padding-left: 19px;
   }
-  .titleI{
+
+  .titleI {
     padding-left: 21px;
   }
-  .titleCH{
+
+  .titleCH {
     padding-left: 19px;
   }
-  .shifty{
+
+  .shifty {
     padding-left: 25px;
     min-height: 30px;
   }

@@ -50,7 +50,8 @@
                               : {{monster.senses}} -- <br> Challenge Rating: {{monster.challenge_rating}} -- <br> Strength:
                               {{monster.strength}} -- <br> Dexterity: {{monster.dexterity}} -- <br> Constitution: {{monster.constitution}}
                               -- <br> Intelligence: {{monster.intelligence}} -- <br> Wisdom: {{monster.wisdom}} -- <br> Charisma:
-                              {{monster.charisma}} -- <br> Actions: {{monster.actions}}
+                              {{monster.charisma}} -- <br> Actions: {{monster.actions}
+                              //monster.actions[0].desc}
                               <button class="btn but-default" @click="moveMonster">Add Monster</button>
                             </div>
                           </div>
