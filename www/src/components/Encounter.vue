@@ -98,7 +98,7 @@
                       {{player.name}}
 
                     Name: {{player.name}} -- <br> Armor Class: {{player.armor_class}} --
-                    <br> Speed: {{player.speed}} -- <br> Hit Points: {{player.hit_points}} -- <br> Weapons {{player.weapons}}
+                    <br> Speed: {{player.speed}} -- <br> Hit Points: {{player.health}} -- <br> Weapons {{player.weapons}}
                     -- <br>Strength: {{player.strength}} -- <br>                    
                     Dexterity: {{player.dexterity}} -- <br> Condition: {{player.condition}} -- <br> Intelligence:
                     {{player.intelligence}} -- <br> Wisdom: {{player.wisdom}} -- <br> Charisma: {{player.charisma}} --
