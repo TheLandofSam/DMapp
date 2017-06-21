@@ -161,12 +161,12 @@
         </div>
         <div class="row">
           <!--THE STAT MODIFIER-->
-          <div class="col-md-2"><input type="text"></div>
-          <div class="col-md-2"><input type="text"></div>
-          <div class="col-md-2"><input type="text"></div>
-          <div class="col-md-2"><input type="text"></div>
-          <div class="col-md-2"><input type="text"></div>
-          <div class="col-md-2"><input type="text"></div>
+          <div class="col-md-2"><input id="strMod" type="text"></div>
+          <div class="col-md-2"><input id="dexMod" type="text"></div>
+          <div class="col-md-2"><input id="conMod" type="text"></div>
+          <div class="col-md-2"><input id="wisMod" type="text"></div>
+          <div class="col-md-2"><input id="intMod" type="text"></div>
+          <div class="col-md-2"><input id="charMod" type="text"></div>
         </div>
       </div>
       <div class="col-md-1">

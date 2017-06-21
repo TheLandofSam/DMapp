@@ -16,16 +16,33 @@
         </button>
       <h3 class="dungeon">{{campaign.name}}</h3>
       <form @submit.prevent="createEncounter">
+      <div class="col-xs-6">
+        <div class="input-group">
         <input type="text" v-model="encounterName" required placeholder="Create Encounter">
         <input type="text" v-model="encounterDescription" required placeholder="Encounter Description">
         <button type="submit">Create Encounter</button>
+      </div>
+      </div>
       </form>
+   <div class="col-xs-6">   
+    <div class="input-group">
       <form @submit.prevent="createPlayer">
         <input type="text" v-model="playerName" required placeholder="Player Name">
         <input type="text" v-model="playerDescription" required placeholder="Player Description">
         <input type="number" v-model="playerHealth" required placeholder="Player Health">
+        <input type="number" v-model="playerArmor" required placeholder="Player Armor">
+        <input type="number" v-model="playerSpeed" required placeholder="Player Speed">
+        <input type="text" v-model="playerWeapons" required placeholder="Player Weapons">
+        <input type="number" v-model="playerStr" required placeholder="Player Strength">
+        <input type="number" v-model="playerDex" required placeholder="Player Dexterity">
+        <input type="number" v-model="playerCon" required placeholder="Player Condition">
+        <input type="number" v-model="playerWis" required placeholder="Player Wisdom">
+        <input type="number" v-model="playerIntelligence" required placeholder="Player Intelligence">
+        <input type="number" v-model="playerChar" required placeholder="Player Charisma">
         <button type="submit">Create Player</button>
       </form>
+        </div>
+        </div>
       <div class="container-fluid">
         <div class="row">
           <div class="well">
@@ -64,7 +81,9 @@
         encounterDescription: '',
         playerName: '',
         playerDescription: '',
-        playerHealth: Number
+        playerHealth: Number,
+       
+
       }
     },
     mounted() {
@@ -93,10 +112,27 @@
           maxHealth: this.playerHealth,
           name: this.playerName,
           description: this.playerDescription,
+          armor: this.playerArmor,
+          speed: this.playerSpeed,
+          weapons: this.playerWeapons,
+          intelligence: this.playerIntelligence,
+          strength: this.playerStr,
+          dexterity: this.playerDex,
+          condition: this.playerCon,
+          wisdom: this.playCon,
+          charisma: this.playerCharisma,
           campaignId: this.$route.params.id
         })
         this.playerName = ''
         this.playerDescription = ''
+        this.playerArmor = ''
+        this.playerSpeed = ''
+        this.playerWeapons = ''
+        this.playerIntelligence = ''
+        this.playerStr = ''
+        this.playerDex = ''
+        this.playerCon = ''
+        this.playerCharisma = ''
       },
       createEncounter() {
         this.$store.dispatch('createEncounter', {
