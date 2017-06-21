@@ -135,7 +135,6 @@
           <div v-show="showWeapons">
             <!--THESE ARE POPULATING AS OBJ, OBJ, OBJ...MAY NOT BE ABLE TO USE THIS INFORMATION....-->
             <!--{{character.actions.description}} {{character.actions}}-->
-            {{character}}
           </div>
 
         </div>

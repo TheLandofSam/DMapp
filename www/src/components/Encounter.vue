@@ -100,7 +100,7 @@
                     Name: {{player.name}} -- <br> Armor Class: {{player.armor_class}} --
                     <br> Speed: {{player.speed}} -- <br> Hit Points: {{player.health}} -- <br> Weapons {{player.weapons}}
                     -- <br>Strength: {{player.strength}} -- <br>                    
-                    Dexterity: {{player.dexterity}} -- <br> Condition: {{player.condition}} -- <br> Intelligence:
+                    Dexterity: {{player.dexterity}} -- <br> Constitution: {{player.constitution}} -- <br> Intelligence:
                     {{player.intelligence}} -- <br> Wisdom: {{player.wisdom}} -- <br> Charisma: {{player.charisma}} --
                     <br> Actions: {{player.actions}}
                     <button class="btn but-default" @click="movePlayer">Add Player</button>
