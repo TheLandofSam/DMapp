@@ -50,8 +50,7 @@
                               : {{monster.senses}} -- <br> Challenge Rating: {{monster.challenge_rating}} -- <br> Strength:
                               {{monster.strength}} -- <br> Dexterity: {{monster.dexterity}} -- <br> Constitution: {{monster.constitution}}
                               -- <br> Intelligence: {{monster.intelligence}} -- <br> Wisdom: {{monster.wisdom}} -- <br> Charisma:
-                              {{monster.charisma}} -- <br> Actions: {{monster.actions}
-                              //monster.actions[0].desc}
+                              {{monster.charisma}} -- <br> Actions: {{monster.actions}}
                               <button class="btn but-default" @click="moveMonster">Add Monster</button>
                             </div>
                           </div>
@@ -94,7 +93,19 @@
                       </div>
                     </form>
                     <div v-for='player in this.players'>
+                <div class="row">
+                  <div class="col-md-12">
                       {{player.name}}
+
+                    Name: {{player.name}} -- <br> Armor Class: {{player.armor_class}} --
+                    <br> Speed: {{player.speed}} -- <br> Hit Points: {{player.hit_points}} -- <br> Weapons {{player.weapons}}
+                    -- <br>Strength: {{player.strength}} -- <br>                    
+                    Dexterity: {{player.dexterity}} -- <br> Condition: {{player.condition}} -- <br> Intelligence:
+                    {{player.intelligence}} -- <br> Wisdom: {{player.wisdom}} -- <br> Charisma: {{player.charisma}} --
+                    <br> Actions: {{player.actions}}
+                    <button class="btn but-default" @click="movePlayer">Add Player</button>
+                  </div>
+                </div>
                     </div>
                   </slot>
                 </div>
@@ -331,6 +342,7 @@
         showCover: false,
         monsterName: '',
         playerName: '',
+        playerHealth: Number,
         spellName: '',
         equipmentName: ''
 
@@ -436,7 +448,7 @@
         }
         return 0;
       },
-      moveMonster(){
+      moveMonster() {
         this.$store.dispatch('moveMonster', this.encounter._id)
       }
       //console.log(characters)
