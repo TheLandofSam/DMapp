@@ -105,7 +105,7 @@
               <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
             </div>
             <div v-show="showArmor">
-             <textarea cols="30" rows="4"  placeholder="Armors" ></textarea>
+             <textarea cols="20" rows="4"  placeholder="Armors" ></textarea>
             </div>
           </div>
         </div>
