@@ -105,7 +105,7 @@
               <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
             </div>
             <div v-show="showArmor">
-              <h1>Character armor here...</h1>
+             <textarea cols="30" rows="4"  placeholder="Armors" ></textarea>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@
           </div>
           <div v-show="showWeapons">
             <!--THESE ARE POPULATING AS OBJ, OBJ, OBJ...MAY NOT BE ABLE TO USE THIS INFORMATION....-->
-            <!--{{character.actions.description}} {{character.actions}}-->
+            <textarea cols="30" rows="4" placeholder="Weapons"></textarea>
           </div>
 
         </div>
