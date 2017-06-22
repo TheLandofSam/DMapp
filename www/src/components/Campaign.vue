@@ -35,7 +35,7 @@
         <input type="text" v-model="playerWeapons" required placeholder="Player Weapons">
         <input type="number" v-model="playerStrength" required placeholder="Player Strength">
         <input type="number" v-model="playerDexterity" required placeholder="Player Dexterity">
-        <input type="number" v-model="playerConstitution" required placeholder="Player Condition">
+        <input type="number" v-model="playerConstitution" required placeholder="Player Constitution">
         <input type="number" v-model="playerWisdom" required placeholder="Player Wisdom">
         <input type="number" v-model="playerIntelligence" required placeholder="Player Intelligence">
         <input type="number" v-model="playerCharisma" required placeholder="Player Charisma">
