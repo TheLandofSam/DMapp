@@ -15,7 +15,7 @@
     <div class="row tabrow">
       <!--MONSTERS TAB -->
       <div class="col-md-2">
-        <button type="button" class="btn btn-default" @click="showMonsters=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/hydra_zpsgpfgg87j.png" alt="MONSTER"></button>
+        <button type="button" title="three heads == monster" class="btn btn-default" @click="showMonsters=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/hydra_zpsgpfgg87j.png" alt="MONSTER"></button>
         <transition name="modal" v-if="showMonsters">
           <div class="modal-mask">
             <div class="modal-wrapper">
@@ -79,7 +79,7 @@
       </div>
       <!--PLAYERS TAB -->
       <div class="col-md-2">
-        <button type="button" class="btn btn-default" @click="showPlayer=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/swordwoman_zps1ej7mjd4.png" alt="PLAYER"></button>
+        <button type="button" title="" class="btn btn-default" @click="showPlayer=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/swordwoman_zps1ej7mjd4.png" alt="PLAYER"></button>
         <transition name="modal" v-if="showPlayer">
           <div class="modal-mask">
             <div class="modal-wrapper">
@@ -128,7 +128,7 @@
       </div>
       <!--WEAPONS TAB -->
       <div class="col-md-2">
-        <button type="button" class="btn btn-default" @click="showWeapons=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/sverd-i-fjell_zps1m8jlpma.png" alt="EQUIPMENT"></button>
+        <button type="button" title="things that hurt == weapons" class="btn btn-default" @click="showWeapons=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/sverd-i-fjell_zps1m8jlpma.png" alt="EQUIPMENT"></button>
         <transition name="modal" v-if="showWeapons">
           <div class="modal-mask">
             <div class="modal-wrapper">
@@ -187,7 +187,7 @@
       </div>
       <!--SPELLS TAB -->
       <div class="col-md-2">
-        <button type="button" class="btn btn-default" @click="showSpells=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/bolt-spell-cast_zpsi9di3iqo.png" alt="COVER"></button>
+        <button type="button" title="spell == mindblown" class="btn btn-default" @click="showSpells=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/bolt-spell-cast_zpsi9di3iqo.png" alt="COVER"></button>
         <transition name="modal" v-if="showSpells">
           <div class="modal-mask">
             <div class="modal-wrapper">
@@ -240,7 +240,7 @@
       </div>
       <!--CONDITIONS TAB -->
       <div class="col-md-2">
-        <button type="button" class="btn btn-default" @click="showConditions=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/internal-injury_zpsud0740dt.png" alt="CONDITION"></button>
+        <button type="button" title="condition: player != okay" class="btn btn-default" @click="showConditions=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/internal-injury_zpsud0740dt.png" alt="CONDITION"></button>
         <transition name="modal" v-if="showConditions">
           <div class="modal-mask">
             <div class="modal-wrapper">
@@ -270,7 +270,7 @@
       </div>
       <!--COVER TAB -->
       <div class="col-md-2">
-        <button type="button" class="btn btn-default" @click="showCover=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/stone-pile_zpsp2lesxwg.png" alt="COVER"></button>
+        <button type="button" title="big rock == cover" class="btn btn-default" @click="showCover=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/stone-pile_zpsp2lesxwg.png" alt="COVER"></button>
         <transition name="modal" v-if="showCover">
           <div class="modal-mask">
             <div class="modal-wrapper">
