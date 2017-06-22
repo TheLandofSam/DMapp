@@ -32,7 +32,7 @@
         <input type="number" v-model="playerHealth" required placeholder="Player Health">
         <input type="number" v-model="playerArmor" required placeholder="Player Armor">
         <input type="number" v-model="playerSpeed" required placeholder="Player Speed">
-        <input type="text" v-model="playerWeapons" required placeholder="Player Weapons">
+        <input type="text" v-model="playerWeapons" required placeholder="Player Weapons/ Dice Damage">
         <input type="number" v-model="playerStrength" required placeholder="Player Strength">
         <input type="number" v-model="playerDexterity" required placeholder="Player Dexterity">
         <input type="number" v-model="playerConstitution" required placeholder="Player Constitution">
