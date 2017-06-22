@@ -44,14 +44,18 @@
                         <div class="col-md-6">
                           <div class="row">
                             <div class="col-md-12">
-
                               Name: {{monster.name}} -- <br> Size: {{monster.size}} -- <br> Armor Class: {{monster.armor_class}}
                               -- <br> Speed: {{monster.speed}} -- <br> Hit Points: {{monster.hit_points}} -- <br> Senses
                               : {{monster.senses}} -- <br> Challenge Rating: {{monster.challenge_rating}} -- <br> Strength:
                               {{monster.strength}} -- <br> Dexterity: {{monster.dexterity}} -- <br> Constitution: {{monster.constitution}}
                               -- <br> Intelligence: {{monster.intelligence}} -- <br> Wisdom: {{monster.wisdom}} -- <br> Charisma:
                               {{monster.charisma}} -- <br> Actions: {{monster.actions}}
-                              <button class="btn but-default" @click="moveMonster">Add Monster</button>
+                              <form @submit.prevent="moveMonster">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" v-model="monsterName" :placeholder="monster.name">
+                                  <button class="btn but-default" @submit="moveMonster">Add Monster</button>
+                                </div>
+                              </form>
                             </div>
                           </div>
                         </div>
@@ -449,7 +453,25 @@
         return 0;
       },
       moveMonster() {
+        var baseName = this.$store.state.activeMonster.name
+        if(this.monsterName == ''){
+          this.nameMonster(this.monsterName)
+        }
+        this.$store.state.activeMonster.name = this.monsterName
         this.$store.dispatch('moveMonster', this.encounter._id)
+        this.monsterName = ''
+      },
+      nameMonster(monsterName) {
+        var monstersName
+        var names = ["Alden", "Alec", "Anton", "Arden", "Arlen", "Armand", "Arron", "Augustus", "Avery", "Benedict", "Bennett", "Branden", "Brendon", "Britt", "Broderick", "Carter", "Chadwick", "Chas", "Chet", "Colby", "Cole", "Cordell", "Dalton", "Damien", "Dante", "Darryl", "Darius", "Darron", "Darwin", "Dewitt", "Diego", "Dillon", "Dirk", "Domenic", "Donovan", "Dorian", "Dorsey", "Edison", "Elden", "Elvin", "Erich", "Galen", "Garret", "Gaston", "Gavin", "Gorgon", "Graham", "Hal", "Hank", "Harlan", "Hayden", "Herschel", "Hoyt", "Hunter", "Isaias", "Isaac", "Jacinto", "Jarred", "Jonas", "Kendrick", "Kyle", "Kennith", "Keven", "Leif", "Lenard", "Lincoln", "Linwood", "Lucius", "Sam", "Malcolm", "Malik", "Maxwell", "McKinley", "Merlin", "Merrill", "Michal", "Monty", "Newton", "Nolan", "Porter", "Quinton", "Raphael", "Reid", "Jason", "Scotty", "Shad", "Stanton", "Stefan", "Thaddeus", "Tobias", "Trenton", "Vance", "Walker", "Walton", "Weldon", "Wes", "Weston", "Willian", "Winford", "Wyatt", "Zordon"]
+        var randomName;
+          function getRandomName(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
+            randomName = names[getRandomName(0, names.length)]
+
+        monstersName = `${randomName} the ${this.$store.state.activeMonster.name}`
+        this.monsterName = monstersName
       }
       //console.log(characters)
     },
