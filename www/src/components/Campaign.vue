@@ -27,20 +27,22 @@
       <div class="col-xs-6">
         <div class="input-group">
           <form @submit.prevent="createPlayer">
-            <input type="text" v-model="playerName" required placeholder="Player Name">
-            <input type="text" v-model="playerDescription" required placeholder="Player Description">
-            <input type="number" v-model="playerHealth" required placeholder="Player Health">
-            <input type="number" v-model="playerArmor" required placeholder="Player Armor">
-            <input type="number" v-model="playerSpeed" required placeholder="Player Speed">
-            <input type="text" v-model="playerWeapons" required placeholder="Player Weapons/ Dice Damage">
-            <input type="number" v-model="playerStrength" required placeholder="Player Strength">
-            <input type="number" v-model="playerDexterity" required placeholder="Player Dexterity">
-            <input type="number" v-model="playerConstitution" required placeholder="Player Constitution">
-            <input type="number" v-model="playerWisdom" required placeholder="Player Wisdom">
-            <input type="number" v-model="playerIntelligence" required placeholder="Player Intelligence">
-            <input type="number" v-model="playerCharisma" required placeholder="Player Charisma">
+            <div class="input-group">
+              <input type="text" v-model="playerName" required placeholder="Player Name">
+              <input type="text" v-model="playerDescription" required placeholder="Player Description">
+              <input type="number" v-model="playerHealth" required placeholder="Player Health">
+              <input type="number" v-model="playerArmor" required placeholder="Player Armor">
+              <input type="number" v-model="playerSpeed" required placeholder="Player Speed">
+              <input type="text" v-model="playerWeapons" required placeholder="Player Weapons/ Dice Damage">
+              <input type="number" v-model="playerStrength" required placeholder="Player Strength">
+              <input type="number" v-model="playerDexterity" required placeholder="Player Dexterity">
+              <input type="number" v-model="playerConstitution" required placeholder="Player Constitution">
+              <input type="number" v-model="playerWisdom" required placeholder="Player Wisdom">
+              <input type="number" v-model="playerIntelligence" required placeholder="Player Intelligence">
+              <input type="number" v-model="playerCharisma" required placeholder="Player Charisma">
+            </div>
+            <button type="submit">Create Player</button>
           </form>
-          <button type="submit">Create Player</button>
         </div>
       </div>
       <div class="container-fluid">
@@ -50,16 +52,18 @@
               <div class="col-xs-6">
                 <h1 class="dungeon">Encounter</h1>
                 <a class="list-group-item" v-for="encounter in encounters">
-                  <button @click="movePlayers(players, encounter._id)">Add all Players</button>                  <a class="fa fa-trash" @click="removeEncounter(encounter)"></a>
-                <router-link :to="'/campaigns/'+campaign._id+'/encounters/' + encounter._id ">
-                  {{encounter.name}}
-                </router-link>
+                  <button @click="movePlayers(players, encounter._id)">Add all Players</button>
+                  <router-link :to="'/campaigns/'+campaign._id+'/encounters/' + encounter._id ">
+                    {{encounter.name}}
+                  </router-link>
+                  <a class="fa fa-trash" @click="removeEncounter(encounter)"></a>
                 </a>
               </div>
               <div class="col-xs-6">
                 <h1 class="dungeon">Player</h1>
                 <a class="list-group-item" v-for="player in players">
-                  <a class="fa fa-trash" @click="removePlayer(player)"></a> {{player.name}}
+                  {{player.name}}
+                  <a class="fa fa-trash" @click="removePlayer(player)"></a>
                 </a>
               </div>
             </div>
@@ -120,7 +124,7 @@
           maxHealth: this.playerHealth,
           name: this.playerName,
           description: this.playerDescription,
-          armor: this.playerArmor,
+          armor_class: this.playerArmor,
           speed: this.playerSpeed,
           weapons: this.playerWeapons,
           intelligence: this.playerIntelligence,
@@ -177,43 +181,47 @@
 </script>
 
 <style scoped>
+  button {
+    color: #333;
+  }
+  
   h1 {
     text-align: center;
     font-size: 50px;
   }
-
+  
   .navbar {
     background-color: rgba(100, 100, 100, 0);
     border-color: rgba(100, 100, 100, 0);
   }
-
+  
   .list-group-item {
     background-color: rgba(100, 100, 100, 0);
     border-color: rgba(100, 100, 100, 0);
   }
-
+  
   .list-group-item:hover {
     background-color: rgba(100, 100, 100, 0);
     border-color: rgba(100, 100, 100, 0);
   }
-
+  
   .dungeon {
     color: #c70505;
     font-family: 'Metal Mania';
     text-shadow: 1px 1px 1px gold;
   }
-
+  
   a {
     color: whitesmoke;
     text-shadow: 1px 1px 1px rgba(100, 100, 100, 0);
   }
-
+  
   .well {
     background-color: rgba(100, 100, 100, 0);
     border-color: rgba(100, 100, 100, 0);
     font-family: 'Asap', sans-serif;
   }
-
+  
   h6 {
     color: #333
   }

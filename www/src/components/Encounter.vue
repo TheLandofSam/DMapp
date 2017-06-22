@@ -97,19 +97,17 @@
                       </div>
                     </form>
                     <div v-for='player in this.players'>
-                <div class="row">
-                  <div class="col-md-12">
-                      {{player.name}}
-
-                    Name: {{player.name}} -- <br> Armor Class: {{player.armor_class}} --
-                    <br> Speed: {{player.speed}} -- <br> Hit Points: {{player.health}} -- <br> Weapons {{player.weapons}}
-                    -- <br>Strength: {{player.strength}} -- <br>                    
-                    Dexterity: {{player.dexterity}} -- <br> Constitution: {{player.constitution}} -- <br> Intelligence:
-                    {{player.intelligence}} -- <br> Wisdom: {{player.wisdom}} -- <br> Charisma: {{player.charisma}} --
-                    <br> Actions: {{player.actions}}
-                    <button class="btn but-default" @click="movePlayer">Add Player</button>
-                  </div>
-                </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          {{player.name}} Name: {{player.name}} -- <br> Armor Class: {{player.armor_class}} --
+                          <br> Speed: {{player.speed}} -- <br> Hit Points: {{player.health}} -- <br> Weapons {{player.weapons}}
+                          -- <br>Strength: {{player.strength}} -- <br> Dexterity: {{player.dexterity}} -- <br> Constitution:
+                          {{player.constitution}} -- <br> Intelligence: {{player.intelligence}} -- <br> Wisdom: {{player.wisdom}}
+                          -- <br> Charisma: {{player.charisma}} --
+                          <br> Actions: {{player.actions}}
+                          <button class="btn but-default" @click="movePlayer">Add Player</button>
+                        </div>
+                      </div>
                     </div>
                   </slot>
                 </div>
@@ -160,11 +158,11 @@
                         <div class="row">
                           <div class="col-md-6">
 
-                            Name: {{item.name}} --<br>
-                            Category: {{item.equipment_category}} -- <br> Category Range: {{item.category_range}} -- <br>                            Cost; {{item.cost}} -- <br> Damage: {{item.damage}} -- <br> Range: {{item.range}} -- <br> Throw:
-                            {{item.throw_range}} -- <br> Armor: {{item.armor_category}} -- <br> Armor Class: {{item.armor_class}}
-                            -- <br> Minimum Strength: {{item.str_minimum}} -- <br> Description: {{item.desc}} -- <br> Speed:
-                            {{item.speed }} -- <br> Capacity: {{item.capacity}} -- <br>
+                            Name: {{item.name}} --<br> Category: {{item.equipment_category}} -- <br> Category Range: {{item.category_range}}
+                            -- <br> Cost; {{item.cost}} -- <br> Damage: {{item.damage}} -- <br> Range: {{item.range}} --
+                            <br> Throw: {{item.throw_range}} -- <br> Armor: {{item.armor_category}} -- <br> Armor Class:
+                            {{item.armor_class}} -- <br> Minimum Strength: {{item.str_minimum}} -- <br> Description: {{item.desc}}
+                            -- <br> Speed: {{item.speed }} -- <br> Capacity: {{item.capacity}} -- <br>
                           </div>
                         </div>
                       </div>
@@ -321,7 +319,6 @@
     <div class="row chars">
       <div class="well well-lg">
         <Character class="well" v-for="character in characters" :character="character"></Character>
-        <div v-for="character in characters">{{character.name}}</div>
       </div>
     </div>
   </div>
@@ -454,7 +451,7 @@
       },
       moveMonster() {
         var baseName = this.$store.state.activeMonster.name
-        if(this.monsterName == ''){
+        if (this.monsterName == '') {
           this.nameMonster(this.monsterName)
         }
         this.$store.state.activeMonster.name = this.monsterName
@@ -465,10 +462,10 @@
         var monstersName
         var names = ["Alden", "Alec", "Anton", "Arden", "Arlen", "Armand", "Arron", "Augustus", "Avery", "Benedict", "Bennett", "Branden", "Brendon", "Britt", "Broderick", "Carter", "Chadwick", "Chas", "Chet", "Colby", "Cole", "Cordell", "Dalton", "Damien", "Dante", "Darryl", "Darius", "Darron", "Darwin", "Dewitt", "Diego", "Dillon", "Dirk", "Domenic", "Donovan", "Dorian", "Dorsey", "Edison", "Elden", "Elvin", "Erich", "Galen", "Garret", "Gaston", "Gavin", "Gorgon", "Graham", "Hal", "Hank", "Harlan", "Hayden", "Herschel", "Hoyt", "Hunter", "Isaias", "Isaac", "Jacinto", "Jarred", "Jonas", "Kendrick", "Kyle", "Kennith", "Keven", "Leif", "Lenard", "Lincoln", "Linwood", "Lucius", "Sam", "Malcolm", "Malik", "Maxwell", "McKinley", "Merlin", "Merrill", "Michal", "Monty", "Newton", "Nolan", "Porter", "Quinton", "Raphael", "Reid", "Jason", "Scotty", "Shad", "Stanton", "Stefan", "Thaddeus", "Tobias", "Trenton", "Vance", "Walker", "Walton", "Weldon", "Wes", "Weston", "Willian", "Winford", "Wyatt", "Zordon"]
         var randomName;
-          function getRandomName(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-          }
-            randomName = names[getRandomName(0, names.length)]
+        function getRandomName(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        randomName = names[getRandomName(0, names.length)]
 
         monstersName = `${randomName} the ${this.$store.state.activeMonster.name}`
         this.monsterName = monstersName
@@ -490,35 +487,35 @@
   h1 {
     font-size: 50px;
   }
-
+  
   .navbar {
     background-color: rgba(100, 100, 100, 0);
     border-color: rgba(100, 100, 100, 0);
   }
-
+  
   .dungeon {
     color: #c70505;
     font-family: 'Metal Mania';
     text-shadow: 1px 1px 1px gold;
     text-align: center;
   }
-
+  
   .encounter {
     color: black;
   }
-
+  
   .tabrow {
     min-height: 100px;
   }
-
+  
   .initrow {
     min-height: 100px;
   }
-
+  
   .chars {
     min-height: 100px;
   }
-
+  
   .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -531,12 +528,12 @@
     transition: opacity .3s ease;
     color: black;
   }
-
+  
   .modal-wrapper {
     display: table-cell;
     vertical-align: middle;
   }
-
+  
   .modal-container {
     width: 900px;
     margin: 0px auto;
@@ -547,18 +544,18 @@
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
   }
-
+  
   .modal-header h3 {
     margin-top: 0;
     color: #42b983;
   }
-
+  
   .modal-body {
     max-height: 400px;
     overflow-y: auto;
     margin: 20px 0;
   }
-
+  
   .modal-default-button {
     float: right;
   }
@@ -570,29 +567,29 @@
  * You can easily play with the modal transition by editing
  * these styles.
  */
-
+  
   .modal-enter {
     opacity: 0;
   }
-
+  
   .modal-leave-active {
     opacity: 0;
   }
-
+  
   .modal-enter .modal-container,
   .modal-leave-active .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
-
+  
   .modal-wrapper {
     height: 90%;
   }
-
+  
   .modal-body {
     overflow: scroll;
   }
-
+  
   .well {
     min-height: 300px;
   }
