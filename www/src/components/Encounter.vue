@@ -79,7 +79,7 @@
       </div>
       <!--PLAYERS TAB -->
       <div class="col-md-2">
-        <button type="button" title="" class="btn btn-default" @click="showPlayer=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/swordwoman_zps1ej7mjd4.png" alt="PLAYER"></button>
+        <button type="button" title="swordwoman == playa" class="btn btn-default" @click="showPlayer=true"><img src="http://i44.photobucket.com/albums/f3/suhmantha/swordwoman_zps1ej7mjd4.png" alt="PLAYER"></button>
         <transition name="modal" v-if="showPlayer">
           <div class="modal-mask">
             <div class="modal-wrapper">
