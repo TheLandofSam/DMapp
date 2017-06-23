@@ -126,6 +126,7 @@ export default new Vuex.Store({
       return 0;
       })
     },
+    // I think we should be able to figure out how to add something that would work universally for str, dex, con, etc. that's why i just put blarg in. I just don't know what it should be.
     setMod(state, ){
       var mod = 0
       if(blarg == 1){
