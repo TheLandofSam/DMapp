@@ -303,7 +303,7 @@
         <!--this is a purposely blank spot-->
       </div>
       <div class="col-md-2">
-        <button class="btn btn-default" @click="assignInt()">Initiative button</button>
+        <button class="btn btn-default" @click="assignInt()">Initiative roll</button>
 
       </div>
       <div class="col-md-5"></div>

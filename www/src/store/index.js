@@ -114,7 +114,7 @@ export default new Vuex.Store({
     setInit(state, sortFunction){
        for(var i = 0; i < state.characters.length; i++){
         
-        state.characters[i].initiative = Math.floor(Math.random()*20 + 1 + dexterityMod)
+        state.characters[i].initiative = Math.floor(Math.random()*20 + 1 + Math.floor((this.character.dexterity - 10)/2))
       }
       state.characters.sort((a,b)=>{
         if (a.initiative < b.initiative){
@@ -126,59 +126,7 @@ export default new Vuex.Store({
       return 0;
       })
     },
-    // I think we should be able to figure out how to add something that would work universally for str, dex, con, etc. that's why i just put blarg in. I just don't know what it should be.
-    setMod(state, ){
-      var mod = 0
-      if(blarg == 1){
-        mod = -5
-      }
-      else if(blarg == 2 || blarg == 3){
-        mod = -4
-      }
-      else if(blarg == 4 || blarg == 5){
-        mod = -3
-      }
-      else if(blarg == 6 || blarg == 7){
-        mod = -2
-      }
-      else if(blarg == 8 || blarg == 9){
-        mod = -1
-      }
-      else if(blarg == 10 || blarg == 11){
-        mod = 0
-      }
-      else if(blarg == 12 || blarg == 13){
-        mod = +1
-      }
-      else if(blarg == 14 || blarg == 15){
-        mod = +2
-      }
-      else if(blarg == 16 || blarg == 17){
-        mod = +3
-      }
-      else if(blarg == 18 || blarg == 19){
-        mod = +4
-      }
-      else if(blarg == 20 || blarg == 21){
-        mod = +5
-      }
-      else if(blarg == 22 || blarg == 23){
-        mod = +6
-      }
-      else if(blarg == 24 || blarg == 25){
-        mod = +7
-      }
-      else if(blarg == 26 || blarg == 27){
-        mod = +8
-      }
-      else if(blarg == 28 || blarg == 29){
-        mod = +9
-      }
-      else if(blarg == 30 || blarg == 31){
-        mod = +10
-      }
-      return mod
-    },
+   
     setHealth(state, data){
       var charIndex = state.characters.indexOf(data.character)
       state.characters[charIndex].health+=data.value
