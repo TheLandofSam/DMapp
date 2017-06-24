@@ -38,6 +38,7 @@ let state = {
   players: [],
   monsters: [],
   activeMonster: {},
+  tempMonster: {},
   spells: [],
   activeSpell: {},
   weapons: [],
@@ -325,7 +326,7 @@ export default new Vuex.Store({
         .catch(handleError)
     },
     moveMonster({ commit, dispatch }, encounterId) {
-      var monster = state.activeMonster
+      var monster = state.tempMonster
       monster.description = monster.size
       monster.health = monster.hit_points
       monster.maxHealth = monster.hit_points
@@ -334,6 +335,7 @@ export default new Vuex.Store({
       api.post('./characters/' + encounterId, monster)
         .then(res => {
           //console.log(res.data.data)
+          state.tempMonster.name = state.activeMonster.name
           dispatch('getCharacters', encounterId)
         })
     },

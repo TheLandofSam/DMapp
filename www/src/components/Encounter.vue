@@ -64,7 +64,7 @@
                               <br> Actions: {{monster.actions}}
                               <form @submit.prevent="moveMonster">
                                 <div class="form-group">
-                                  <input type="text" class="form-control" v-model="monsterName" :placeholder="monster.name">
+                                  <input type="text" class="form-control" :placeholder="monster.name">
                                   <button class="btn but-default" @submit="moveMonster">Add Monster</button>
                                 </div>
                               </form>
@@ -505,13 +505,15 @@ export default {
       return 0;
     },
     moveMonster() {
-      var baseName = this.$store.state.activeMonster.name
+      var tempMon = this.$store.state.activeMonster
+      this.$store.state.tempMonster = this.$store.state.activeMonster
       if (this.monsterName == '') {
         this.nameMonster(this.monsterName)
       }
-      this.$store.state.activeMonster.name = this.monsterName
+      this.$store.state.tempMonster.name = this.monsterName
       this.$store.dispatch('moveMonster', this.encounter._id)
       this.monsterName = ''
+      this.getMonster(tempMon)
     },
     nameMonster(monsterName) {
       var monstersName
