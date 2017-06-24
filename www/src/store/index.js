@@ -29,7 +29,8 @@ let auth = axios.create({
 
 // REGISTER ALL DATA HERE
 let state = {
- characters: [],
+  characters: [],
+  removeCharacters: [],
   campaigns: [],
   activeCampaign: {},
   encounters: [],
@@ -107,30 +108,30 @@ export default new Vuex.Store({
     setActiveMonster(state, activeMonster) {
       state.activeMonster = activeMonster
       console.log(activeMonster)
-  },
+    },
     setActiveSpell(state, activeSpell) {
       state.activeSpell = activeSpell
     },
-    setInit(state, sortFunction){
-       for(var i = 0; i < state.characters.length; i++){
-         var character = state.characters[i]
-        character.initiative = Math.floor(Math.random()*20 + 1)+
-        Math.floor((character.dexterity-10)/2)
+    setInit(state, sortFunction) {
+      for (var i = 0; i < state.characters.length; i++) {
+        var character = state.characters[i]
+        character.initiative = Math.floor(Math.random() * 20 + 1) +
+          Math.floor((character.dexterity - 10) / 2)
       }
-      state.characters.sort((a,b)=>{
-        if (a.initiative < b.initiative){
+      state.characters.sort((a, b) => {
+        if (a.initiative < b.initiative) {
           return 1;
         }
-        if (b.initiative < a.initiative){
+        if (b.initiative < a.initiative) {
           return -1;
-      }
-      return 0;
+        }
+        return 0;
       })
     },
-   
-    setHealth(state, data){
+
+    setHealth(state, data) {
       var charIndex = state.characters.indexOf(data.character)
-      state.characters[charIndex].health+=data.value
+      state.characters[charIndex].health += data.value
     }
 
   },
@@ -228,7 +229,7 @@ export default new Vuex.Store({
           dispatch('getCharacters', character.encounterId)
         })
         .catch(handleError)
-    },    
+    },
     removeCharacter({ commit, dispatch }, character) {
       api.delete('/characters/' + character._id)
         .then(res => {
@@ -236,13 +237,13 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    movePlayers({commit, dispatch}, player){
+    movePlayers({ commit, dispatch }, player) {
       api.post('./characters/' + player.encounterId, player)
         .then(res => {
           console.log(res.data.data)
           commit('setCharacters', res.data.data)
         })
-          dispatch('getCharacters', player.encounterId)
+      dispatch('getCharacters', player.encounterId)
     },
     login({ commit, dispatch }, user) {
       auth.post('login', user)
@@ -323,7 +324,7 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    moveMonster({ commit, dispatch}, encounterId){
+    moveMonster({ commit, dispatch }, encounterId) {
       var monster = state.activeMonster
       monster.description = monster.size
       monster.health = monster.hit_points
@@ -343,10 +344,10 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    setInit({ commit, dispatch }, customSort){
-      commit('setInit', customSort )
+    setInit({ commit, dispatch }, customSort) {
+      commit('setInit', customSort)
     },
-    updateHealth({ commit, dispatch}, data){
+    updateHealth({ commit, dispatch }, data) {
       commit('setHealth', data)
       //dispatch('saveEncounter')
     }

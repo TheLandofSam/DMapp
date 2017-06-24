@@ -173,7 +173,7 @@
             <div class="ui checkbox"><input type="checkbox" name="checkbox"></div>
           </div>
           <div class="row" id="end2">
-            <div @click="closeCharacter">
+            <div @click="removeCharacter(character)">
               <i><img class="tiny" src="http://i44.photobucket.com/albums/f3/suhmantha/skullDelete_zpsmswuacpy.png"></i>
             </div>
           </div>
@@ -199,7 +199,9 @@
     props: ["character"],
     methods: {
       removeCharacter(character) {
-        this.$store.dispatch('removeCharacter', character)
+        // this.$store.dispatch('removeCharacter', character)
+        this.$store.state.removeCharacters.push(character)
+        this.$store.state.characters.splice(character,1)
       },
       updateHealth(value) {
         this.$store.dispatch('updateHealth', { character: this.character, value: value })
