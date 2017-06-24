@@ -28,7 +28,9 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <h4>Level <input type="number"></h4>
+              <h4>Level
+                <input type="number">
+              </h4>
             </div>
           </div>
         </div>
@@ -102,7 +104,9 @@
           <div class="row">
             <div class="col-md-12">
               <div @click="openArmor">
-                <a class="size"><img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC"></a>
+                <a class="size">
+                  <img src="http://i44.photobucket.com/albums/f3/suhmantha/rosa-shield_zpsfgabmhuq.png" alt="AC">
+                </a>
               </div>
               <div v-show="showArmor">
                 <textarea cols="20" rows="4" placeholder="Armors"></textarea>
@@ -136,7 +140,7 @@
               <!--THESE ARE POPULATING AS OBJ, OBJ, OBJ...MAY NOT BE ABLE TO USE THIS INFORMATION....-->
               <textarea cols="30" rows="4" placeholder="Weapons"></textarea>
             </div>
-
+  
           </div>
         </div>
         <div class="col-md-4">
@@ -160,21 +164,37 @@
           </div>
           <div class="row">
             <!--THE STAT MODIFIER-->
-            <div class="col-md-2"><input id="strMod" type="text"></div>
-            <div class="col-md-2"><input id="dexMod" type="text"></div>
-            <div class="col-md-2"><input id="conMod" type="text"></div>
-            <div class="col-md-2"><input id="wisMod" type="text"></div>
-            <div class="col-md-2"><input id="intMod" type="text"></div>
-            <div class="col-md-2"><input id="charMod" type="text"></div>
+            <div class="col-md-2">
+              <input id="strMod" type="text">
+            </div>
+            <div class="col-md-2">
+              <input id="dexMod" type="text">
+            </div>
+            <div class="col-md-2">
+              <input id="conMod" type="text">
+            </div>
+            <div class="col-md-2">
+              <input id="wisMod" type="text">
+            </div>
+            <div class="col-md-2">
+              <input id="intMod" type="text">
+            </div>
+            <div class="col-md-2">
+              <input id="charMod" type="text">
+            </div>
           </div>
         </div>
         <div class="col-md-1">
           <div class="row" id="end">
-            <div class="ui checkbox"><input type="checkbox" name="checkbox"></div>
+            <div class="ui checkbox">
+              <input type="checkbox" name="checkbox">
+            </div>
           </div>
           <div class="row" id="end2">
             <div @click="removeCharacter(character)">
-              <i><img class="tiny" src="http://i44.photobucket.com/albums/f3/suhmantha/skullDelete_zpsmswuacpy.png"></i>
+              <i>
+                <img class="tiny" src="http://i44.photobucket.com/albums/f3/suhmantha/skullDelete_zpsmswuacpy.png">
+              </i>
             </div>
           </div>
         </div>
@@ -185,124 +205,125 @@
 
 
 <script>
-  import Player from './Player'
-  export default {
+import Player from './Player'
+export default {
 
-    name: 'Character',
-    data() {
-      return {
-        showCharacter: true,
-        showArmor: false,
-        showWeapons: false
-      }
-    },
-    props: ["character"],
-    methods: {
-      removeCharacter(character) {
-        // this.$store.dispatch('removeCharacter', character)
-        this.$store.state.removeCharacters.push(character)
-        this.$store.state.characters.splice(character,1)
-      },
-      updateHealth(value) {
-        this.$store.dispatch('updateHealth', { character: this.character, value: value })
-      },
-      openArmor() {
-        this.showArmor = !this.showArmor
-      },
-      openWeapons() {
-        this.showWeapons = !this.showWeapons
-      },
-      closeCharacter(){
-        this.showCharacter = !this.showCharacter
-      }
-
-    },
-    components: {
-      Player
+  name: 'Character',
+  data() {
+    return {
+      showCharacter: true,
+      showArmor: false,
+      showWeapons: false
     }
+  },
+  props: ["character"],
+  methods: {
+    removeCharacter(character) {
+      // this.$store.dispatch('removeCharacter', character)
+      this.$store.state.removeCharacters.push(character)
+      for (var i = this.$store.state.characters.length - 1; i >= 0; i--) {
+        if (this.$store.state.characters[i]._id == character._id) this.$store.state.characters.splice(i, 1);
+      }
+    },
+    updateHealth(value) {
+      this.$store.dispatch('updateHealth', { character: this.character, value: value })
+    },
+    openArmor() {
+      this.showArmor = !this.showArmor
+    },
+    openWeapons() {
+      this.showWeapons = !this.showWeapons
+    },
+    closeCharacter() {
+      this.showCharacter = !this.showCharacter
+    }
+  },
+  components: {
+    Player
   }
+}
 
 </script>
 
 
 <style scoped>
-  .tiny {
-    max-height: 30px;
-    max-width: auto
-  }
-  
-  input {
-    max-width: 40px;
-  }
-  
-  #wpn {
-    padding-left: 20px;
-  }
-  
-  #end {
-    min-height: 50px;
-    padding-left: 30px;
-  }
-  
-  #end2 {
-    padding-left: 5px;
-  }
-  
-  .int {
-    padding-left: 20px;
-  }
-  
-  .lvl {
-    padding-left: 10px;
-  }
-  
-  .hea {
-    padding-left: 30px;
-  }
-  
-  .hea2 {
-    padding-left: 30px;
-  }
-  
-  .ac {
-    padding-left: 35px;
-  }
-  
-  .ac2 {
-    padding-left: 34px;
-    min-height: 50px;
-  }
-  
-  .spe {
-    padding-left: 18px;
-  }
-  
-  .titleS {
-    padding-left: 17px;
-  }
-  
-  .titleD {
-    padding-left: 17px;
-  }
-  
-  .titleCN {
-    padding-left: 17px;
-  }
-  
-  .titleW {
-    padding-left: 19px;
-  }
-  
-  .titleI {
-    padding-left: 21px;
-  }
-  
-  .titleCH {
-    padding-left: 19px;
-  }
-  
-  .shifty {
-    padding-left: 25px;
-    min-height: 30px;
-  }
+.tiny {
+  max-height: 30px;
+  max-width: auto
+}
+
+input {
+  max-width: 40px;
+}
+
+#wpn {
+  padding-left: 20px;
+}
+
+#end {
+  min-height: 50px;
+  padding-left: 30px;
+}
+
+#end2 {
+  padding-left: 5px;
+}
+
+.int {
+  padding-left: 20px;
+}
+
+.lvl {
+  padding-left: 10px;
+}
+
+.hea {
+  padding-left: 30px;
+}
+
+.hea2 {
+  padding-left: 30px;
+}
+
+.ac {
+  padding-left: 35px;
+}
+
+.ac2 {
+  padding-left: 34px;
+  min-height: 50px;
+}
+
+.spe {
+  padding-left: 18px;
+}
+
+.titleS {
+  padding-left: 17px;
+}
+
+.titleD {
+  padding-left: 17px;
+}
+
+.titleCN {
+  padding-left: 17px;
+}
+
+.titleW {
+  padding-left: 19px;
+}
+
+.titleI {
+  padding-left: 21px;
+}
+
+.titleCH {
+  padding-left: 19px;
+}
+
+.shifty {
+  padding-left: 25px;
+  min-height: 30px;
+}
 </style>
