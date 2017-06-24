@@ -472,11 +472,13 @@ export default {
     endEncounter(){
       for (var index = 0; index < this.$store.state.removeCharacters.length; index++) {
         var character = this.$store.state.removeCharacters[index]
-        this.$store.dispatch('removeCharacter', character)        
+        this.$store.dispatch('removeCharacter', character)
       }
+      this.$store.state.removeCharacters = []
     },
     getCharacters(){
       this.$store.dispatch("getCharacters", this.$route.params.id)
+      this.$store.state.removeCharacters = []      
     },
     getSpell(spell) {
       this.$store.dispatch("getSpell", spell)
