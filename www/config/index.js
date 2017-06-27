@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../docs/index.html'),
-    assetsRoot: path.resolve(__dirname, '../docs'),
+    index: path.resolve(__dirname, '../../server/public/index.html'),//changed from --> index: path.resolve(__dirname, '../docs/index.html'), --to send to Heroku
+    assetsRoot: path.resolve(__dirname, '../../server/public'), //changed from --> assetsRoot: path.resolve(__dirname, '../docs'), --to send to Heroku
     assetsSubDirectory: 'static',
     assetsPublicPath: '',
     productionSourceMap: true,

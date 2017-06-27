@@ -31,6 +31,7 @@ function logger(req, res, next) {
 app.use(session)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(__dirname + '/../public'))//ADDED THIS BEFORE DEPLOYING TO HEROKU
 app.use('*', logger)
 app.use('*', cors(corsOptions))
 app.use('/', Auth)
@@ -39,21 +40,21 @@ app.use('/', Auth)
 app.use(Validate)
 app.use('/api', api)
 app.use('/', defaultErrorHandler)
+//COMMENTED OUT TO GET IT PUSHED TO HEROKU
+// let io = require('socket.io')(server, {
+//     origins: '*:*'
+// })
 
-let io = require('socket.io')(server, {
-    origins: '*:*'
-})
+// io.on('connection', function (socket) {
+//     socket.emit('CONNECTED', {
+//         socket: socket.id,
+//         message: 'Welcome to the Jungle'
+//     })
 
-io.on('connection', function (socket) {
-    socket.emit('CONNECTED', {
-        socket: socket.id,
-        message: 'Welcome to the Jungle'
-    })
+//     socket.on('update', (d) => {
+//         console.log(d)
+//     })
 
-    socket.on('update', (d) => {
-        console.log(d)
-    })
-
-})
+// })
 
 export default server

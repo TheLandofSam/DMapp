@@ -10,13 +10,13 @@ import store from './store'
 // template: '#modal-template'
 // })
 
+//COMMENTED OUT TO GET TO WORK ON HUROKU, TECHNICALLY WE NEVER SET THIS APP UP TO USE SCOKETS
+// let socket = io('//localhost:3000/')
 
-let socket = io('//localhost:3000/')
-
-socket.on('CONNECTED', function (data) {
-  console.log(data)
-  socket.emit('update', { data: 'blarg', boardId: '3289748320' })
-})
+// socket.on('CONNECTED', function (data) {
+//   console.log(data)
+//   socket.emit('update', { data: 'blarg', boardId: '3289748320' })
+// })
 
 
 
