@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <div class="container-fluid">
-            <h1 class="dungeon">Dungeon Master</h1>
+            <h1 class="dungeon"><img src="../assets/Dungeon-Master.png" ></img></h1>
             <div class="jumbotron">
                 <div class="well well-sm custom-well-small">
                     <form @submit.prevent="login">
